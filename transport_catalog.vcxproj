@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{7046E6F6-1CB6-45F7-B4DA-8EA1AEAC8A58}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>transportcatalog</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="add_bus_operation.cpp" />
+    <ClCompile Include="add_stop_operation.cpp" />
+    <ClCompile Include="bus_schedule.cpp" />
+    <ClCompile Include="bus_stat_operation.cpp" />
+    <ClCompile Include="circle.cpp" />
+    <ClCompile Include="color.cpp" />
+    <ClCompile Include="compress_coordinates_projection.cpp" />
+    <ClCompile Include="comp_context.cpp" />
+    <ClCompile Include="document.cpp" />
+    <ClCompile Include="draw_map_operation.cpp" />
+    <ClCompile Include="executor.cpp" />
+    <ClCompile Include="find_way_operation.cpp" />
+    <ClCompile Include="i_draw_map_operation.cpp" />
+    <ClCompile Include="i_formatter.cpp" />
+    <ClCompile Include="i_map_builder_setup_operation.cpp" />
+    <ClCompile Include="i_object.cpp" />
+    <ClCompile Include="i_read_operation.cpp" />
+    <ClCompile Include="i_stop_projection.cpp" />
+    <ClCompile Include="i_update_operation.cpp" />
+    <ClCompile Include="json.cpp" />
+    <ClCompile Include="json_formatter.cpp" />
+    <ClCompile Include="json_parser.cpp" />
+    <ClCompile Include="map_builder.cpp" />
+    <ClCompile Include="map_builder_set_parameters.cpp" />
+    <ClCompile Include="multi_stop_projection.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="point.cpp" />
+    <ClCompile Include="polyline.cpp" />
+    <ClCompile Include="rgb.cpp" />
+    <ClCompile Include="rgba.cpp" />
+    <ClCompile Include="set_route_parameters_operation.cpp" />
+    <ClCompile Include="stop_stat_operation.cpp" />
+    <ClCompile Include="test_fixture.cpp" />
+    <ClCompile Include="text.cpp" />
+    <ClCompile Include="text_formatter.cpp" />
+    <ClCompile Include="text_parser.cpp" />
+    <ClCompile Include="transport_catalog.cpp" />
+    <ClCompile Include="utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="add_bus_operation.h" />
+    <ClInclude Include="add_stop_operation.h" />
+    <ClInclude Include="bus.h" />
+    <ClInclude Include="bus_info.h" />
+    <ClInclude Include="bus_schedule.h" />
+    <ClInclude Include="bus_stat_info.h" />
+    <ClInclude Include="bus_stat_operation.h" />
+    <ClInclude Include="circle.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="compress_coordinates_projection.h" />
+    <ClInclude Include="comp_context.h" />
+    <ClInclude Include="document.h" />
+    <ClInclude Include="draw_map_info.h" />
+    <ClInclude Include="draw_map_operation.h" />
+    <ClInclude Include="edge_info.h" />
+    <ClInclude Include="executor.h" />
+    <ClInclude Include="find_way_operation.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="i_draw_map_operation.h" />
+    <ClInclude Include="i_formatter.h" />
+    <ClInclude Include="i_map_builder_setup_operation.h" />
+    <ClInclude Include="i_object.h" />
+    <ClInclude Include="i_stop_projection.h" />
+    <ClInclude Include="multi_stop_projection.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="i_read_operation.h" />
+    <ClInclude Include="i_update_operation.h" />
+    <ClInclude Include="json.h" />
+    <ClInclude Include="json_formatter.h" />
+    <ClInclude Include="json_parser.h" />
+    <ClInclude Include="map_builder.h" />
+    <ClInclude Include="map_builder_parameters.h" />
+    <ClInclude Include="map_builder_set_parameters.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="polyline.h" />
+    <ClInclude Include="position.h" />
+    <ClInclude Include="range.h" />
+    <ClInclude Include="rgb.h" />
+    <ClInclude Include="rgba.h" />
+    <ClInclude Include="router.h" />
+    <ClInclude Include="route_info.h" />
+    <ClInclude Include="route_segment_info.h" />
+    <ClInclude Include="set_route_parameters_operation.h" />
+    <ClInclude Include="shape.h" />
+    <ClInclude Include="stop.h" />
+    <ClInclude Include="stop_info.h" />
+    <ClInclude Include="stop_stat_info.h" />
+    <ClInclude Include="stop_stat_operation.h" />
+    <ClInclude Include="test_fixture.h" />
+    <ClInclude Include="test_runner.h" />
+    <ClInclude Include="text.h" />
+    <ClInclude Include="text_formatter.h" />
+    <ClInclude Include="text_parser.h" />
+    <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
