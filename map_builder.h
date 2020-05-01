@@ -7,6 +7,7 @@
 #include "multi_stop_projection.h"
 #include "i_stop_projection.h"
 #include "compress_coordinates_projection.h"
+#include "uniform_distribution_operation.h"
 
 #include <string>
 #include <memory>

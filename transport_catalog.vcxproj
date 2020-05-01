@@ -128,6 +128,7 @@
     <ClCompile Include="text_formatter.cpp" />
     <ClCompile Include="text_parser.cpp" />
     <ClCompile Include="transport_catalog.cpp" />
+    <ClCompile Include="uniform_distribution_operation.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +185,7 @@
     <ClInclude Include="text.h" />
     <ClInclude Include="text_formatter.h" />
     <ClInclude Include="text_parser.h" />
+    <ClInclude Include="uniform_distribution_operation.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

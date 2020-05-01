@@ -29,6 +29,7 @@ std::unique_ptr<Svg::Document> Catalog::MapBuilder::DrawSvg(const Catalog::BusSh
 std::unique_ptr<Catalog::ComputationContext> Catalog::MapBuilder::GetContext(const Catalog::BusShedule& bus_schedule) const
 {
 	std::vector<std::shared_ptr<IStopProjection>> projections;
+	projections.push_back(std::make_shared<UniformDistributionOperation>());
 	projections.push_back(std::make_shared<CompressCoordinatesProjection>(_parameters));
 
 	auto projection = std::make_shared<MultiStopProjection>(projections);
