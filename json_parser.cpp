@@ -11,7 +11,6 @@ void IO::JsonParser::Parse()
     ParseBaseRequests(*document);
     ParseStatRequests(*document);
     ParseRenderSettings(*document);
-    std::cerr << "parsed " << _update.size() << " update, " << _read.size() << " read, " << _builder_setup.size() << " builder setup and " << _draw_map.size() << " draw" << std::endl;
 }
 
 void IO::JsonParser::ParseRouteSettings(Json::Document& doc)

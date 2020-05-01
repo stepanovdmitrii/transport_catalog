@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <unordered_set>
 
 #include "i_stop_projection.h"
 #include "map_builder_parameters.h"
@@ -20,7 +21,6 @@ namespace Catalog {
 		Models::MapBuilderParameters _parameters;
 
 		bool AreNeighborsOnSameRoute(const Catalog::BusShedule& bus_schedule, const Models::Stop& first, const Models::Stop& second) const;
-		std::vector<Models::Stop> RemoveNeighbors(const Catalog::BusShedule& bus_schedule, std::vector<Models::Stop>& ordered) const;
 	};
 }
 
