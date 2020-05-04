@@ -25,6 +25,11 @@ void Svg::Document::Add(Svg::IObject&& shape)
 	_shapes.push_back(std::move(ptr));
 }
 
+void Svg::Document::Add(const Rectangle& rect)
+{
+	_shapes.push_back(std::move(std::make_unique<Svg::Rectangle>(rect)));
+}
+
 void Svg::Document::Render(std::ostream& output)
 {
 	output << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";

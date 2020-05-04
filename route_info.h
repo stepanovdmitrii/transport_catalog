@@ -1,8 +1,10 @@
 #pragma once
 
 #include "route_segment_info.h"
+#include "document.h"
 
 #include <vector>
+#include <memory>
 
 namespace Models {
     struct RouteInfo {
@@ -10,5 +12,6 @@ namespace Models {
         bool found = false;
         std::vector<RouteSegmentInfo> segments;
         double total_time = 0.0;
+        std::shared_ptr<Svg::Document> svg;
     };
 }

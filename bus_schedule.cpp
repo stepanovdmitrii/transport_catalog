@@ -91,6 +91,7 @@ Models::RouteInfo Catalog::BusShedule::FindOptimalWay(const std::string& from, c
             segment.stop_from = info.from;
             segment.trip_time = info.trip_time;
             segment.wait_time = _wait_time;
+            segment.stops = info.stops;
             result.segments.push_back(std::move(segment));
         }
         _router->ReleaseRoute(route->id);
@@ -106,6 +107,11 @@ Range<Catalog::BusShedule::StopsIterator> Catalog::BusShedule::GetStops() const
 Range<Catalog::BusShedule::BusesIterator> Catalog::BusShedule::GetBuses() const
 {
     return Range<Catalog::BusShedule::BusesIterator>(_buses.cbegin(), _buses.cend());
+}
+
+const Models::Bus& Catalog::BusShedule::GetBus(const std::string& bus) const
+{
+    return _buses.at(bus);
 }
 
 double Catalog::BusShedule::GetVelocityMetersPerMinute() const
@@ -147,14 +153,17 @@ void Catalog::BusShedule::FillEdges()
             const std::string& from = bus_stops[from_index];
             Graph::VertexId from_idx = _stop_to_vertex[from];
             double distance = 0.0;
+            std::vector<std::string_view> stops;
             for (size_t to_index = from_index + 1; to_index < bus_stops.size(); ++to_index) {
                 const std::string& previous = bus_stops[to_index - 1];
                 const std::string& to = bus_stops[to_index];
+                stops.push_back(to);
                 Graph::VertexId to_idx = _stop_to_vertex[to];
                 distance += GetRouteDistance(previous, to);
                 Models::EdgeInfo edge;
                 edge.bus = bus_pair.first;
                 edge.from = from;
+                edge.stops = stops;
                 edge.trip_time = distance / adj_velocity;
                 edge.span_count = to_index - from_index;
 

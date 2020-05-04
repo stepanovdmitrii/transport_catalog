@@ -3,16 +3,16 @@
 #include "i_read_operation.h"
 #include "bus_schedule.h"
 #include "i_formatter.h"
+#include "i_draw_map_operation.h"
 
 #include <string>
 
 namespace Operations {
-    class FindWay : public IReadOperation {
+    class FindWay : public IDrawMapOperation {
     public:
         FindWay(std::string from, std::string to, size_t request_id);
 
-        // Унаследовано через IReadOperation
-        virtual void Do(Catalog::BusShedule& bus_schedule, IO::IFormatter& formatter) override;
+        virtual void DrawMap(Catalog::BusShedule& bus_schedule, Catalog::MapBuilder& map_builder, IO::IFormatter& formatter) override;
     private:
         std::string _from;
         std::string _to;

@@ -87,6 +87,8 @@ void IO::JsonFormatter::WriteRouteElement(const Models::RouteInfo& route)
 {
 	WriteBrace(true);
 	if (route.found) {
+		std::stringstream ss;
+		route.svg->Render(ss);
 		_output << "\"request_id\":" << route.request_id << ",\"total_time\":" << route.total_time << ",\"items\":";
 		WriteSquareBrace(true);
 		bool first = true;
@@ -104,6 +106,20 @@ void IO::JsonFormatter::WriteRouteElement(const Models::RouteInfo& route)
 			first = false;
 		}
 		WriteSquareBrace(false);
+		_output << ",\"map\":\"";
+		for (const char& ch : ss.str()) {
+			if (ch == '"') {
+				_output << "\\\"";
+			}
+			else if (ch == '\\') {
+				_output << "\\\\";
+			}
+			else
+			{
+				_output << ch;
+			}
+		}
+		_output << "\"";
 	}
 	else {
 		_output << "\"request_id\":" << route.request_id << ",\"error_message\":\"not found\"";

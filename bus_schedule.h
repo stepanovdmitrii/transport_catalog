@@ -21,6 +21,7 @@
 #include <algorithm>
 #include <map>
 #include <iostream>
+#include <string_view>
 
 namespace Catalog {
     class BusShedule {
@@ -45,6 +46,7 @@ namespace Catalog {
         Models::RouteInfo FindOptimalWay(const std::string& from, const std::string& to);
         Range<StopsIterator> GetStops() const;
         Range<BusesIterator> GetBuses() const;
+        const Models::Bus& GetBus(const std::string& bus) const;
     private:
         std::map<std::string, Models::Stop> _stops;
         std::map<std::string, Models::Bus> _buses;

@@ -119,6 +119,7 @@
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="polyline.cpp" />
+    <ClCompile Include="rect.cpp" />
     <ClCompile Include="rgb.cpp" />
     <ClCompile Include="rgba.cpp" />
     <ClCompile Include="set_route_parameters_operation.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="polyline.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="range.h" />
+    <ClInclude Include="rect.h" />
     <ClInclude Include="rgb.h" />
     <ClInclude Include="rgba.h" />
     <ClInclude Include="router.h" />

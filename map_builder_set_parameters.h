@@ -31,6 +31,7 @@ namespace Operations {
 		MapBuilderSetParameters& AddColorToPalette(std::uint8_t r, std::uint8_t g, std::uint8_t b);
 		MapBuilderSetParameters& AddColorToPalette(std::uint8_t r, std::uint8_t g, std::uint8_t b, double a);
 		MapBuilderSetParameters& AddLayer(const std::string& layer);
+		MapBuilderSetParameters& SetOuterMargin(double outer_margin);
 
 		virtual void Do(Catalog::MapBuilder& map_builder) override;
 	private:

@@ -4,6 +4,7 @@
 #include "circle.h"
 #include "polyline.h"
 #include "text.h"
+#include "rect.h"
 
 #include <iostream>
 #include <vector>
@@ -19,6 +20,7 @@ namespace Svg {
 		void Add(const Polyline&);
 		void Add(const Text&);
 		void Add(IObject&&);
+		void Add(const Rectangle&);
 
 		virtual void Render(std::ostream&) override;
 	private:

@@ -60,7 +60,7 @@ void IO::JsonParser::ParseStatRequests(Json::Document& doc)
         else if (type == "Route") {
             std::string from = node.at("from").AsString();
             std::string to = node.at("to").AsString();
-            _read.push_back(std::move(std::make_shared<Operations::FindWay>(from, to, request_id)));
+            _draw_map.push_back(std::move(std::make_shared<Operations::FindWay>(from, to, request_id)));
         }
         else if (type == "Map") {
             _draw_map.push_back(std::move(std::make_shared<Operations::DrawMapOperation>(request_id)));
@@ -86,7 +86,8 @@ void IO::JsonParser::ParseRenderSettings(Json::Document& doc)
         .SetStopLabelOffset(render_settings.at("stop_label_offset").AsArray()[0].AsDouble(), render_settings.at("stop_label_offset").AsArray()[1].AsDouble())
         .SetBusLabelOffset(render_settings.at("bus_label_offset").AsArray()[0].AsDouble(), render_settings.at("bus_label_offset").AsArray()[1].AsDouble())
         .SetBusLabelSize(render_settings.at("bus_label_font_size").AsInt())
-        .SetUnderlayerWidth(render_settings.at("underlayer_width").AsDouble());
+        .SetUnderlayerWidth(render_settings.at("underlayer_width").AsDouble())
+        .SetOuterMargin(render_settings.at("outer_margin").AsDouble());
 
     const auto& underlayer_color = render_settings.at("underlayer_color");
     if (underlayer_color.IsString()) {

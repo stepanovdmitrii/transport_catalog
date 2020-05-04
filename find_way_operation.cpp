@@ -4,9 +4,12 @@ Operations::FindWay::FindWay(std::string from, std::string to, size_t request_id
 {
 }
 
-void Operations::FindWay::Do(Catalog::BusShedule& bus_schedule, IO::IFormatter& formatter)
+void Operations::FindWay::DrawMap(Catalog::BusShedule& bus_schedule, Catalog::MapBuilder& map_builder, IO::IFormatter& formatter)
 {
     auto info = bus_schedule.FindOptimalWay(_from, _to);
     info.request_id = _request_id;
+    if (info.found) {
+        info.svg = map_builder.DrawRoute(bus_schedule, info);
+    }
     formatter.Write(info);
 }

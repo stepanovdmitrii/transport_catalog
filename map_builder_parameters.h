@@ -13,6 +13,7 @@ namespace Models {
 		double padding;
 		double stop_radius;
 		double line_width;
+		double outer_margin;
 		std::uint32_t stop_label_font_size;
 		std::uint32_t bus_label_font_size;
 		Svg::Point stop_label_offset;

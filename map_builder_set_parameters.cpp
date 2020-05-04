@@ -108,3 +108,9 @@ Operations::MapBuilderSetParameters& Operations::MapBuilderSetParameters::AddLay
 	_params.layers.push_back(layer);
 	return *this;
 }
+
+Operations::MapBuilderSetParameters& Operations::MapBuilderSetParameters::SetOuterMargin(double outer_margin)
+{
+	_params.outer_margin = outer_margin;
+	return *this;
+}
