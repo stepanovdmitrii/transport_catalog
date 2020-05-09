@@ -15,7 +15,66 @@ message BusInfo {
     double geo_route_length = 5;
 }
 
+message Edge {
+    uint64 from = 1;
+    uint64 to = 2;
+    double weight = 3;
+}
+
+message Graph {
+    repeated Edge edges = 1;
+    uint64 vertex_count = 2;
+}
+
+message StopVertexIds {
+    string name = 1;
+    uint64 in = 2;
+    uint64 out = 3;
+}
+
+message VertexInfo {
+    string name = 1;
+}
+
+enum EdgeInfoType{
+    WAIT = 0;
+    BUS = 1;
+}
+
+message EdgeInfo {
+    EdgeInfoType type = 1;
+    string bus_name = 2;
+    uint64 bus_start_stop_idx = 3;
+    uint64 bus_finish_stop_idx = 4;
+}
+
+message RouteInternalData {
+    bool has_value = 1;
+    double weight = 2;
+    bool has_prev_edge = 3;
+    uint64 prev_edge_id = 4;
+}
+
+message RouteInternalDataVector {
+    repeated RouteInternalData vector_data = 1;
+}
+
+message RouterImpl {
+    repeated RouteInternalDataVector vectors = 1;
+}
+
+message Router {
+    int32 bus_wait_time = 1;
+    double bus_velocity= 2;
+    Graph graph = 3;
+    RouterImpl route_impl = 4;
+    repeated StopVertexIds stop_vertex_ids = 5;
+    repeated VertexInfo vertex_infos = 6;
+    repeated EdgeInfo edge_infos = 7;
+}
+
 message TransportCatalog {
     repeated BusInfo buses = 1;
     repeated StopInfo stops = 2;
+    Router router = 3;
 }

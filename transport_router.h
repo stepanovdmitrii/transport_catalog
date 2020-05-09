@@ -4,20 +4,25 @@
 #include "graph.h"
 #include "json.h"
 #include "router.h"
+#include "transport_catalog.pb.h"
 
 #include <memory>
 #include <unordered_map>
 #include <vector>
+#include <iostream>
 
 class TransportRouter {
 private:
   using BusGraph = Graph::DirectedWeightedGraph<double>;
   using Router = Graph::Router<double>;
+  using RouterData = serialization::Router;
 
 public:
   TransportRouter(const Descriptions::StopsDict& stops_dict,
                   const Descriptions::BusesDict& buses_dict,
                   const Json::Dict& routing_settings_json);
+
+  TransportRouter(const RouterData& router);
 
   struct RouteInfo {
     double total_time;
@@ -39,7 +44,7 @@ public:
   };
 
   std::optional<RouteInfo> FindRoute(const std::string& stop_from, const std::string& stop_to) const;
-
+  void Serialize(RouterData& router);
 private:
   struct RoutingSettings {
     int bus_wait_time;  // in minutes

@@ -69,8 +69,7 @@ TransportCatalog::TransportCatalog(std::istream& input)
         b.unique_stop_count = bus.unique_stop_count();
         buses_[bus.name()] = std::move(b);
     }
-
-
+    router_ = make_unique<TransportRouter>(catalog.router());
 }
 
 const TransportCatalog::Stop* TransportCatalog::GetStop(const string& name) const {
@@ -115,8 +114,10 @@ void TransportCatalog::Serialize(std::ostream& out) const
         bus_info->set_road_route_length(bus.second.road_route_length);
         bus_info->set_geo_route_length(bus.second.geo_route_length);
     }
-
-    catalog.SerializePartialToOstream(&out);
+    
+    router_->Serialize(*catalog.mutable_router());
+    auto size = catalog.ByteSizeLong();
+    catalog.SerializeToOstream(&out);
 }
 
 int TransportCatalog::ComputeRoadRouteLength(

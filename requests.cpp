@@ -72,7 +72,7 @@ namespace Requests {
 
       dict["items"] = move(items);
 
-      dict["map"] = Json::Node(db.RenderRoute(*route));
+      //dict["map"] = Json::Node(db.RenderRoute(*route));
     }
 
     return dict;

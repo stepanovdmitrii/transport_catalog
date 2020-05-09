@@ -18,6 +18,81 @@ TransportRouter::TransportRouter(const Descriptions::StopsDict& stops_dict,
   router_ = std::make_unique<Router>(graph_);
 }
 
+TransportRouter::TransportRouter(const RouterData& router)
+{
+    routing_settings_.bus_velocity = router.bus_velocity();
+    routing_settings_.bus_wait_time = router.bus_wait_time();
+
+    graph_ = BusGraph(router.graph().vertex_count(), router.graph().edges_size());
+    for (int edge_idx = 0; edge_idx < router.graph().edges_size(); ++edge_idx) {
+        const auto& edge = router.graph().edges(edge_idx);
+        Graph::Edge<double> new_edge;
+        new_edge.from = edge.from();
+        new_edge.to = edge.to();
+        new_edge.weight = edge.weight();
+        graph_.AddEdge(new_edge);
+    }
+
+    Router::RoutesInternalData internal_data(router.route_impl().vectors_size());
+    for (int idx = 0; idx < router.route_impl().vectors_size(); ++idx) {
+        std::vector<std::optional<Router::RouteInternalData>> current(router.route_impl().vectors(idx).vector_data_size());
+        for (int idx2 = 0; idx2 < router.route_impl().vectors(idx).vector_data_size(); ++idx2) {
+            const auto& data = router.route_impl().vectors(idx).vector_data(idx2);
+            if (data.has_value()) {
+                Router::RouteInternalData source_data;
+                source_data.weight = data.weight();
+                if (data.has_prev_edge()) {
+                    source_data.prev_edge = data.prev_edge_id();
+                }
+                else {
+                    source_data.prev_edge = nullopt;
+                }
+                current[idx2] = source_data;
+            }
+            else {
+                current[idx2] = nullopt;
+            }
+        }
+        internal_data[idx] = std::move(current);
+    }
+
+    for (int idx = 0; idx < router.stop_vertex_ids_size(); ++idx) {
+        const auto& stop_vertex_ids = router.stop_vertex_ids(idx);
+        StopVertexIds ids;
+        ids.in = stop_vertex_ids.in();
+        ids.out = stop_vertex_ids.out();
+        stops_vertex_ids_[stop_vertex_ids.name()] = ids;
+    }
+
+    vertices_info_.reserve(router.vertex_infos_size());
+    for (int idx = 0; idx < router.vertex_infos_size(); ++idx) {
+        const auto& vertex_info = router.vertex_infos(idx);
+        VertexInfo info;
+        info.stop_name = vertex_info.name();
+        vertices_info_.push_back(info);
+    }
+
+    edges_info_.reserve(router.edge_infos_size());
+    for (int idx = 0; idx < router.edge_infos_size(); ++idx) {
+        const auto& edge_info = router.edge_infos(idx);
+        if (edge_info.type() == serialization::EdgeInfoType::BUS) {
+            BusEdgeInfo info;
+            info.bus_name = edge_info.bus_name();
+            info.start_stop_idx = edge_info.bus_start_stop_idx();
+            info.finish_stop_idx = edge_info.bus_finish_stop_idx();
+            EdgeInfo new_edge_info(info);
+            edges_info_.push_back(new_edge_info);
+        }
+        else if (edge_info.type() == serialization::EdgeInfoType::WAIT) {
+            WaitEdgeInfo info;
+            EdgeInfo new_edge_info(info);
+            edges_info_.push_back(new_edge_info);
+        }
+    }
+
+    router_ = std::make_unique<Router>(graph_, std::move(internal_data));
+}
+
 TransportRouter::RoutingSettings TransportRouter::MakeRoutingSettings(const Json::Dict& json) {
   return {
       json.at("bus_wait_time").AsInt(),
@@ -63,11 +138,12 @@ void TransportRouter::FillGraphWithBuses(const Descriptions::StopsDict& stops_di
       int total_distance = 0;
       for (size_t finish_stop_idx = start_stop_idx + 1; finish_stop_idx < stop_count; ++finish_stop_idx) {
         total_distance += compute_distance_from(finish_stop_idx - 1);
-        edges_info_.push_back(BusEdgeInfo{
-            .bus_name = bus.name,
-            .start_stop_idx = start_stop_idx,
-            .finish_stop_idx = finish_stop_idx,
-        });
+        BusEdgeInfo edge_info;
+        edge_info.bus_name = bus.name;
+        edge_info.start_stop_idx = start_stop_idx;
+        edge_info.finish_stop_idx = finish_stop_idx;
+
+        edges_info_.push_back(std::move(edge_info));
         const Graph::EdgeId edge_id = graph_.AddEdge({
             start_vertex,
             stops_vertex_ids_[bus.stops[finish_stop_idx]].out,
@@ -80,39 +156,97 @@ void TransportRouter::FillGraphWithBuses(const Descriptions::StopsDict& stops_di
 }
 
 optional<TransportRouter::RouteInfo> TransportRouter::FindRoute(const string& stop_from, const string& stop_to) const {
-  const Graph::VertexId vertex_from = stops_vertex_ids_.at(stop_from).out;
-  const Graph::VertexId vertex_to = stops_vertex_ids_.at(stop_to).out;
-  const auto route = router_->BuildRoute(vertex_from, vertex_to);
-  if (!route) {
-    return nullopt;
-  }
-
-  RouteInfo route_info = {.total_time = route->weight};
-  route_info.items.reserve(route->edge_count);
-  for (size_t edge_idx = 0; edge_idx < route->edge_count; ++edge_idx) {
-    const Graph::EdgeId edge_id = router_->GetRouteEdge(route->id, edge_idx);
-    const auto& edge = graph_.GetEdge(edge_id);
-    const auto& edge_info = edges_info_[edge_id];
-    if (holds_alternative<BusEdgeInfo>(edge_info)) {
-      const BusEdgeInfo& bus_edge_info = get<BusEdgeInfo>(edge_info);
-      route_info.items.push_back(RouteInfo::BusItem{
-          .bus_name = bus_edge_info.bus_name,
-          .time = edge.weight,
-          .start_stop_idx = bus_edge_info.start_stop_idx,
-          .finish_stop_idx = bus_edge_info.finish_stop_idx,
-          .span_count = bus_edge_info.finish_stop_idx - bus_edge_info.start_stop_idx,
-      });
-    } else {
-      const Graph::VertexId vertex_id = edge.from;
-      route_info.items.push_back(RouteInfo::WaitItem{
-          .stop_name = vertices_info_[vertex_id].stop_name,
-          .time = edge.weight,
-      });
+    const Graph::VertexId vertex_from = stops_vertex_ids_.at(stop_from).out;
+    const Graph::VertexId vertex_to = stops_vertex_ids_.at(stop_to).out;
+    const auto route = router_->BuildRoute(vertex_from, vertex_to);
+    if (!route) {
+        return nullopt;
     }
-  }
+    RouteInfo route_info;
+    route_info.total_time = route->weight;
+    route_info.items.reserve(route->edge_count);
+    for (size_t edge_idx = 0; edge_idx < route->edge_count; ++edge_idx) {
+        const Graph::EdgeId edge_id = router_->GetRouteEdge(route->id, edge_idx);
+        const auto& edge = graph_.GetEdge(edge_id);
+        const auto& edge_info = edges_info_[edge_id];
+        if (holds_alternative<BusEdgeInfo>(edge_info)) {
+            const BusEdgeInfo& bus_edge_info = get<BusEdgeInfo>(edge_info);
+            RouteInfo::BusItem bus_item;
+            bus_item.bus_name = bus_edge_info.bus_name;
+            bus_item.time = edge.weight;
+            bus_item.start_stop_idx = bus_edge_info.start_stop_idx;
+            bus_item.finish_stop_idx = bus_edge_info.finish_stop_idx;
+            bus_item.span_count = bus_edge_info.finish_stop_idx - bus_edge_info.start_stop_idx;
+            route_info.items.push_back(std::move(bus_item));
+        }
+        else {
+            const Graph::VertexId vertex_id = edge.from;
+            RouteInfo::WaitItem wait_item;
+            wait_item.stop_name = vertices_info_[vertex_id].stop_name;
+            wait_item.time = edge.weight;
+            route_info.items.push_back(std::move(wait_item));
+        }
+    }
 
-  // Releasing in destructor of some proxy object would be better,
-  // but we do not expect exceptions in normal workflow
-  router_->ReleaseRoute(route->id);
-  return route_info;
+    // Releasing in destructor of some proxy object would be better,
+    // but we do not expect exceptions in normal workflow
+    router_->ReleaseRoute(route->id);
+    return route_info;
+}
+
+void TransportRouter::Serialize(RouterData& router)
+{
+    router.set_bus_velocity(routing_settings_.bus_velocity);
+    router.set_bus_wait_time(routing_settings_.bus_wait_time);
+
+    auto* graph = router.mutable_graph();
+    graph->set_vertex_count(graph_.GetVertexCount());
+    for (size_t edge_idx = 0; edge_idx < graph_.GetEdgeCount(); ++edge_idx) {
+        auto* edge_data = graph->add_edges();
+        const auto& source_edge = graph_.GetEdge(edge_idx);
+        edge_data->set_from(source_edge.from);
+        edge_data->set_to(source_edge.to);
+        edge_data->set_weight(source_edge.weight);
+    }
+
+    auto* router_impl = router.mutable_route_impl();
+    for (const auto& v : router_->routes_internal_data_) {
+        auto* vect = router_impl->add_vectors();
+        for (const auto& d : v) {
+            auto* data = vect->add_vector_data();
+            data->set_has_value(d.has_value());
+            if (d.has_value()) {
+                data->set_weight(d.value().weight);
+                data->set_has_prev_edge(d.value().prev_edge.has_value());
+                if (d.value().prev_edge.has_value()) {
+                    data->set_prev_edge_id(d.value().prev_edge.value());
+                }
+            }
+        }
+    }
+
+    for (const auto& stop_vertex_id : stops_vertex_ids_) {
+        auto* stops_vertex_id_data = router.add_stop_vertex_ids();
+        stops_vertex_id_data->set_in(stop_vertex_id.second.in);
+        stops_vertex_id_data->set_out(stop_vertex_id.second.out);
+        stops_vertex_id_data->set_name(stop_vertex_id.first);
+    }
+
+    for (const auto& vertex_info : vertices_info_) {
+        auto* vertex_info_data = router.add_vertex_infos();
+        vertex_info_data->set_name(vertex_info.stop_name);
+    }
+
+    for (const auto& edge_info : edges_info_) {
+        auto* edge_info_data = router.add_edge_infos();
+        if (edge_info.index() == 0) { //bus
+            edge_info_data->set_type(serialization::EdgeInfoType::BUS);
+            edge_info_data->set_bus_name(std::get<BusEdgeInfo>(edge_info).bus_name);
+            edge_info_data->set_bus_start_stop_idx(std::get<BusEdgeInfo>(edge_info).start_stop_idx);
+            edge_info_data->set_bus_finish_stop_idx(std::get<BusEdgeInfo>(edge_info).finish_stop_idx);
+        }
+        else if (edge_info.index() == 1) { //wait
+            edge_info_data->set_type(serialization::EdgeInfoType::WAIT);
+        }
+    }
 }
