@@ -14,709 +14,198 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Bus_transport_5fcatalog_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_KnownDistance_transport_5fcatalog_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_transport_5fcatalog_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Stop_transport_5fcatalog_2eproto;
-class PointDefaultTypeInternal {
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BusInfo_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StopInfo_transport_5fcatalog_2eproto;
+namespace serialization {
+class StopInfoDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Point> _instance;
-} _Point_default_instance_;
-class KnownDistanceDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StopInfo> _instance;
+} _StopInfo_default_instance_;
+class BusInfoDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<KnownDistance> _instance;
-} _KnownDistance_default_instance_;
-class StopDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Stop> _instance;
-} _Stop_default_instance_;
-class BusDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Bus> _instance;
-} _Bus_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BusInfo> _instance;
+} _BusInfo_default_instance_;
 class TransportCatalogDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TransportCatalog> _instance;
 } _TransportCatalog_default_instance_;
-static void InitDefaultsscc_info_Bus_transport_5fcatalog_2eproto() {
+}  // namespace serialization
+static void InitDefaultsscc_info_BusInfo_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_Bus_default_instance_;
-    new (ptr) ::Bus();
+    void* ptr = &::serialization::_BusInfo_default_instance_;
+    new (ptr) ::serialization::BusInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::Bus::InitAsDefaultInstance();
+  ::serialization::BusInfo::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Bus_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Bus_transport_5fcatalog_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BusInfo_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BusInfo_transport_5fcatalog_2eproto}, {}};
 
-static void InitDefaultsscc_info_KnownDistance_transport_5fcatalog_2eproto() {
+static void InitDefaultsscc_info_StopInfo_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_KnownDistance_default_instance_;
-    new (ptr) ::KnownDistance();
+    void* ptr = &::serialization::_StopInfo_default_instance_;
+    new (ptr) ::serialization::StopInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::KnownDistance::InitAsDefaultInstance();
+  ::serialization::StopInfo::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_KnownDistance_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_KnownDistance_transport_5fcatalog_2eproto}, {}};
-
-static void InitDefaultsscc_info_Point_transport_5fcatalog_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::_Point_default_instance_;
-    new (ptr) ::Point();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::Point::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Point_transport_5fcatalog_2eproto}, {}};
-
-static void InitDefaultsscc_info_Stop_transport_5fcatalog_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::_Stop_default_instance_;
-    new (ptr) ::Stop();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::Stop::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Stop_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Stop_transport_5fcatalog_2eproto}, {
-      &scc_info_Point_transport_5fcatalog_2eproto.base,
-      &scc_info_KnownDistance_transport_5fcatalog_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StopInfo_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StopInfo_transport_5fcatalog_2eproto}, {}};
 
 static void InitDefaultsscc_info_TransportCatalog_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_TransportCatalog_default_instance_;
-    new (ptr) ::TransportCatalog();
+    void* ptr = &::serialization::_TransportCatalog_default_instance_;
+    new (ptr) ::serialization::TransportCatalog();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::TransportCatalog::InitAsDefaultInstance();
+  ::serialization::TransportCatalog::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_TransportCatalog_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_TransportCatalog_transport_5fcatalog_2eproto}, {
-      &scc_info_Bus_transport_5fcatalog_2eproto.base,
-      &scc_info_Stop_transport_5fcatalog_2eproto.base,}};
+      &scc_info_BusInfo_transport_5fcatalog_2eproto.base,
+      &scc_info_StopInfo_transport_5fcatalog_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[5];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_transport_5fcatalog_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_transport_5fcatalog_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Point, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::serialization::StopInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Point, lat_),
-  PROTOBUF_FIELD_OFFSET(::Point, lon_),
+  PROTOBUF_FIELD_OFFSET(::serialization::StopInfo, name_),
+  PROTOBUF_FIELD_OFFSET(::serialization::StopInfo, buses_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::KnownDistance, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::KnownDistance, stop_),
-  PROTOBUF_FIELD_OFFSET(::KnownDistance, distance_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, name_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, stop_count_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, unique_stop_count_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, road_route_length_),
+  PROTOBUF_FIELD_OFFSET(::serialization::BusInfo, geo_route_length_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Stop, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Stop, name_),
-  PROTOBUF_FIELD_OFFSET(::Stop, position_),
-  PROTOBUF_FIELD_OFFSET(::Stop, known_distances_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Bus, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Bus, name_),
-  PROTOBUF_FIELD_OFFSET(::Bus, stops_),
-  PROTOBUF_FIELD_OFFSET(::Bus, is_roundtrip_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::TransportCatalog, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::TransportCatalog, buses_),
-  PROTOBUF_FIELD_OFFSET(::TransportCatalog, stops_),
+  PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, buses_),
+  PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, stops_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::Point)},
-  { 7, -1, sizeof(::KnownDistance)},
-  { 14, -1, sizeof(::Stop)},
-  { 22, -1, sizeof(::Bus)},
-  { 30, -1, sizeof(::TransportCatalog)},
+  { 0, -1, sizeof(::serialization::StopInfo)},
+  { 7, -1, sizeof(::serialization::BusInfo)},
+  { 17, -1, sizeof(::serialization::TransportCatalog)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Point_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_KnownDistance_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Stop_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Bus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_TransportCatalog_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_StopInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_BusInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_TransportCatalog_default_instance_),
 };
 
 const char descriptor_table_protodef_transport_5fcatalog_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\027transport_catalog.proto\"!\n\005Point\022\013\n\003la"
-  "t\030\001 \001(\001\022\013\n\003lon\030\002 \001(\001\"/\n\rKnownDistance\022\014\n"
-  "\004stop\030\001 \001(\t\022\020\n\010distance\030\002 \001(\001\"W\n\004Stop\022\014\n"
-  "\004name\030\001 \001(\t\022\030\n\010position\030\002 \001(\0132\006.Point\022\'\n"
-  "\017known_distances\030\003 \003(\0132\016.KnownDistance\"8"
-  "\n\003Bus\022\014\n\004name\030\001 \001(\t\022\r\n\005stops\030\002 \003(\t\022\024\n\014is"
-  "_roundtrip\030\003 \001(\010\"=\n\020TransportCatalog\022\023\n\005"
-  "buses\030\001 \003(\0132\004.Bus\022\024\n\005stops\030\002 \003(\0132\005.Stopb"
-  "\006proto3"
+  "\n\027transport_catalog.proto\022\rserialization"
+  "\"\'\n\010StopInfo\022\014\n\004name\030\001 \001(\t\022\r\n\005buses\030\002 \003("
+  "\t\"{\n\007BusInfo\022\014\n\004name\030\001 \001(\t\022\022\n\nstop_count"
+  "\030\002 \001(\004\022\031\n\021unique_stop_count\030\003 \001(\004\022\031\n\021roa"
+  "d_route_length\030\004 \001(\005\022\030\n\020geo_route_length"
+  "\030\005 \001(\001\"a\n\020TransportCatalog\022%\n\005buses\030\001 \003("
+  "\0132\026.serialization.BusInfo\022&\n\005stops\030\002 \003(\013"
+  "2\027.serialization.StopInfob\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_transport_5fcatalog_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[5] = {
-  &scc_info_Bus_transport_5fcatalog_2eproto.base,
-  &scc_info_KnownDistance_transport_5fcatalog_2eproto.base,
-  &scc_info_Point_transport_5fcatalog_2eproto.base,
-  &scc_info_Stop_transport_5fcatalog_2eproto.base,
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[3] = {
+  &scc_info_BusInfo_transport_5fcatalog_2eproto.base,
+  &scc_info_StopInfo_transport_5fcatalog_2eproto.base,
   &scc_info_TransportCatalog_transport_5fcatalog_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_transport_5fcatalog_2eproto_once;
 static bool descriptor_table_transport_5fcatalog_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5fcatalog_2eproto = {
-  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 327,
-  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 5, 0,
+  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 313,
+  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_transport_5fcatalog_2eproto::offsets,
-  file_level_metadata_transport_5fcatalog_2eproto, 5, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
+  file_level_metadata_transport_5fcatalog_2eproto, 3, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_transport_5fcatalog_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_transport_5fcatalog_2eproto), true);
+namespace serialization {
 
 // ===================================================================
 
-void Point::InitAsDefaultInstance() {
+void StopInfo::InitAsDefaultInstance() {
 }
-class Point::_Internal {
+class StopInfo::_Internal {
  public:
 };
 
-Point::Point()
+StopInfo::StopInfo()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Point)
+  // @@protoc_insertion_point(constructor:serialization.StopInfo)
 }
-Point::Point(const Point& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&lat_, &from.lat_,
-    static_cast<size_t>(reinterpret_cast<char*>(&lon_) -
-    reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
-  // @@protoc_insertion_point(copy_constructor:Point)
-}
-
-void Point::SharedCtor() {
-  ::memset(&lat_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&lon_) -
-      reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
-}
-
-Point::~Point() {
-  // @@protoc_insertion_point(destructor:Point)
-  SharedDtor();
-}
-
-void Point::SharedDtor() {
-}
-
-void Point::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Point& Point::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Point_transport_5fcatalog_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Point::Clear() {
-// @@protoc_insertion_point(message_clear_start:Point)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&lat_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&lon_) -
-      reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
-  _internal_metadata_.Clear();
-}
-
-const char* Point::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // double lat = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          lat_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else goto handle_unusual;
-        continue;
-      // double lon = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          lon_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Point::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Point)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // double lat = 1;
-  if (!(this->lat() <= 0 && this->lat() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_lat(), target);
-  }
-
-  // double lon = 2;
-  if (!(this->lon() <= 0 && this->lon() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_lon(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:Point)
-  return target;
-}
-
-size_t Point::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Point)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // double lat = 1;
-  if (!(this->lat() <= 0 && this->lat() >= 0)) {
-    total_size += 1 + 8;
-  }
-
-  // double lon = 2;
-  if (!(this->lon() <= 0 && this->lon() >= 0)) {
-    total_size += 1 + 8;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Point::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Point)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Point* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Point>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Point)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Point)
-    MergeFrom(*source);
-  }
-}
-
-void Point::MergeFrom(const Point& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Point)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!(from.lat() <= 0 && from.lat() >= 0)) {
-    _internal_set_lat(from._internal_lat());
-  }
-  if (!(from.lon() <= 0 && from.lon() >= 0)) {
-    _internal_set_lon(from._internal_lon());
-  }
-}
-
-void Point::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Point)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Point::CopyFrom(const Point& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Point)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Point::IsInitialized() const {
-  return true;
-}
-
-void Point::InternalSwap(Point* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(lat_, other->lat_);
-  swap(lon_, other->lon_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Point::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void KnownDistance::InitAsDefaultInstance() {
-}
-class KnownDistance::_Internal {
- public:
-};
-
-KnownDistance::KnownDistance()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:KnownDistance)
-}
-KnownDistance::KnownDistance(const KnownDistance& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  stop_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_stop().empty()) {
-    stop_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.stop_);
-  }
-  distance_ = from.distance_;
-  // @@protoc_insertion_point(copy_constructor:KnownDistance)
-}
-
-void KnownDistance::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_KnownDistance_transport_5fcatalog_2eproto.base);
-  stop_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  distance_ = 0;
-}
-
-KnownDistance::~KnownDistance() {
-  // @@protoc_insertion_point(destructor:KnownDistance)
-  SharedDtor();
-}
-
-void KnownDistance::SharedDtor() {
-  stop_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void KnownDistance::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const KnownDistance& KnownDistance::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_KnownDistance_transport_5fcatalog_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void KnownDistance::Clear() {
-// @@protoc_insertion_point(message_clear_start:KnownDistance)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  stop_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  distance_ = 0;
-  _internal_metadata_.Clear();
-}
-
-const char* KnownDistance::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string stop = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_stop();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "KnownDistance.stop"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // double distance = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* KnownDistance::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:KnownDistance)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string stop = 1;
-  if (this->stop().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_stop().data(), static_cast<int>(this->_internal_stop().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "KnownDistance.stop");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_stop(), target);
-  }
-
-  // double distance = 2;
-  if (!(this->distance() <= 0 && this->distance() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_distance(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:KnownDistance)
-  return target;
-}
-
-size_t KnownDistance::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KnownDistance)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string stop = 1;
-  if (this->stop().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_stop());
-  }
-
-  // double distance = 2;
-  if (!(this->distance() <= 0 && this->distance() >= 0)) {
-    total_size += 1 + 8;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void KnownDistance::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KnownDistance)
-  GOOGLE_DCHECK_NE(&from, this);
-  const KnownDistance* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<KnownDistance>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KnownDistance)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KnownDistance)
-    MergeFrom(*source);
-  }
-}
-
-void KnownDistance::MergeFrom(const KnownDistance& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KnownDistance)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.stop().size() > 0) {
-
-    stop_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.stop_);
-  }
-  if (!(from.distance() <= 0 && from.distance() >= 0)) {
-    _internal_set_distance(from._internal_distance());
-  }
-}
-
-void KnownDistance::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KnownDistance)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void KnownDistance::CopyFrom(const KnownDistance& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KnownDistance)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool KnownDistance::IsInitialized() const {
-  return true;
-}
-
-void KnownDistance::InternalSwap(KnownDistance* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  stop_.Swap(&other->stop_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(distance_, other->distance_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata KnownDistance::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void Stop::InitAsDefaultInstance() {
-  ::_Stop_default_instance_._instance.get_mutable()->position_ = const_cast< ::Point*>(
-      ::Point::internal_default_instance());
-}
-class Stop::_Internal {
- public:
-  static const ::Point& position(const Stop* msg);
-};
-
-const ::Point&
-Stop::_Internal::position(const Stop* msg) {
-  return *msg->position_;
-}
-Stop::Stop()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Stop)
-}
-Stop::Stop(const Stop& from)
+StopInfo::StopInfo(const StopInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr),
-      known_distances_(from.known_distances_) {
+      buses_(from.buses_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
-  if (from._internal_has_position()) {
-    position_ = new ::Point(*from.position_);
-  } else {
-    position_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:Stop)
+  // @@protoc_insertion_point(copy_constructor:serialization.StopInfo)
 }
 
-void Stop::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Stop_transport_5fcatalog_2eproto.base);
+void StopInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StopInfo_transport_5fcatalog_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  position_ = nullptr;
 }
 
-Stop::~Stop() {
-  // @@protoc_insertion_point(destructor:Stop)
+StopInfo::~StopInfo() {
+  // @@protoc_insertion_point(destructor:serialization.StopInfo)
   SharedDtor();
 }
 
-void Stop::SharedDtor() {
+void StopInfo::SharedDtor() {
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete position_;
 }
 
-void Stop::SetCachedSize(int size) const {
+void StopInfo::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Stop& Stop::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Stop_transport_5fcatalog_2eproto.base);
+const StopInfo& StopInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StopInfo_transport_5fcatalog_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Stop::Clear() {
-// @@protoc_insertion_point(message_clear_start:Stop)
+void StopInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.StopInfo)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  known_distances_.Clear();
+  buses_.Clear();
   name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && position_ != nullptr) {
-    delete position_;
-  }
-  position_ = nullptr;
   _internal_metadata_.Clear();
 }
 
-const char* Stop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StopInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -728,288 +217,278 @@ const char* Stop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Stop.name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.StopInfo.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Point position = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .KnownDistance known_distances = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_known_distances(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Stop::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Stop)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Stop.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
-  }
-
-  // .Point position = 2;
-  if (this->has_position()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::position(this), target, stream);
-  }
-
-  // repeated .KnownDistance known_distances = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_known_distances_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_known_distances(i), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:Stop)
-  return target;
-}
-
-size_t Stop::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Stop)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .KnownDistance known_distances = 3;
-  total_size += 1UL * this->_internal_known_distances_size();
-  for (const auto& msg : this->known_distances_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  // .Point position = 2;
-  if (this->has_position()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *position_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Stop::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Stop)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Stop* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Stop>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Stop)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Stop)
-    MergeFrom(*source);
-  }
-}
-
-void Stop::MergeFrom(const Stop& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Stop)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  known_distances_.MergeFrom(from.known_distances_);
-  if (from.name().size() > 0) {
-
-    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  if (from.has_position()) {
-    _internal_mutable_position()->::Point::MergeFrom(from._internal_position());
-  }
-}
-
-void Stop::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Stop)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Stop::CopyFrom(const Stop& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Stop)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Stop::IsInitialized() const {
-  return true;
-}
-
-void Stop::InternalSwap(Stop* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  known_distances_.InternalSwap(&other->known_distances_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(position_, other->position_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Stop::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void Bus::InitAsDefaultInstance() {
-}
-class Bus::_Internal {
- public:
-};
-
-Bus::Bus()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Bus)
-}
-Bus::Bus(const Bus& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr),
-      stops_(from.stops_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  is_roundtrip_ = from.is_roundtrip_;
-  // @@protoc_insertion_point(copy_constructor:Bus)
-}
-
-void Bus::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Bus_transport_5fcatalog_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  is_roundtrip_ = false;
-}
-
-Bus::~Bus() {
-  // @@protoc_insertion_point(destructor:Bus)
-  SharedDtor();
-}
-
-void Bus::SharedDtor() {
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void Bus::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Bus& Bus::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Bus_transport_5fcatalog_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Bus::Clear() {
-// @@protoc_insertion_point(message_clear_start:Bus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  stops_.Clear();
-  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  is_roundtrip_ = false;
-  _internal_metadata_.Clear();
-}
-
-const char* Bus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Bus.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated string stops = 2;
+      // repeated string buses = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
-            auto str = _internal_add_stops();
+            auto str = _internal_add_buses();
             ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Bus.stops"));
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.StopInfo.buses"));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // bool is_roundtrip = 3;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* StopInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.StopInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.StopInfo.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // repeated string buses = 2;
+  for (int i = 0, n = this->_internal_buses_size(); i < n; i++) {
+    const auto& s = this->_internal_buses(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.StopInfo.buses");
+    target = stream->WriteString(2, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.StopInfo)
+  return target;
+}
+
+size_t StopInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.StopInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string buses = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(buses_.size());
+  for (int i = 0, n = buses_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      buses_.Get(i));
+  }
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void StopInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.StopInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StopInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StopInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.StopInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.StopInfo)
+    MergeFrom(*source);
+  }
+}
+
+void StopInfo::MergeFrom(const StopInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.StopInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  buses_.MergeFrom(from.buses_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+}
+
+void StopInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.StopInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StopInfo::CopyFrom(const StopInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.StopInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StopInfo::IsInitialized() const {
+  return true;
+}
+
+void StopInfo::InternalSwap(StopInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  buses_.InternalSwap(&other->buses_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata StopInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void BusInfo::InitAsDefaultInstance() {
+}
+class BusInfo::_Internal {
+ public:
+};
+
+BusInfo::BusInfo()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.BusInfo)
+}
+BusInfo::BusInfo(const BusInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  ::memcpy(&stop_count_, &from.stop_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&road_route_length_) -
+    reinterpret_cast<char*>(&stop_count_)) + sizeof(road_route_length_));
+  // @@protoc_insertion_point(copy_constructor:serialization.BusInfo)
+}
+
+void BusInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BusInfo_transport_5fcatalog_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&stop_count_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&road_route_length_) -
+      reinterpret_cast<char*>(&stop_count_)) + sizeof(road_route_length_));
+}
+
+BusInfo::~BusInfo() {
+  // @@protoc_insertion_point(destructor:serialization.BusInfo)
+  SharedDtor();
+}
+
+void BusInfo::SharedDtor() {
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void BusInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BusInfo& BusInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BusInfo_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BusInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.BusInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&stop_count_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&road_route_length_) -
+      reinterpret_cast<char*>(&stop_count_)) + sizeof(road_route_length_));
+  _internal_metadata_.Clear();
+}
+
+const char* BusInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.BusInfo.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 stop_count = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          stop_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 unique_stop_count = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          is_roundtrip_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          unique_stop_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 road_route_length = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          road_route_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double geo_route_length = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          geo_route_length_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
       default: {
@@ -1032,9 +511,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Bus::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* BusInfo::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Bus)
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.BusInfo)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1043,50 +522,50 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Bus.name");
+      "serialization.BusInfo.name");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_name(), target);
   }
 
-  // repeated string stops = 2;
-  for (int i = 0, n = this->_internal_stops_size(); i < n; i++) {
-    const auto& s = this->_internal_stops(i);
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Bus.stops");
-    target = stream->WriteString(2, s, target);
+  // uint64 stop_count = 2;
+  if (this->stop_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_stop_count(), target);
   }
 
-  // bool is_roundtrip = 3;
-  if (this->is_roundtrip() != 0) {
+  // uint64 unique_stop_count = 3;
+  if (this->unique_stop_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_roundtrip(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_unique_stop_count(), target);
+  }
+
+  // int32 road_route_length = 4;
+  if (this->road_route_length() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_road_route_length(), target);
+  }
+
+  // double geo_route_length = 5;
+  if (!(this->geo_route_length() <= 0 && this->geo_route_length() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_geo_route_length(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Bus)
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.BusInfo)
   return target;
 }
 
-size_t Bus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Bus)
+size_t BusInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.BusInfo)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated string stops = 2;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(stops_.size());
-  for (int i = 0, n = stops_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      stops_.Get(i));
-  }
 
   // string name = 1;
   if (this->name().size() > 0) {
@@ -1095,9 +574,30 @@ size_t Bus::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // bool is_roundtrip = 3;
-  if (this->is_roundtrip() != 0) {
-    total_size += 1 + 1;
+  // uint64 stop_count = 2;
+  if (this->stop_count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_stop_count());
+  }
+
+  // uint64 unique_stop_count = 3;
+  if (this->unique_stop_count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_unique_stop_count());
+  }
+
+  // double geo_route_length = 5;
+  if (!(this->geo_route_length() <= 0 && this->geo_route_length() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // int32 road_route_length = 4;
+  if (this->road_route_length() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_road_route_length());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1109,66 +609,76 @@ size_t Bus::ByteSizeLong() const {
   return total_size;
 }
 
-void Bus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Bus)
+void BusInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.BusInfo)
   GOOGLE_DCHECK_NE(&from, this);
-  const Bus* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Bus>(
+  const BusInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BusInfo>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Bus)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.BusInfo)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Bus)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.BusInfo)
     MergeFrom(*source);
   }
 }
 
-void Bus::MergeFrom(const Bus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Bus)
+void BusInfo::MergeFrom(const BusInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.BusInfo)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  stops_.MergeFrom(from.stops_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
-  if (from.is_roundtrip() != 0) {
-    _internal_set_is_roundtrip(from._internal_is_roundtrip());
+  if (from.stop_count() != 0) {
+    _internal_set_stop_count(from._internal_stop_count());
+  }
+  if (from.unique_stop_count() != 0) {
+    _internal_set_unique_stop_count(from._internal_unique_stop_count());
+  }
+  if (!(from.geo_route_length() <= 0 && from.geo_route_length() >= 0)) {
+    _internal_set_geo_route_length(from._internal_geo_route_length());
+  }
+  if (from.road_route_length() != 0) {
+    _internal_set_road_route_length(from._internal_road_route_length());
   }
 }
 
-void Bus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Bus)
+void BusInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.BusInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Bus::CopyFrom(const Bus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Bus)
+void BusInfo::CopyFrom(const BusInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.BusInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Bus::IsInitialized() const {
+bool BusInfo::IsInitialized() const {
   return true;
 }
 
-void Bus::InternalSwap(Bus* other) {
+void BusInfo::InternalSwap(BusInfo* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  stops_.InternalSwap(&other->stops_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(is_roundtrip_, other->is_roundtrip_);
+  swap(stop_count_, other->stop_count_);
+  swap(unique_stop_count_, other->unique_stop_count_);
+  swap(geo_route_length_, other->geo_route_length_);
+  swap(road_route_length_, other->road_route_length_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Bus::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata BusInfo::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1184,7 +694,7 @@ class TransportCatalog::_Internal {
 TransportCatalog::TransportCatalog()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:TransportCatalog)
+  // @@protoc_insertion_point(constructor:serialization.TransportCatalog)
 }
 TransportCatalog::TransportCatalog(const TransportCatalog& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -1192,7 +702,7 @@ TransportCatalog::TransportCatalog(const TransportCatalog& from)
       buses_(from.buses_),
       stops_(from.stops_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:TransportCatalog)
+  // @@protoc_insertion_point(copy_constructor:serialization.TransportCatalog)
 }
 
 void TransportCatalog::SharedCtor() {
@@ -1200,7 +710,7 @@ void TransportCatalog::SharedCtor() {
 }
 
 TransportCatalog::~TransportCatalog() {
-  // @@protoc_insertion_point(destructor:TransportCatalog)
+  // @@protoc_insertion_point(destructor:serialization.TransportCatalog)
   SharedDtor();
 }
 
@@ -1217,7 +727,7 @@ const TransportCatalog& TransportCatalog::default_instance() {
 
 
 void TransportCatalog::Clear() {
-// @@protoc_insertion_point(message_clear_start:TransportCatalog)
+// @@protoc_insertion_point(message_clear_start:serialization.TransportCatalog)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1234,7 +744,7 @@ const char* TransportCatalog::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .Bus buses = 1;
+      // repeated .serialization.BusInfo buses = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1246,7 +756,7 @@ const char* TransportCatalog::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .Stop stops = 2;
+      // repeated .serialization.StopInfo stops = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1280,11 +790,11 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* TransportCatalog::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:TransportCatalog)
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.TransportCatalog)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .Bus buses = 1;
+  // repeated .serialization.BusInfo buses = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_buses_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1292,7 +802,7 @@ failure:
       InternalWriteMessage(1, this->_internal_buses(i), target, stream);
   }
 
-  // repeated .Stop stops = 2;
+  // repeated .serialization.StopInfo stops = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_stops_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1304,26 +814,26 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:TransportCatalog)
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.TransportCatalog)
   return target;
 }
 
 size_t TransportCatalog::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:TransportCatalog)
+// @@protoc_insertion_point(message_byte_size_start:serialization.TransportCatalog)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .Bus buses = 1;
+  // repeated .serialization.BusInfo buses = 1;
   total_size += 1UL * this->_internal_buses_size();
   for (const auto& msg : this->buses_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .Stop stops = 2;
+  // repeated .serialization.StopInfo stops = 2;
   total_size += 1UL * this->_internal_stops_size();
   for (const auto& msg : this->stops_) {
     total_size +=
@@ -1340,22 +850,22 @@ size_t TransportCatalog::ByteSizeLong() const {
 }
 
 void TransportCatalog::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:TransportCatalog)
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.TransportCatalog)
   GOOGLE_DCHECK_NE(&from, this);
   const TransportCatalog* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TransportCatalog>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TransportCatalog)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.TransportCatalog)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:TransportCatalog)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.TransportCatalog)
     MergeFrom(*source);
   }
 }
 
 void TransportCatalog::MergeFrom(const TransportCatalog& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:TransportCatalog)
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.TransportCatalog)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1366,14 +876,14 @@ void TransportCatalog::MergeFrom(const TransportCatalog& from) {
 }
 
 void TransportCatalog::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:TransportCatalog)
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.TransportCatalog)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void TransportCatalog::CopyFrom(const TransportCatalog& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TransportCatalog)
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.TransportCatalog)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1396,21 +906,16 @@ void TransportCatalog::InternalSwap(TransportCatalog* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace serialization
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::Point* Arena::CreateMaybeMessage< ::Point >(Arena* arena) {
-  return Arena::CreateInternal< ::Point >(arena);
+template<> PROTOBUF_NOINLINE ::serialization::StopInfo* Arena::CreateMaybeMessage< ::serialization::StopInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::StopInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::KnownDistance* Arena::CreateMaybeMessage< ::KnownDistance >(Arena* arena) {
-  return Arena::CreateInternal< ::KnownDistance >(arena);
+template<> PROTOBUF_NOINLINE ::serialization::BusInfo* Arena::CreateMaybeMessage< ::serialization::BusInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::BusInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Stop* Arena::CreateMaybeMessage< ::Stop >(Arena* arena) {
-  return Arena::CreateInternal< ::Stop >(arena);
-}
-template<> PROTOBUF_NOINLINE ::Bus* Arena::CreateMaybeMessage< ::Bus >(Arena* arena) {
-  return Arena::CreateInternal< ::Bus >(arena);
-}
-template<> PROTOBUF_NOINLINE ::TransportCatalog* Arena::CreateMaybeMessage< ::TransportCatalog >(Arena* arena) {
-  return Arena::CreateInternal< ::TransportCatalog >(arena);
+template<> PROTOBUF_NOINLINE ::serialization::TransportCatalog* Arena::CreateMaybeMessage< ::serialization::TransportCatalog >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::TransportCatalog >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

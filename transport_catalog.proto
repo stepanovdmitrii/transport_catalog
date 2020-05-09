@@ -1,28 +1,21 @@
 syntax="proto3";
 
-message Point {
-  double lat = 1;
-  double lon = 2;
-};
+package serialization;
 
-message KnownDistance {
-    string stop = 1;
-    double distance = 2;
-}
-
-message Stop {
+message StopInfo {
   string name = 1;
-  Point position = 2;
-  repeated KnownDistance known_distances = 3;
+  repeated string buses = 2;
 }
 
-message Bus {
+message BusInfo {
     string name = 1;
-    repeated string stops = 2;
-    bool is_roundtrip = 3;
+    uint64 stop_count = 2;
+    uint64 unique_stop_count = 3;
+    int32 road_route_length = 4;
+    double geo_route_length = 5;
 }
 
 message TransportCatalog {
-    repeated Bus buses = 1;
-    repeated Stop stops = 2;
+    repeated BusInfo buses = 1;
+    repeated StopInfo stops = 2;
 }
