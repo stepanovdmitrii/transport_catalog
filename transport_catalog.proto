@@ -1,0 +1,28 @@
+syntax="proto3";
+
+message Point {
+  double lat = 1;
+  double lon = 2;
+};
+
+message KnownDistance {
+    string stop = 1;
+    double distance = 2;
+}
+
+message Stop {
+  string name = 1;
+  Point position = 2;
+  repeated KnownDistance known_distances = 3;
+}
+
+message Bus {
+    string name = 1;
+    repeated string stops = 2;
+    bool is_roundtrip = 3;
+}
+
+message TransportCatalog {
+    repeated Bus buses = 1;
+    repeated Stop stops = 2;
+}

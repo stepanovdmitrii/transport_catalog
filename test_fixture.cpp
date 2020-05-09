@@ -67,7 +67,7 @@ void UnitTests::TestFixture::PerformOperationsJson()
     std::string expected = "[{\"route_length\":5990,\"request_id\":1,\"curvature\":1.42963,\"stop_count\":4,\"unique_stop_count\":3},{\"route_length\":11570,\"request_id\":2,\"curvature\":1.30156,\"stop_count\":5,\"unique_stop_count\":3},{\"buses\":[\"297\",\"635\"],\"request_id\":3},{\"request_id\":4,\"total_time\":11.235,\"items\":[{\"type\":\"Wait\",\"stop_name\":\"Biryulyovo Zapadnoye\",\"time\":6},{\"type\":\"Bus\",\"bus\":\"297\",\"span_count\":2,\"time\":5.235}]},{\"request_id\":5,\"total_time\":24.21,\"items\":[{\"type\":\"Wait\",\"stop_name\":\"Biryulyovo Zapadnoye\",\"time\":6},{\"type\":\"Bus\",\"bus\":\"297\",\"span_count\":1,\"time\":3.9},{\"type\":\"Wait\",\"stop_name\":\"Biryulyovo Tovarnaya\",\"time\":6},{\"type\":\"Bus\",\"bus\":\"635\",\"span_count\":2,\"time\":8.31}]}]";
     std::stringstream input_stream(input);
     std::stringstream output_stream;
-    IO::JsonParser p(input_stream);
+    IO::JsonParser p(input_stream, OperationMode::MAKE_BASE);
     IO::JsonFormatter f(output_stream);
     Catalog::BusShedule schedule;
     Executor::Process(f, p, schedule);

@@ -20,6 +20,16 @@ Range<IO::Parser::DrawMapIterator> IO::Parser::GetDrawMap()
 	return Range<IO::Parser::DrawMapIterator>(_draw_map.begin(), _draw_map.end());
 }
 
+Range<IO::Parser::SerializeIterator> IO::Parser::GetSerialize()
+{
+	return Range<IO::Parser::SerializeIterator>(_serialize.begin(), _serialize.end());
+}
+
+Range<IO::Parser::DeserializeIterator> IO::Parser::GetDeserialize()
+{
+	return Range<IO::Parser::DeserializeIterator>(_deserialize.begin(), _deserialize.end());
+}
+
 IO::Parser::~Parser()
 {
 }

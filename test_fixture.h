@@ -12,6 +12,7 @@
 #include "circle.h"
 #include "text.h"
 #include "polyline.h"
+#include "mode.h"
 
 #include <sstream>
 #include <vector>

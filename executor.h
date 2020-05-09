@@ -19,6 +19,7 @@ class Executor
 {
 public:
 	static void Process(IO::IFormatter& formatter, IO::Parser& parser, Catalog::BusShedule& schedule);
-	static void Process(IO::IFormatter& formatter, IO::Parser& parser, Catalog::BusShedule& schedule, Catalog::MapBuilder& map_builder);
+	static void ProcessMakeBase(IO::IFormatter& formatter, IO::Parser& parser, Catalog::BusShedule& schedule, Catalog::MapBuilder& map_builder);
+	static void ProcessRequests(IO::IFormatter& formatter, IO::Parser& parser, Catalog::BusShedule& schedule, Catalog::MapBuilder& map_builder);
 };
 

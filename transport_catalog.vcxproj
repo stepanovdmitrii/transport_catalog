@@ -57,7 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -119,6 +119,8 @@
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="polyline.cpp" />
+    <ClCompile Include="ProtoBufDeserializer.cpp" />
+    <ClCompile Include="ProtoBufSerializer.cpp" />
     <ClCompile Include="rect.cpp" />
     <ClCompile Include="rgb.cpp" />
     <ClCompile Include="rgba.cpp" />
@@ -129,6 +131,7 @@
     <ClCompile Include="text_formatter.cpp" />
     <ClCompile Include="text_parser.cpp" />
     <ClCompile Include="transport_catalog.cpp" />
+    <ClCompile Include="transport_catalog.pb.cc" />
     <ClCompile Include="uniform_distribution_operation.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
@@ -151,11 +154,14 @@
     <ClInclude Include="executor.h" />
     <ClInclude Include="find_way_operation.h" />
     <ClInclude Include="graph.h" />
+    <ClInclude Include="i_deserialize_operation.h" />
     <ClInclude Include="i_draw_map_operation.h" />
     <ClInclude Include="i_formatter.h" />
     <ClInclude Include="i_map_builder_setup_operation.h" />
     <ClInclude Include="i_object.h" />
+    <ClInclude Include="i_serialize_operation.h" />
     <ClInclude Include="i_stop_projection.h" />
+    <ClInclude Include="mode.h" />
     <ClInclude Include="multi_stop_projection.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="i_read_operation.h" />
@@ -169,6 +175,8 @@
     <ClInclude Include="point.h" />
     <ClInclude Include="polyline.h" />
     <ClInclude Include="position.h" />
+    <ClInclude Include="ProtoBufDeserializer.h" />
+    <ClInclude Include="ProtoBufSerializer.h" />
     <ClInclude Include="range.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="rgb.h" />
@@ -187,8 +195,12 @@
     <ClInclude Include="text.h" />
     <ClInclude Include="text_formatter.h" />
     <ClInclude Include="text_parser.h" />
+    <ClInclude Include="transport_catalog.pb.h" />
     <ClInclude Include="uniform_distribution_operation.h" />
     <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="transport_catalog.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

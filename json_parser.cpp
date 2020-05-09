@@ -1,6 +1,6 @@
 #include "json_parser.h"
 
-IO::JsonParser::JsonParser(std::istream& input): _input(input)
+IO::JsonParser::JsonParser(std::istream& input, OperationMode mode): _input(input), _mode(mode)
 {
 }
 
@@ -11,11 +11,15 @@ void IO::JsonParser::Parse()
     ParseBaseRequests(*document);
     ParseStatRequests(*document);
     ParseRenderSettings(*document);
+    ParseSerializeOperations(*document);
 }
 
 void IO::JsonParser::ParseRouteSettings(Json::Document& doc)
 {
     auto root_map = doc.GetRoot().AsMap();
+    if (root_map.find("routing_settings") == root_map.end())
+        return;
+
     const auto& routing_settings = root_map.at("routing_settings").AsMap();
     double wait_time = routing_settings.at("bus_wait_time").AsDouble();
     double velocity = routing_settings.at("bus_velocity").AsDouble();
@@ -25,6 +29,9 @@ void IO::JsonParser::ParseRouteSettings(Json::Document& doc)
 void IO::JsonParser::ParseBaseRequests(Json::Document& doc)
 {
     auto root_map = doc.GetRoot().AsMap();
+    if (root_map.find("base_requests") == root_map.end())
+        return;
+
     const auto& update_requests = root_map.at("base_requests").AsArray();
     for (const auto& r : update_requests) {
         const auto node = r.AsMap();
@@ -44,6 +51,8 @@ void IO::JsonParser::ParseBaseRequests(Json::Document& doc)
 void IO::JsonParser::ParseStatRequests(Json::Document& doc)
 {
     auto root_map = doc.GetRoot().AsMap();
+    if (root_map.find("stat_requests") == root_map.end())
+        return;
     const auto& stat_requests = root_map.at("stat_requests").AsArray();
     for (const auto& r : stat_requests) {
         const auto node = r.AsMap();
@@ -75,6 +84,8 @@ void IO::JsonParser::ParseRenderSettings(Json::Document& doc)
 {
     auto params = std::make_shared<Operations::MapBuilderSetParameters>();
     auto root_map = doc.GetRoot().AsMap();
+    if (root_map.find("render_settings") == root_map.end())
+        return;
     const auto& render_settings = root_map.at("render_settings").AsMap();
     params->
         SetWidth(render_settings.at("width").AsDouble())
@@ -125,6 +136,21 @@ void IO::JsonParser::ParseRenderSettings(Json::Document& doc)
     }
 
     _builder_setup.push_back(params);
+}
+
+void IO::JsonParser::ParseSerializeOperations(Json::Document& doc)
+{
+    auto root_map = doc.GetRoot().AsMap();
+    if (root_map.find("serialization_settings") == root_map.end())
+        return;
+    const auto& serialization_settings = root_map.at("serialization_settings").AsMap();
+    std::string file = serialization_settings.at("file").AsString();
+    if (_mode == OperationMode::MAKE_BASE) {
+        _serialize.push_back(std::make_shared<Operations::ProtoBufSerializer>(file));
+    }
+    else if (_mode == OperationMode::PROCESS_REQUESTS) {
+        _deserialize.push_back(std::make_shared<Operations::ProtoBufDeserializer>(file));
+    }
 }
 
 std::shared_ptr<Operations::AddStop> IO::JsonParser::ParseAddStop(const std::map<std::string, Json::Node>& stop_node)
