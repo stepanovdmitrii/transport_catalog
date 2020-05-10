@@ -12,7 +12,8 @@ using namespace std;
 
 TransportCatalog::TransportCatalog(
     vector<Descriptions::InputQuery> data,
-    const Json::Dict& routing_settings_json
+    const Json::Dict& routing_settings_json,
+    const Json::Dict& render_settings_json
 ) {
   auto stops_end = partition(begin(data), end(data), [](const auto& item) {
     return holds_alternative<Descriptions::Stop>(item);
@@ -44,8 +45,8 @@ TransportCatalog::TransportCatalog(
   
   router_ = make_unique<TransportRouter>(stops_dict, buses_dict, routing_settings_json);
   
-  //map_renderer_ = make_unique<MapRenderer>(stops_dict, buses_dict, render_settings_json);
-  //map_ = map_renderer_->Render();
+  map_renderer_ = make_unique<MapRenderer>(stops_dict, buses_dict, render_settings_json);
+  map_ = map_renderer_->Render();
 }
 
 TransportCatalog::TransportCatalog(std::istream& input)
@@ -70,6 +71,8 @@ TransportCatalog::TransportCatalog(std::istream& input)
         buses_[bus.name()] = std::move(b);
     }
     router_ = make_unique<TransportRouter>(catalog.router());
+    map_renderer_ = make_unique<MapRenderer>(catalog.renderer());
+    map_ = map_renderer_->Render();
 }
 
 const TransportCatalog::Stop* TransportCatalog::GetStop(const string& name) const {
@@ -116,7 +119,7 @@ void TransportCatalog::Serialize(std::ostream& out) const
     }
     
     router_->Serialize(*catalog.mutable_router());
-    auto size = catalog.ByteSizeLong();
+    map_renderer_->Seriliaze(*catalog.mutable_renderer());
     catalog.SerializeToOstream(&out);
 }
 

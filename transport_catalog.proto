@@ -73,8 +73,59 @@ message Router {
     repeated EdgeInfo edge_infos = 7;
 }
 
+enum ColorType {
+    NOT_DEFINED = 0;
+    STRING = 1;
+    RGB = 2;
+    RGBA = 3;
+}
+
+message Color {
+    ColorType type = 1;
+    string color_string = 2;
+    uint32 red = 3;
+    uint32 green = 4;
+    uint32 blue = 5;
+    double opacity = 6;
+}
+
+message Point {
+    double x = 1;
+    double y = 2;
+}
+
+message RenderSettings {
+    double max_width = 1;
+    double max_height = 2;
+    double padding = 3;
+    double outer_margin = 4;
+    repeated Color palette = 5;
+    double line_width = 6;
+    Color underlayer_color = 7;
+    double underlayer_width = 8;
+    double stop_radius = 9;
+    Point bus_label_offset = 10;
+    int32 bus_label_font_size = 11;
+    Point stop_label_offset = 12;
+    int32 stop_label_font_size = 13;
+    repeated string layers = 14;
+}
+
+message Bus {
+    repeated string stops = 1;
+    repeated string endpoints = 2;
+}
+
+message Renderer {
+    RenderSettings settings = 1;
+    map<string, Point> stops_coords = 2;
+    map<string, Color> bus_colors = 3;
+    map<string, Bus> buses = 4;
+}
+
 message TransportCatalog {
     repeated BusInfo buses = 1;
     repeated StopInfo stops = 2;
     Router router = 3;
+    Renderer renderer = 4;
 }

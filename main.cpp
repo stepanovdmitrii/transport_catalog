@@ -25,8 +25,8 @@ int main(int argc, const char* argv[]) {
     if (mode == "make_base") {
         const TransportCatalog db(
             Descriptions::ReadDescriptions(input_map.at("base_requests").AsArray()),
-            input_map.at("routing_settings").AsMap()
-            //input_map.at("render_settings").AsMap()
+            input_map.at("routing_settings").AsMap(),
+            input_map.at("render_settings").AsMap()
         );
         std::ofstream out(file, std::ios_base::binary);
         db.Serialize(out);

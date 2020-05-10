@@ -14,10 +14,18 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Bus_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BusInfo_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Edge_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EdgeInfo_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Graph_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RenderSettings_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Renderer_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RouteInternalData_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RouteInternalDataVector_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Router_transport_5fcatalog_2eproto;
@@ -70,11 +78,57 @@ class RouterDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Router> _instance;
 } _Router_default_instance_;
+class ColorDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Color> _instance;
+} _Color_default_instance_;
+class PointDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Point> _instance;
+} _Point_default_instance_;
+class RenderSettingsDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RenderSettings> _instance;
+} _RenderSettings_default_instance_;
+class BusDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Bus> _instance;
+} _Bus_default_instance_;
+class Renderer_StopsCoordsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer_StopsCoordsEntry_DoNotUse> _instance;
+} _Renderer_StopsCoordsEntry_DoNotUse_default_instance_;
+class Renderer_BusColorsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer_BusColorsEntry_DoNotUse> _instance;
+} _Renderer_BusColorsEntry_DoNotUse_default_instance_;
+class Renderer_BusesEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer_BusesEntry_DoNotUse> _instance;
+} _Renderer_BusesEntry_DoNotUse_default_instance_;
+class RendererDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer> _instance;
+} _Renderer_default_instance_;
 class TransportCatalogDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TransportCatalog> _instance;
 } _TransportCatalog_default_instance_;
 }  // namespace serialization
+static void InitDefaultsscc_info_Bus_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Bus_default_instance_;
+    new (ptr) ::serialization::Bus();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::serialization::Bus::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Bus_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Bus_transport_5fcatalog_2eproto}, {}};
+
 static void InitDefaultsscc_info_BusInfo_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -88,6 +142,20 @@ static void InitDefaultsscc_info_BusInfo_transport_5fcatalog_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BusInfo_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BusInfo_transport_5fcatalog_2eproto}, {}};
+
+static void InitDefaultsscc_info_Color_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Color_default_instance_;
+    new (ptr) ::serialization::Color();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::serialization::Color::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Color_transport_5fcatalog_2eproto}, {}};
 
 static void InitDefaultsscc_info_Edge_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -131,6 +199,96 @@ static void InitDefaultsscc_info_Graph_transport_5fcatalog_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Graph_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Graph_transport_5fcatalog_2eproto}, {
       &scc_info_Edge_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Point_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Point_default_instance_;
+    new (ptr) ::serialization::Point();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::serialization::Point::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Point_transport_5fcatalog_2eproto}, {}};
+
+static void InitDefaultsscc_info_RenderSettings_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_RenderSettings_default_instance_;
+    new (ptr) ::serialization::RenderSettings();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::serialization::RenderSettings::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RenderSettings_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_RenderSettings_transport_5fcatalog_2eproto}, {
+      &scc_info_Color_transport_5fcatalog_2eproto.base,
+      &scc_info_Point_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Renderer_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Renderer_default_instance_;
+    new (ptr) ::serialization::Renderer();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::serialization::Renderer::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Renderer_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Renderer_transport_5fcatalog_2eproto}, {
+      &scc_info_RenderSettings_transport_5fcatalog_2eproto.base,
+      &scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+      &scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+      &scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Renderer_BusColorsEntry_DoNotUse_default_instance_;
+    new (ptr) ::serialization::Renderer_BusColorsEntry_DoNotUse();
+  }
+  ::serialization::Renderer_BusColorsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto}, {
+      &scc_info_Color_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Renderer_BusesEntry_DoNotUse_default_instance_;
+    new (ptr) ::serialization::Renderer_BusesEntry_DoNotUse();
+  }
+  ::serialization::Renderer_BusesEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto}, {
+      &scc_info_Bus_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Renderer_StopsCoordsEntry_DoNotUse_default_instance_;
+    new (ptr) ::serialization::Renderer_StopsCoordsEntry_DoNotUse();
+  }
+  ::serialization::Renderer_StopsCoordsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto}, {
+      &scc_info_Point_transport_5fcatalog_2eproto.base,}};
 
 static void InitDefaultsscc_info_RouteInternalData_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -234,11 +392,12 @@ static void InitDefaultsscc_info_TransportCatalog_transport_5fcatalog_2eproto() 
   ::serialization::TransportCatalog::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_TransportCatalog_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_TransportCatalog_transport_5fcatalog_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_TransportCatalog_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_TransportCatalog_transport_5fcatalog_2eproto}, {
       &scc_info_BusInfo_transport_5fcatalog_2eproto.base,
       &scc_info_StopInfo_transport_5fcatalog_2eproto.base,
-      &scc_info_Router_transport_5fcatalog_2eproto.base,}};
+      &scc_info_Router_transport_5fcatalog_2eproto.base,
+      &scc_info_Renderer_transport_5fcatalog_2eproto.base,}};
 
 static void InitDefaultsscc_info_VertexInfo_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -254,8 +413,8 @@ static void InitDefaultsscc_info_VertexInfo_transport_5fcatalog_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VertexInfo_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_VertexInfo_transport_5fcatalog_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[12];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_transport_5fcatalog_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[20];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_transport_5fcatalog_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_transport_5fcatalog_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -348,6 +507,86 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::Router, vertex_infos_),
   PROTOBUF_FIELD_OFFSET(::serialization::Router, edge_infos_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, type_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, color_string_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, red_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, green_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, blue_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Color, opacity_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::serialization::Point, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Point, x_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Point, y_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, max_width_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, max_height_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, padding_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, outer_margin_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, palette_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, line_width_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, underlayer_color_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, underlayer_width_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, stop_radius_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, bus_label_offset_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, bus_label_font_size_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, stop_label_offset_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, stop_label_font_size_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, layers_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::serialization::Bus, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Bus, stops_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Bus, endpoints_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_StopsCoordsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_StopsCoordsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_StopsCoordsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_StopsCoordsEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusColorsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusColorsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusColorsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusColorsEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusesEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, settings_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, stops_coords_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, bus_colors_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, buses_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -355,6 +594,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, buses_),
   PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, stops_),
   PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, router_),
+  PROTOBUF_FIELD_OFFSET(::serialization::TransportCatalog, renderer_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::serialization::StopInfo)},
@@ -368,7 +608,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 64, -1, sizeof(::serialization::RouteInternalDataVector)},
   { 70, -1, sizeof(::serialization::RouterImpl)},
   { 76, -1, sizeof(::serialization::Router)},
-  { 88, -1, sizeof(::serialization::TransportCatalog)},
+  { 88, -1, sizeof(::serialization::Color)},
+  { 99, -1, sizeof(::serialization::Point)},
+  { 106, -1, sizeof(::serialization::RenderSettings)},
+  { 125, -1, sizeof(::serialization::Bus)},
+  { 132, 139, sizeof(::serialization::Renderer_StopsCoordsEntry_DoNotUse)},
+  { 141, 148, sizeof(::serialization::Renderer_BusColorsEntry_DoNotUse)},
+  { 150, 157, sizeof(::serialization::Renderer_BusesEntry_DoNotUse)},
+  { 159, -1, sizeof(::serialization::Renderer)},
+  { 168, -1, sizeof(::serialization::TransportCatalog)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -383,6 +631,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RouteInternalDataVector_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RouterImpl_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Router_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Color_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Point_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RenderSettings_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Bus_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_StopsCoordsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_BusColorsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_BusesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_TransportCatalog_default_instance_),
 };
 
@@ -414,19 +670,57 @@ const char descriptor_table_protodef_transport_5fcatalog_2eproto[] PROTOBUF_SECT
   "serialization.StopVertexIds\022/\n\014vertex_in"
   "fos\030\006 \003(\0132\031.serialization.VertexInfo\022+\n\n"
   "edge_infos\030\007 \003(\0132\027.serialization.EdgeInf"
-  "o\"\210\001\n\020TransportCatalog\022%\n\005buses\030\001 \003(\0132\026."
-  "serialization.BusInfo\022&\n\005stops\030\002 \003(\0132\027.s"
-  "erialization.StopInfo\022%\n\006router\030\003 \001(\0132\025."
-  "serialization.Router*!\n\014EdgeInfoType\022\010\n\004"
-  "WAIT\020\000\022\007\n\003BUS\020\001b\006proto3"
+  "o\"\200\001\n\005Color\022&\n\004type\030\001 \001(\0162\030.serializatio"
+  "n.ColorType\022\024\n\014color_string\030\002 \001(\t\022\013\n\003red"
+  "\030\003 \001(\r\022\r\n\005green\030\004 \001(\r\022\014\n\004blue\030\005 \001(\r\022\017\n\007o"
+  "pacity\030\006 \001(\001\"\035\n\005Point\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 "
+  "\001(\001\"\244\003\n\016RenderSettings\022\021\n\tmax_width\030\001 \001("
+  "\001\022\022\n\nmax_height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\024"
+  "\n\014outer_margin\030\004 \001(\001\022%\n\007palette\030\005 \003(\0132\024."
+  "serialization.Color\022\022\n\nline_width\030\006 \001(\001\022"
+  ".\n\020underlayer_color\030\007 \001(\0132\024.serializatio"
+  "n.Color\022\030\n\020underlayer_width\030\010 \001(\001\022\023\n\013sto"
+  "p_radius\030\t \001(\001\022.\n\020bus_label_offset\030\n \001(\013"
+  "2\024.serialization.Point\022\033\n\023bus_label_font"
+  "_size\030\013 \001(\005\022/\n\021stop_label_offset\030\014 \001(\0132\024"
+  ".serialization.Point\022\034\n\024stop_label_font_"
+  "size\030\r \001(\005\022\016\n\006layers\030\016 \003(\t\"\'\n\003Bus\022\r\n\005sto"
+  "ps\030\001 \003(\t\022\021\n\tendpoints\030\002 \003(\t\"\276\003\n\010Renderer"
+  "\022/\n\010settings\030\001 \001(\0132\035.serialization.Rende"
+  "rSettings\022>\n\014stops_coords\030\002 \003(\0132(.serial"
+  "ization.Renderer.StopsCoordsEntry\022:\n\nbus"
+  "_colors\030\003 \003(\0132&.serialization.Renderer.B"
+  "usColorsEntry\0221\n\005buses\030\004 \003(\0132\".serializa"
+  "tion.Renderer.BusesEntry\032H\n\020StopsCoordsE"
+  "ntry\022\013\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.seria"
+  "lization.Point:\0028\001\032F\n\016BusColorsEntry\022\013\n\003"
+  "key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.serialization"
+  ".Color:\0028\001\032@\n\nBusesEntry\022\013\n\003key\030\001 \001(\t\022!\n"
+  "\005value\030\002 \001(\0132\022.serialization.Bus:\0028\001\"\263\001\n"
+  "\020TransportCatalog\022%\n\005buses\030\001 \003(\0132\026.seria"
+  "lization.BusInfo\022&\n\005stops\030\002 \003(\0132\027.serial"
+  "ization.StopInfo\022%\n\006router\030\003 \001(\0132\025.seria"
+  "lization.Router\022)\n\010renderer\030\004 \001(\0132\027.seri"
+  "alization.Renderer*!\n\014EdgeInfoType\022\010\n\004WA"
+  "IT\020\000\022\007\n\003BUS\020\001*;\n\tColorType\022\017\n\013NOT_DEFINE"
+  "D\020\000\022\n\n\006STRING\020\001\022\007\n\003RGB\020\002\022\010\n\004RGBA\020\003b\006prot"
+  "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_transport_5fcatalog_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[12] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[20] = {
+  &scc_info_Bus_transport_5fcatalog_2eproto.base,
   &scc_info_BusInfo_transport_5fcatalog_2eproto.base,
+  &scc_info_Color_transport_5fcatalog_2eproto.base,
   &scc_info_Edge_transport_5fcatalog_2eproto.base,
   &scc_info_EdgeInfo_transport_5fcatalog_2eproto.base,
   &scc_info_Graph_transport_5fcatalog_2eproto.base,
+  &scc_info_Point_transport_5fcatalog_2eproto.base,
+  &scc_info_RenderSettings_transport_5fcatalog_2eproto.base,
+  &scc_info_Renderer_transport_5fcatalog_2eproto.base,
+  &scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+  &scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+  &scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
   &scc_info_RouteInternalData_transport_5fcatalog_2eproto.base,
   &scc_info_RouteInternalDataVector_transport_5fcatalog_2eproto.base,
   &scc_info_Router_transport_5fcatalog_2eproto.base,
@@ -439,10 +733,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tra
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_transport_5fcatalog_2eproto_once;
 static bool descriptor_table_transport_5fcatalog_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5fcatalog_2eproto = {
-  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 1263,
-  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 12, 0,
+  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 2442,
+  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 20, 0,
   schemas, file_default_instances, TableStruct_transport_5fcatalog_2eproto::offsets,
-  file_level_metadata_transport_5fcatalog_2eproto, 12, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
+  file_level_metadata_transport_5fcatalog_2eproto, 20, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -456,6 +750,22 @@ bool EdgeInfoType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColorType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_transport_5fcatalog_2eproto);
+  return file_level_enum_descriptors_transport_5fcatalog_2eproto[1];
+}
+bool ColorType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -3228,18 +3538,1816 @@ void Router::InternalSwap(Router* other) {
 
 // ===================================================================
 
+void Color::InitAsDefaultInstance() {
+}
+class Color::_Internal {
+ public:
+};
+
+Color::Color()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.Color)
+}
+Color::Color(const Color& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  color_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_color_string().empty()) {
+    color_string_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.color_string_);
+  }
+  ::memcpy(&type_, &from.type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&opacity_) -
+    reinterpret_cast<char*>(&type_)) + sizeof(opacity_));
+  // @@protoc_insertion_point(copy_constructor:serialization.Color)
+}
+
+void Color::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Color_transport_5fcatalog_2eproto.base);
+  color_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&type_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&opacity_) -
+      reinterpret_cast<char*>(&type_)) + sizeof(opacity_));
+}
+
+Color::~Color() {
+  // @@protoc_insertion_point(destructor:serialization.Color)
+  SharedDtor();
+}
+
+void Color::SharedDtor() {
+  color_string_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Color::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Color& Color::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Color_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Color::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  color_string_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&type_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&opacity_) -
+      reinterpret_cast<char*>(&type_)) + sizeof(opacity_));
+  _internal_metadata_.Clear();
+}
+
+const char* Color::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .serialization.ColorType type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+          _internal_set_type(static_cast<::serialization::ColorType>(val));
+        } else goto handle_unusual;
+        continue;
+      // string color_string = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_color_string();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.Color.color_string"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 red = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          red_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 green = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          green_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 blue = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          blue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double opacity = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          opacity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Color::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .serialization.ColorType type = 1;
+  if (this->type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_type(), target);
+  }
+
+  // string color_string = 2;
+  if (this->color_string().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_color_string().data(), static_cast<int>(this->_internal_color_string().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.Color.color_string");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_color_string(), target);
+  }
+
+  // uint32 red = 3;
+  if (this->red() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_red(), target);
+  }
+
+  // uint32 green = 4;
+  if (this->green() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_green(), target);
+  }
+
+  // uint32 blue = 5;
+  if (this->blue() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_blue(), target);
+  }
+
+  // double opacity = 6;
+  if (!(this->opacity() <= 0 && this->opacity() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_opacity(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.Color)
+  return target;
+}
+
+size_t Color::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.Color)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string color_string = 2;
+  if (this->color_string().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_color_string());
+  }
+
+  // .serialization.ColorType type = 1;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+  }
+
+  // uint32 red = 3;
+  if (this->red() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_red());
+  }
+
+  // uint32 green = 4;
+  if (this->green() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_green());
+  }
+
+  // uint32 blue = 5;
+  if (this->blue() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_blue());
+  }
+
+  // double opacity = 6;
+  if (!(this->opacity() <= 0 && this->opacity() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Color::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Color* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Color>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.Color)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.Color)
+    MergeFrom(*source);
+  }
+}
+
+void Color::MergeFrom(const Color& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.color_string().size() > 0) {
+
+    color_string_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.color_string_);
+  }
+  if (from.type() != 0) {
+    _internal_set_type(from._internal_type());
+  }
+  if (from.red() != 0) {
+    _internal_set_red(from._internal_red());
+  }
+  if (from.green() != 0) {
+    _internal_set_green(from._internal_green());
+  }
+  if (from.blue() != 0) {
+    _internal_set_blue(from._internal_blue());
+  }
+  if (!(from.opacity() <= 0 && from.opacity() >= 0)) {
+    _internal_set_opacity(from._internal_opacity());
+  }
+}
+
+void Color::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Color::CopyFrom(const Color& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Color::IsInitialized() const {
+  return true;
+}
+
+void Color::InternalSwap(Color* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  color_string_.Swap(&other->color_string_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(type_, other->type_);
+  swap(red_, other->red_);
+  swap(green_, other->green_);
+  swap(blue_, other->blue_);
+  swap(opacity_, other->opacity_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Color::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Point::InitAsDefaultInstance() {
+}
+class Point::_Internal {
+ public:
+};
+
+Point::Point()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.Point)
+}
+Point::Point(const Point& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
+  // @@protoc_insertion_point(copy_constructor:serialization.Point)
+}
+
+void Point::SharedCtor() {
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+}
+
+Point::~Point() {
+  // @@protoc_insertion_point(destructor:serialization.Point)
+  SharedDtor();
+}
+
+void Point::SharedDtor() {
+}
+
+void Point::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Point& Point::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Point_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Point::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.Point)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+  _internal_metadata_.Clear();
+}
+
+const char* Point::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Point::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.Point)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double x = 1;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_x(), target);
+  }
+
+  // double y = 2;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_y(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.Point)
+  return target;
+}
+
+size_t Point::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.Point)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // double x = 1;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double y = 2;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Point::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.Point)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Point* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Point>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.Point)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.Point)
+    MergeFrom(*source);
+  }
+}
+
+void Point::MergeFrom(const Point& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.Point)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from.x() <= 0 && from.x() >= 0)) {
+    _internal_set_x(from._internal_x());
+  }
+  if (!(from.y() <= 0 && from.y() >= 0)) {
+    _internal_set_y(from._internal_y());
+  }
+}
+
+void Point::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.Point)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Point::CopyFrom(const Point& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.Point)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Point::IsInitialized() const {
+  return true;
+}
+
+void Point::InternalSwap(Point* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(x_, other->x_);
+  swap(y_, other->y_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Point::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void RenderSettings::InitAsDefaultInstance() {
+  ::serialization::_RenderSettings_default_instance_._instance.get_mutable()->underlayer_color_ = const_cast< ::serialization::Color*>(
+      ::serialization::Color::internal_default_instance());
+  ::serialization::_RenderSettings_default_instance_._instance.get_mutable()->bus_label_offset_ = const_cast< ::serialization::Point*>(
+      ::serialization::Point::internal_default_instance());
+  ::serialization::_RenderSettings_default_instance_._instance.get_mutable()->stop_label_offset_ = const_cast< ::serialization::Point*>(
+      ::serialization::Point::internal_default_instance());
+}
+class RenderSettings::_Internal {
+ public:
+  static const ::serialization::Color& underlayer_color(const RenderSettings* msg);
+  static const ::serialization::Point& bus_label_offset(const RenderSettings* msg);
+  static const ::serialization::Point& stop_label_offset(const RenderSettings* msg);
+};
+
+const ::serialization::Color&
+RenderSettings::_Internal::underlayer_color(const RenderSettings* msg) {
+  return *msg->underlayer_color_;
+}
+const ::serialization::Point&
+RenderSettings::_Internal::bus_label_offset(const RenderSettings* msg) {
+  return *msg->bus_label_offset_;
+}
+const ::serialization::Point&
+RenderSettings::_Internal::stop_label_offset(const RenderSettings* msg) {
+  return *msg->stop_label_offset_;
+}
+RenderSettings::RenderSettings()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.RenderSettings)
+}
+RenderSettings::RenderSettings(const RenderSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      palette_(from.palette_),
+      layers_(from.layers_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_underlayer_color()) {
+    underlayer_color_ = new ::serialization::Color(*from.underlayer_color_);
+  } else {
+    underlayer_color_ = nullptr;
+  }
+  if (from._internal_has_bus_label_offset()) {
+    bus_label_offset_ = new ::serialization::Point(*from.bus_label_offset_);
+  } else {
+    bus_label_offset_ = nullptr;
+  }
+  if (from._internal_has_stop_label_offset()) {
+    stop_label_offset_ = new ::serialization::Point(*from.stop_label_offset_);
+  } else {
+    stop_label_offset_ = nullptr;
+  }
+  ::memcpy(&max_width_, &from.max_width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&stop_label_font_size_) -
+    reinterpret_cast<char*>(&max_width_)) + sizeof(stop_label_font_size_));
+  // @@protoc_insertion_point(copy_constructor:serialization.RenderSettings)
+}
+
+void RenderSettings::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RenderSettings_transport_5fcatalog_2eproto.base);
+  ::memset(&underlayer_color_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&stop_label_font_size_) -
+      reinterpret_cast<char*>(&underlayer_color_)) + sizeof(stop_label_font_size_));
+}
+
+RenderSettings::~RenderSettings() {
+  // @@protoc_insertion_point(destructor:serialization.RenderSettings)
+  SharedDtor();
+}
+
+void RenderSettings::SharedDtor() {
+  if (this != internal_default_instance()) delete underlayer_color_;
+  if (this != internal_default_instance()) delete bus_label_offset_;
+  if (this != internal_default_instance()) delete stop_label_offset_;
+}
+
+void RenderSettings::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RenderSettings& RenderSettings::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RenderSettings_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RenderSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.RenderSettings)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  palette_.Clear();
+  layers_.Clear();
+  if (GetArenaNoVirtual() == nullptr && underlayer_color_ != nullptr) {
+    delete underlayer_color_;
+  }
+  underlayer_color_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && bus_label_offset_ != nullptr) {
+    delete bus_label_offset_;
+  }
+  bus_label_offset_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && stop_label_offset_ != nullptr) {
+    delete stop_label_offset_;
+  }
+  stop_label_offset_ = nullptr;
+  ::memset(&max_width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&stop_label_font_size_) -
+      reinterpret_cast<char*>(&max_width_)) + sizeof(stop_label_font_size_));
+  _internal_metadata_.Clear();
+}
+
+const char* RenderSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double max_width = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          max_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double max_height = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          max_height_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double padding = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          padding_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double outer_margin = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          outer_margin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // repeated .serialization.Color palette = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_palette(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // double line_width = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          line_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .serialization.Color underlayer_color = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_underlayer_color(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // double underlayer_width = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          underlayer_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double stop_radius = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 73)) {
+          stop_radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .serialization.Point bus_label_offset = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_bus_label_offset(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 bus_label_font_size = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          bus_label_font_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .serialization.Point stop_label_offset = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_stop_label_offset(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 stop_label_font_size = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          stop_label_font_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated string layers = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_layers();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.RenderSettings.layers"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RenderSettings::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.RenderSettings)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double max_width = 1;
+  if (!(this->max_width() <= 0 && this->max_width() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_max_width(), target);
+  }
+
+  // double max_height = 2;
+  if (!(this->max_height() <= 0 && this->max_height() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_max_height(), target);
+  }
+
+  // double padding = 3;
+  if (!(this->padding() <= 0 && this->padding() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_padding(), target);
+  }
+
+  // double outer_margin = 4;
+  if (!(this->outer_margin() <= 0 && this->outer_margin() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_outer_margin(), target);
+  }
+
+  // repeated .serialization.Color palette = 5;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_palette_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, this->_internal_palette(i), target, stream);
+  }
+
+  // double line_width = 6;
+  if (!(this->line_width() <= 0 && this->line_width() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_line_width(), target);
+  }
+
+  // .serialization.Color underlayer_color = 7;
+  if (this->has_underlayer_color()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::underlayer_color(this), target, stream);
+  }
+
+  // double underlayer_width = 8;
+  if (!(this->underlayer_width() <= 0 && this->underlayer_width() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_underlayer_width(), target);
+  }
+
+  // double stop_radius = 9;
+  if (!(this->stop_radius() <= 0 && this->stop_radius() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(9, this->_internal_stop_radius(), target);
+  }
+
+  // .serialization.Point bus_label_offset = 10;
+  if (this->has_bus_label_offset()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        10, _Internal::bus_label_offset(this), target, stream);
+  }
+
+  // int32 bus_label_font_size = 11;
+  if (this->bus_label_font_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_bus_label_font_size(), target);
+  }
+
+  // .serialization.Point stop_label_offset = 12;
+  if (this->has_stop_label_offset()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        12, _Internal::stop_label_offset(this), target, stream);
+  }
+
+  // int32 stop_label_font_size = 13;
+  if (this->stop_label_font_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(13, this->_internal_stop_label_font_size(), target);
+  }
+
+  // repeated string layers = 14;
+  for (int i = 0, n = this->_internal_layers_size(); i < n; i++) {
+    const auto& s = this->_internal_layers(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.RenderSettings.layers");
+    target = stream->WriteString(14, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.RenderSettings)
+  return target;
+}
+
+size_t RenderSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.RenderSettings)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .serialization.Color palette = 5;
+  total_size += 1UL * this->_internal_palette_size();
+  for (const auto& msg : this->palette_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated string layers = 14;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(layers_.size());
+  for (int i = 0, n = layers_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      layers_.Get(i));
+  }
+
+  // .serialization.Color underlayer_color = 7;
+  if (this->has_underlayer_color()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *underlayer_color_);
+  }
+
+  // .serialization.Point bus_label_offset = 10;
+  if (this->has_bus_label_offset()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *bus_label_offset_);
+  }
+
+  // .serialization.Point stop_label_offset = 12;
+  if (this->has_stop_label_offset()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *stop_label_offset_);
+  }
+
+  // double max_width = 1;
+  if (!(this->max_width() <= 0 && this->max_width() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double max_height = 2;
+  if (!(this->max_height() <= 0 && this->max_height() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double padding = 3;
+  if (!(this->padding() <= 0 && this->padding() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double outer_margin = 4;
+  if (!(this->outer_margin() <= 0 && this->outer_margin() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double line_width = 6;
+  if (!(this->line_width() <= 0 && this->line_width() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double underlayer_width = 8;
+  if (!(this->underlayer_width() <= 0 && this->underlayer_width() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double stop_radius = 9;
+  if (!(this->stop_radius() <= 0 && this->stop_radius() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // int32 bus_label_font_size = 11;
+  if (this->bus_label_font_size() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_bus_label_font_size());
+  }
+
+  // int32 stop_label_font_size = 13;
+  if (this->stop_label_font_size() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_stop_label_font_size());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RenderSettings::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.RenderSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RenderSettings* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RenderSettings>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.RenderSettings)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.RenderSettings)
+    MergeFrom(*source);
+  }
+}
+
+void RenderSettings::MergeFrom(const RenderSettings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.RenderSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  palette_.MergeFrom(from.palette_);
+  layers_.MergeFrom(from.layers_);
+  if (from.has_underlayer_color()) {
+    _internal_mutable_underlayer_color()->::serialization::Color::MergeFrom(from._internal_underlayer_color());
+  }
+  if (from.has_bus_label_offset()) {
+    _internal_mutable_bus_label_offset()->::serialization::Point::MergeFrom(from._internal_bus_label_offset());
+  }
+  if (from.has_stop_label_offset()) {
+    _internal_mutable_stop_label_offset()->::serialization::Point::MergeFrom(from._internal_stop_label_offset());
+  }
+  if (!(from.max_width() <= 0 && from.max_width() >= 0)) {
+    _internal_set_max_width(from._internal_max_width());
+  }
+  if (!(from.max_height() <= 0 && from.max_height() >= 0)) {
+    _internal_set_max_height(from._internal_max_height());
+  }
+  if (!(from.padding() <= 0 && from.padding() >= 0)) {
+    _internal_set_padding(from._internal_padding());
+  }
+  if (!(from.outer_margin() <= 0 && from.outer_margin() >= 0)) {
+    _internal_set_outer_margin(from._internal_outer_margin());
+  }
+  if (!(from.line_width() <= 0 && from.line_width() >= 0)) {
+    _internal_set_line_width(from._internal_line_width());
+  }
+  if (!(from.underlayer_width() <= 0 && from.underlayer_width() >= 0)) {
+    _internal_set_underlayer_width(from._internal_underlayer_width());
+  }
+  if (!(from.stop_radius() <= 0 && from.stop_radius() >= 0)) {
+    _internal_set_stop_radius(from._internal_stop_radius());
+  }
+  if (from.bus_label_font_size() != 0) {
+    _internal_set_bus_label_font_size(from._internal_bus_label_font_size());
+  }
+  if (from.stop_label_font_size() != 0) {
+    _internal_set_stop_label_font_size(from._internal_stop_label_font_size());
+  }
+}
+
+void RenderSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.RenderSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RenderSettings::CopyFrom(const RenderSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.RenderSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RenderSettings::IsInitialized() const {
+  return true;
+}
+
+void RenderSettings::InternalSwap(RenderSettings* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  palette_.InternalSwap(&other->palette_);
+  layers_.InternalSwap(&other->layers_);
+  swap(underlayer_color_, other->underlayer_color_);
+  swap(bus_label_offset_, other->bus_label_offset_);
+  swap(stop_label_offset_, other->stop_label_offset_);
+  swap(max_width_, other->max_width_);
+  swap(max_height_, other->max_height_);
+  swap(padding_, other->padding_);
+  swap(outer_margin_, other->outer_margin_);
+  swap(line_width_, other->line_width_);
+  swap(underlayer_width_, other->underlayer_width_);
+  swap(stop_radius_, other->stop_radius_);
+  swap(bus_label_font_size_, other->bus_label_font_size_);
+  swap(stop_label_font_size_, other->stop_label_font_size_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RenderSettings::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Bus::InitAsDefaultInstance() {
+}
+class Bus::_Internal {
+ public:
+};
+
+Bus::Bus()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.Bus)
+}
+Bus::Bus(const Bus& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      stops_(from.stops_),
+      endpoints_(from.endpoints_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:serialization.Bus)
+}
+
+void Bus::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Bus_transport_5fcatalog_2eproto.base);
+}
+
+Bus::~Bus() {
+  // @@protoc_insertion_point(destructor:serialization.Bus)
+  SharedDtor();
+}
+
+void Bus::SharedDtor() {
+}
+
+void Bus::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Bus& Bus::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Bus_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Bus::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.Bus)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  stops_.Clear();
+  endpoints_.Clear();
+  _internal_metadata_.Clear();
+}
+
+const char* Bus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated string stops = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_stops();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.Bus.stops"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated string endpoints = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_endpoints();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.Bus.endpoints"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Bus::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.Bus)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated string stops = 1;
+  for (int i = 0, n = this->_internal_stops_size(); i < n; i++) {
+    const auto& s = this->_internal_stops(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.Bus.stops");
+    target = stream->WriteString(1, s, target);
+  }
+
+  // repeated string endpoints = 2;
+  for (int i = 0, n = this->_internal_endpoints_size(); i < n; i++) {
+    const auto& s = this->_internal_endpoints(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.Bus.endpoints");
+    target = stream->WriteString(2, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.Bus)
+  return target;
+}
+
+size_t Bus::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.Bus)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string stops = 1;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(stops_.size());
+  for (int i = 0, n = stops_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      stops_.Get(i));
+  }
+
+  // repeated string endpoints = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(endpoints_.size());
+  for (int i = 0, n = endpoints_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      endpoints_.Get(i));
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Bus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.Bus)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Bus* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Bus>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.Bus)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.Bus)
+    MergeFrom(*source);
+  }
+}
+
+void Bus::MergeFrom(const Bus& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.Bus)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  stops_.MergeFrom(from.stops_);
+  endpoints_.MergeFrom(from.endpoints_);
+}
+
+void Bus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.Bus)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Bus::CopyFrom(const Bus& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.Bus)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Bus::IsInitialized() const {
+  return true;
+}
+
+void Bus::InternalSwap(Bus* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  stops_.InternalSwap(&other->stops_);
+  endpoints_.InternalSwap(&other->endpoints_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Bus::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+Renderer_StopsCoordsEntry_DoNotUse::Renderer_StopsCoordsEntry_DoNotUse() {}
+Renderer_StopsCoordsEntry_DoNotUse::Renderer_StopsCoordsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void Renderer_StopsCoordsEntry_DoNotUse::MergeFrom(const Renderer_StopsCoordsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Renderer_StopsCoordsEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void Renderer_StopsCoordsEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+Renderer_BusColorsEntry_DoNotUse::Renderer_BusColorsEntry_DoNotUse() {}
+Renderer_BusColorsEntry_DoNotUse::Renderer_BusColorsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void Renderer_BusColorsEntry_DoNotUse::MergeFrom(const Renderer_BusColorsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Renderer_BusColorsEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void Renderer_BusColorsEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+Renderer_BusesEntry_DoNotUse::Renderer_BusesEntry_DoNotUse() {}
+Renderer_BusesEntry_DoNotUse::Renderer_BusesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void Renderer_BusesEntry_DoNotUse::MergeFrom(const Renderer_BusesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Renderer_BusesEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void Renderer_BusesEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+void Renderer::InitAsDefaultInstance() {
+  ::serialization::_Renderer_default_instance_._instance.get_mutable()->settings_ = const_cast< ::serialization::RenderSettings*>(
+      ::serialization::RenderSettings::internal_default_instance());
+}
+class Renderer::_Internal {
+ public:
+  static const ::serialization::RenderSettings& settings(const Renderer* msg);
+};
+
+const ::serialization::RenderSettings&
+Renderer::_Internal::settings(const Renderer* msg) {
+  return *msg->settings_;
+}
+Renderer::Renderer()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:serialization.Renderer)
+}
+Renderer::Renderer(const Renderer& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  stops_coords_.MergeFrom(from.stops_coords_);
+  bus_colors_.MergeFrom(from.bus_colors_);
+  buses_.MergeFrom(from.buses_);
+  if (from._internal_has_settings()) {
+    settings_ = new ::serialization::RenderSettings(*from.settings_);
+  } else {
+    settings_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:serialization.Renderer)
+}
+
+void Renderer::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Renderer_transport_5fcatalog_2eproto.base);
+  settings_ = nullptr;
+}
+
+Renderer::~Renderer() {
+  // @@protoc_insertion_point(destructor:serialization.Renderer)
+  SharedDtor();
+}
+
+void Renderer::SharedDtor() {
+  if (this != internal_default_instance()) delete settings_;
+}
+
+void Renderer::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Renderer& Renderer::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Renderer_transport_5fcatalog_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Renderer::Clear() {
+// @@protoc_insertion_point(message_clear_start:serialization.Renderer)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  stops_coords_.Clear();
+  bus_colors_.Clear();
+  buses_.Clear();
+  if (GetArenaNoVirtual() == nullptr && settings_ != nullptr) {
+    delete settings_;
+  }
+  settings_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* Renderer::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .serialization.RenderSettings settings = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_settings(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // map<string, .serialization.Point> stops_coords = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&stops_coords_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // map<string, .serialization.Color> bus_colors = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&bus_colors_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // map<string, .serialization.Bus> buses = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&buses_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Renderer::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:serialization.Renderer)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .serialization.RenderSettings settings = 1;
+  if (this->has_settings()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::settings(this), target, stream);
+  }
+
+  // map<string, .serialization.Point> stops_coords = 2;
+  if (!this->_internal_stops_coords().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Point >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "serialization.Renderer.StopsCoordsEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_stops_coords().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_stops_coords().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Point >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Point >::const_iterator
+          it = this->_internal_stops_coords().begin();
+          it != this->_internal_stops_coords().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = Renderer_StopsCoordsEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Point >::const_iterator
+          it = this->_internal_stops_coords().begin();
+          it != this->_internal_stops_coords().end(); ++it) {
+        target = Renderer_StopsCoordsEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, .serialization.Color> bus_colors = 3;
+  if (!this->_internal_bus_colors().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Color >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "serialization.Renderer.BusColorsEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_bus_colors().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_bus_colors().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Color >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Color >::const_iterator
+          it = this->_internal_bus_colors().begin();
+          it != this->_internal_bus_colors().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = Renderer_BusColorsEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Color >::const_iterator
+          it = this->_internal_bus_colors().begin();
+          it != this->_internal_bus_colors().end(); ++it) {
+        target = Renderer_BusColorsEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, .serialization.Bus> buses = 4;
+  if (!this->_internal_buses().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "serialization.Renderer.BusesEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_buses().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_buses().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >::const_iterator
+          it = this->_internal_buses().begin();
+          it != this->_internal_buses().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = Renderer_BusesEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >::const_iterator
+          it = this->_internal_buses().begin();
+          it != this->_internal_buses().end(); ++it) {
+        target = Renderer_BusesEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:serialization.Renderer)
+  return target;
+}
+
+size_t Renderer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:serialization.Renderer)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .serialization.Point> stops_coords = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_stops_coords_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Point >::const_iterator
+      it = this->_internal_stops_coords().begin();
+      it != this->_internal_stops_coords().end(); ++it) {
+    total_size += Renderer_StopsCoordsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .serialization.Color> bus_colors = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_bus_colors_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Color >::const_iterator
+      it = this->_internal_bus_colors().begin();
+      it != this->_internal_bus_colors().end(); ++it) {
+    total_size += Renderer_BusColorsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .serialization.Bus> buses = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_buses_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >::const_iterator
+      it = this->_internal_buses().begin();
+      it != this->_internal_buses().end(); ++it) {
+    total_size += Renderer_BusesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // .serialization.RenderSettings settings = 1;
+  if (this->has_settings()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *settings_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Renderer::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:serialization.Renderer)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Renderer* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Renderer>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:serialization.Renderer)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:serialization.Renderer)
+    MergeFrom(*source);
+  }
+}
+
+void Renderer::MergeFrom(const Renderer& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:serialization.Renderer)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  stops_coords_.MergeFrom(from.stops_coords_);
+  bus_colors_.MergeFrom(from.bus_colors_);
+  buses_.MergeFrom(from.buses_);
+  if (from.has_settings()) {
+    _internal_mutable_settings()->::serialization::RenderSettings::MergeFrom(from._internal_settings());
+  }
+}
+
+void Renderer::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:serialization.Renderer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Renderer::CopyFrom(const Renderer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:serialization.Renderer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Renderer::IsInitialized() const {
+  return true;
+}
+
+void Renderer::InternalSwap(Renderer* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  stops_coords_.Swap(&other->stops_coords_);
+  bus_colors_.Swap(&other->bus_colors_);
+  buses_.Swap(&other->buses_);
+  swap(settings_, other->settings_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Renderer::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void TransportCatalog::InitAsDefaultInstance() {
   ::serialization::_TransportCatalog_default_instance_._instance.get_mutable()->router_ = const_cast< ::serialization::Router*>(
       ::serialization::Router::internal_default_instance());
+  ::serialization::_TransportCatalog_default_instance_._instance.get_mutable()->renderer_ = const_cast< ::serialization::Renderer*>(
+      ::serialization::Renderer::internal_default_instance());
 }
 class TransportCatalog::_Internal {
  public:
   static const ::serialization::Router& router(const TransportCatalog* msg);
+  static const ::serialization::Renderer& renderer(const TransportCatalog* msg);
 };
 
 const ::serialization::Router&
 TransportCatalog::_Internal::router(const TransportCatalog* msg) {
   return *msg->router_;
+}
+const ::serialization::Renderer&
+TransportCatalog::_Internal::renderer(const TransportCatalog* msg) {
+  return *msg->renderer_;
 }
 TransportCatalog::TransportCatalog()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -3257,12 +5365,19 @@ TransportCatalog::TransportCatalog(const TransportCatalog& from)
   } else {
     router_ = nullptr;
   }
+  if (from._internal_has_renderer()) {
+    renderer_ = new ::serialization::Renderer(*from.renderer_);
+  } else {
+    renderer_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:serialization.TransportCatalog)
 }
 
 void TransportCatalog::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TransportCatalog_transport_5fcatalog_2eproto.base);
-  router_ = nullptr;
+  ::memset(&router_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&renderer_) -
+      reinterpret_cast<char*>(&router_)) + sizeof(renderer_));
 }
 
 TransportCatalog::~TransportCatalog() {
@@ -3272,6 +5387,7 @@ TransportCatalog::~TransportCatalog() {
 
 void TransportCatalog::SharedDtor() {
   if (this != internal_default_instance()) delete router_;
+  if (this != internal_default_instance()) delete renderer_;
 }
 
 void TransportCatalog::SetCachedSize(int size) const {
@@ -3295,6 +5411,10 @@ void TransportCatalog::Clear() {
     delete router_;
   }
   router_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && renderer_ != nullptr) {
+    delete renderer_;
+  }
+  renderer_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -3333,6 +5453,13 @@ const char* TransportCatalog::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_router(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .serialization.Renderer renderer = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_renderer(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3386,6 +5513,14 @@ failure:
         3, _Internal::router(this), target, stream);
   }
 
+  // .serialization.Renderer renderer = 4;
+  if (this->has_renderer()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::renderer(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -3421,6 +5556,13 @@ size_t TransportCatalog::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *router_);
+  }
+
+  // .serialization.Renderer renderer = 4;
+  if (this->has_renderer()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *renderer_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3459,6 +5601,9 @@ void TransportCatalog::MergeFrom(const TransportCatalog& from) {
   if (from.has_router()) {
     _internal_mutable_router()->::serialization::Router::MergeFrom(from._internal_router());
   }
+  if (from.has_renderer()) {
+    _internal_mutable_renderer()->::serialization::Renderer::MergeFrom(from._internal_renderer());
+  }
 }
 
 void TransportCatalog::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -3485,6 +5630,7 @@ void TransportCatalog::InternalSwap(TransportCatalog* other) {
   buses_.InternalSwap(&other->buses_);
   stops_.InternalSwap(&other->stops_);
   swap(router_, other->router_);
+  swap(renderer_, other->renderer_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TransportCatalog::GetMetadata() const {
@@ -3527,6 +5673,30 @@ template<> PROTOBUF_NOINLINE ::serialization::RouterImpl* Arena::CreateMaybeMess
 }
 template<> PROTOBUF_NOINLINE ::serialization::Router* Arena::CreateMaybeMessage< ::serialization::Router >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::Router >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Color* Arena::CreateMaybeMessage< ::serialization::Color >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Color >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Point* Arena::CreateMaybeMessage< ::serialization::Point >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Point >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::RenderSettings* Arena::CreateMaybeMessage< ::serialization::RenderSettings >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::RenderSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Bus* Arena::CreateMaybeMessage< ::serialization::Bus >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Bus >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Renderer_StopsCoordsEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Renderer_StopsCoordsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Renderer_StopsCoordsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Renderer_BusColorsEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Renderer_BusColorsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Renderer_BusColorsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Renderer_BusesEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Renderer_BusesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Renderer_BusesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Renderer* Arena::CreateMaybeMessage< ::serialization::Renderer >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Renderer >(arena);
 }
 template<> PROTOBUF_NOINLINE ::serialization::TransportCatalog* Arena::CreateMaybeMessage< ::serialization::TransportCatalog >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::TransportCatalog >(arena);

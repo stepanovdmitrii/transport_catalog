@@ -4,6 +4,7 @@
 #include "json.h"
 #include "svg.h"
 #include "transport_router.h"
+#include "transport_catalog.pb.h"
 
 #include <map>
 #include <string>
@@ -34,8 +35,13 @@ public:
               const Descriptions::BusesDict& buses_dict,
               const Json::Dict& render_settings_json);
 
+  MapRenderer(const serialization::Renderer& renderer);
+
   Svg::Document Render() const;
   Svg::Document RenderRoute(Svg::Document whole_map, const TransportRouter::RouteInfo& route) const;
+  void Serialize(const Svg::Color& color, serialization::Color* color_data) const;
+  void Seriliaze(serialization::Renderer& renderer) const;
+  Svg::Color Deseriliaze(const serialization::Color& renderer) const;
 
 private:
   RenderSettings render_settings_;

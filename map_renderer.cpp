@@ -315,6 +315,49 @@ MapRenderer::MapRenderer(const Descriptions::StopsDict& stops_dict,
 {
 }
 
+MapRenderer::MapRenderer(const serialization::Renderer& renderer)
+{
+    render_settings_.max_width = renderer.settings().max_width();
+    render_settings_.max_height = renderer.settings().max_height();
+    render_settings_.padding = renderer.settings().padding();
+    render_settings_.outer_margin = renderer.settings().outer_margin();
+    for (int i = 0; i < renderer.settings().palette_size(); ++i) {
+        render_settings_.palette.push_back(Deseriliaze(renderer.settings().palette(i)));
+    }
+    render_settings_.line_width = renderer.settings().line_width();
+    render_settings_.underlayer_color = Deseriliaze(renderer.settings().underlayer_color());
+    render_settings_.underlayer_width = renderer.settings().underlayer_width();
+    render_settings_.stop_radius = renderer.settings().stop_radius();
+    render_settings_.bus_label_offset.x = renderer.settings().bus_label_offset().x();
+    render_settings_.bus_label_offset.y = renderer.settings().bus_label_offset().y();
+    render_settings_.bus_label_font_size = renderer.settings().bus_label_font_size();
+    render_settings_.stop_label_offset.x = renderer.settings().stop_label_offset().x();
+    render_settings_.stop_label_offset.y = renderer.settings().stop_label_offset().y();
+    render_settings_.stop_label_font_size = renderer.settings().stop_label_font_size();
+    for (int i = 0; i < renderer.settings().layers_size(); ++i) {
+        render_settings_.layers.push_back(renderer.settings().layers(i));
+    }
+
+    for (const auto& p : renderer.stops_coords()) {
+        stops_coords_[p.first].x = p.second.x();
+        stops_coords_[p.first].y = p.second.y();
+    }
+
+    for (const auto& p : renderer.bus_colors()) {
+        bus_colors_[p.first] = Deseriliaze(p.second);
+    }
+
+    for (const auto& p : renderer.buses()) {
+        buses_dict_[p.first].name = p.first;
+        for (const auto& s : p.second.stops()) {
+            buses_dict_[p.first].stops.push_back(s);
+        }
+        for (const auto& e : p.second.endpoints()) {
+            buses_dict_[p.first].endpoints.push_back(e);
+        }
+    }
+}
+
 using RouteBusItem = TransportRouter::RouteInfo::BusItem;
 using RouteWaitItem = TransportRouter::RouteInfo::WaitItem;
 
@@ -546,4 +589,99 @@ Svg::Document MapRenderer::RenderRoute(
   }
 
   return svg;
+}
+
+void MapRenderer::Serialize(const Svg::Color& color, serialization::Color* color_data) const
+{
+    if (color.index() == 0) {
+        color_data->set_type(serialization::ColorType::NOT_DEFINED);
+    }
+    else if (color.index() == 1) {
+        color_data->set_type(serialization::ColorType::STRING);
+        color_data->set_color_string(std::get<std::string>(color));
+    }
+    else if (color.index() == 2) {
+        color_data->set_type(serialization::ColorType::RGB);
+        color_data->set_red(std::get<Svg::Rgb>(color).red);
+        color_data->set_green(std::get<Svg::Rgb>(color).green);
+        color_data->set_blue(std::get<Svg::Rgb>(color).blue);
+    }
+    else if (color.index() == 3) {
+        color_data->set_type(serialization::ColorType::RGBA);
+        color_data->set_red(std::get<Svg::Rgba>(color).red);
+        color_data->set_green(std::get<Svg::Rgba>(color).green);
+        color_data->set_blue(std::get<Svg::Rgba>(color).blue);
+        color_data->set_opacity(std::get<Svg::Rgba>(color).opacity);
+    }
+}
+
+void MapRenderer::Seriliaze(serialization::Renderer& renderer) const
+{
+    auto* settings = renderer.mutable_settings();
+    settings->set_max_width(render_settings_.max_width);
+    settings->set_max_height(render_settings_.max_height);
+    settings->set_padding(render_settings_.padding);
+    settings->set_outer_margin(render_settings_.outer_margin);
+    for (const auto& color : render_settings_.palette) {
+        auto* color_data = settings->add_palette();
+        Serialize(color, color_data);
+    }
+    settings->set_line_width(render_settings_.line_width);
+    Serialize(render_settings_.underlayer_color, settings->mutable_underlayer_color());
+    settings->set_underlayer_width(render_settings_.underlayer_width);
+    settings->set_stop_radius(render_settings_.stop_radius);
+    auto* bus_label_offset = settings->mutable_bus_label_offset();
+    bus_label_offset->set_x(render_settings_.bus_label_offset.x);
+    bus_label_offset->set_y(render_settings_.bus_label_offset.y);
+    settings->set_bus_label_font_size(render_settings_.bus_label_font_size);
+    auto* stop_label_offset = settings->mutable_stop_label_offset();
+    stop_label_offset->set_x(render_settings_.stop_label_offset.x);
+    stop_label_offset->set_y(render_settings_.stop_label_offset.y);
+    settings->set_stop_label_font_size(render_settings_.stop_label_font_size);
+    for (const auto& layer : render_settings_.layers) {
+        settings->add_layers(layer);
+    }
+
+    for (const auto& p : stops_coords_) {
+        (*renderer.mutable_stops_coords())[p.first].set_x(p.second.x);
+        (*renderer.mutable_stops_coords())[p.first].set_y(p.second.y);
+    }
+
+    for (const auto& p : bus_colors_) {
+        Serialize(p.second, &(*renderer.mutable_bus_colors())[p.first]);
+    }
+
+    for (const auto& p : buses_dict_) {
+        for (const auto& stop : p.second.stops) {
+            (*renderer.mutable_buses())[p.first].add_stops(stop);
+        }
+        for (const auto& endpoint : p.second.endpoints) {
+            (*renderer.mutable_buses())[p.first].add_endpoints(endpoint);
+        }
+    }
+}
+
+Svg::Color MapRenderer::Deseriliaze(const serialization::Color& renderer) const
+{
+    if (renderer.type() == serialization::ColorType::NOT_DEFINED) {
+        return Svg::Color(std::monostate());
+    }
+    else if (renderer.type() == serialization::ColorType::STRING) {
+        return Svg::Color(renderer.color_string());
+    }
+    else if (renderer.type() == serialization::ColorType::RGB) {
+        Svg::Rgb rgb;
+        rgb.red = renderer.red();
+        rgb.green = renderer.green();
+        rgb.blue = renderer.blue();
+        return Svg::Color(rgb);
+    }
+    else {
+        Svg::Rgba rgb;
+        rgb.red = renderer.red();
+        rgb.green = renderer.green();
+        rgb.blue = renderer.blue();
+        rgb.opacity = renderer.opacity();
+        return Svg::Color(rgb);
+    }
 }

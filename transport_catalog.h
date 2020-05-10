@@ -38,7 +38,8 @@ private:
 public:
   TransportCatalog(
       std::vector<Descriptions::InputQuery> data,
-      const Json::Dict& routing_settings_json
+      const Json::Dict& routing_settings_json,
+      const Json::Dict& render_settings_json
   );
 
   TransportCatalog(
