@@ -123,9 +123,109 @@ message Renderer {
     map<string, Bus> buses = 4;
 }
 
+message NearbyStop {
+  string name = 1;
+  uint32 meters = 2;
+}
+
+
+message Coords {
+  double lat = 1;
+  double lon = 2;
+}
+
+message AddressComponent {
+  string value = 1;
+  enum Type {
+    COUNTRY = 0;
+    REGION = 1;
+    CITY = 2;
+    STREET = 3;
+    HOUSE = 4;
+  }
+}
+
+message Address {
+  string formatted = 1;
+  repeated AddressComponent components = 2;
+  Coords coords = 3;
+  string comment = 4;
+}
+
+message Name {
+  string value = 1;
+  enum Type {
+    MAIN = 0;
+    SYNONYM = 1;
+    SHORT = 2;
+  }
+  Type type = 2;
+}
+
+message Phone {
+  string formatted = 1;
+  enum Type {
+    PHONE = 0;
+    FAX = 1;
+  }
+  Type type = 2;
+  string country_code = 3;
+  string local_code = 4;
+  string number = 5;
+  string extension = 6;
+  string description = 7;
+}
+
+message WorkingTimeInterval {
+  enum Day {
+    EVERYDAY = 0;
+    MONDAY = 1;
+    TUESDAY = 2;
+    WEDNESDAY = 3;
+    THURSDAY = 4;
+    FRIDAY = 5;
+    SATURDAY = 6;
+    SUNDAY = 7;
+  }
+
+  Day day = 1;
+  int32 minutes_from = 2;
+  int32 minutes_to = 3;
+}
+
+message WorkingTime {
+  string formatted = 1;
+  repeated WorkingTimeInterval intervals = 2;
+}
+
+message Url {
+  string value = 1;
+}
+
+message Company {
+  Address address = 1;
+  repeated Name names = 2;
+  repeated Phone phones = 3;
+  repeated Url urls = 4;
+  repeated uint64 rubrics = 5;
+  WorkingTime working_time = 6;
+  repeated NearbyStop nearby_stops = 7;
+}
+
+message Rubric {
+  string name = 1;
+  repeated string keywords = 2;
+}
+
+message Database {
+  repeated Company companies = 1;
+  map<uint64, Rubric> rubrics = 2;
+}
+
 message TransportCatalog {
     repeated BusInfo buses = 1;
     repeated StopInfo stops = 2;
     Router router = 3;
     Renderer renderer = 4;
+    Database database = 5;
 }

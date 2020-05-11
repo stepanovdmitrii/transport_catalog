@@ -39,7 +39,8 @@ public:
   TransportCatalog(
       std::vector<Descriptions::InputQuery> data,
       const Json::Dict& routing_settings_json,
-      const Json::Dict& render_settings_json
+      const Json::Dict& render_settings_json,
+      const Json::Dict& yellow_pages_json
   );
 
   TransportCatalog(
@@ -72,10 +73,20 @@ private:
       const Json::Dict& render_settings_json
   );
   Svg::Document BuildRouteMap(const TransportRouter::RouteInfo& route) const;
+  void ParseDatabase(const Json::Dict& yellow_pages_json);
+  void ParseCompanies(const Json::Dict& yellow_pages_json);
+  void ParseRubrics(const Json::Dict& yellow_pages_json);
+  void ParseCompanyNearbyStops(serialization::Company& comp, const Json::Dict& company_dict);
+  void ParseCompanyRubrics(serialization::Company& comp, const Json::Dict& company_dict);
+  void ParseCompanyUrls(serialization::Company& comp, const Json::Dict& company_dict);
+  void ParseCompanyAddress(serialization::Company& comp, const Json::Dict& company_dict);
+  void ParseCompanyNames(serialization::Company& comp, const Json::Dict& company_dict);
+  void ParseCompanyPhones(serialization::Company& comp, const Json::Dict& company_dict);
 
   std::unordered_map<std::string, Stop> stops_;
   std::unordered_map<std::string, Bus> buses_;
   std::unique_ptr<TransportRouter> router_;
   std::unique_ptr<MapRenderer> map_renderer_;
   Svg::Document map_;
+  serialization::Database database_;
 };
