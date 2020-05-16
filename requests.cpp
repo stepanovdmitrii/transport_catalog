@@ -84,7 +84,7 @@ namespace Requests {
     };
   }
 
-  variant<Stop, Bus, Route, Map> Read(const Json::Dict& attrs) {
+  variant<Stop, Bus, Route, Map, Companies> Read(const Json::Dict& attrs) {
     const string& type = attrs.at("type").AsString();
     if (type == "Bus") {
       return Bus{attrs.at("name").AsString()};
@@ -92,7 +92,10 @@ namespace Requests {
       return Stop{attrs.at("name").AsString()};
     } else if (type == "Route") {
       return Route{attrs.at("from").AsString(), attrs.at("to").AsString()};
-    } else {
+    } else if (type == "FindCompanies") {
+        return Companies::Create(attrs);
+    }
+    else {
       return Map{};
     }
   }
@@ -109,6 +112,155 @@ namespace Requests {
       responses.push_back(Json::Node(dict));
     }
     return responses;
+  }
+
+  Json::Dict Companies::Process(const TransportCatalog& db) const
+  {
+      Json::Dict dict;
+      Json::Array companies;
+     
+      bool name_match = false;
+      bool url_match = false;
+      bool rubric_match = false;
+      bool phone_match = false;
+
+      for (const auto& source_company : db.GetDatabase().companies()) {
+
+          name_match = names.empty();
+          if (!name_match && source_company.names_size() > 0) {
+              for (const auto& source_name : source_company.names()) {
+                  if (names.find(source_name.value()) != names.end()) {
+                      name_match = true;
+                      break;
+                  }
+              }
+          }
+
+          if (!name_match) {
+              continue;
+          }
+
+          url_match = urls.empty();
+          if (!url_match && source_company.urls_size() > 0) {
+              for (const auto& source_url : source_company.urls()) {
+                  if (urls.find(source_url.value()) != urls.end()) {
+                      url_match = true;
+                      break;
+                  }
+              }
+          }
+
+          if (!url_match) {
+              continue;
+          }
+
+          rubric_match = rubrics.empty();
+          if (!rubric_match && source_company.rubrics_size() > 0) {
+              for (const auto& source_rubric_id : source_company.rubrics()) {
+                  const auto& source_rubric = db.GetDatabase().rubrics().at(source_rubric_id);
+                  if (rubrics.find(source_rubric.name()) != rubrics.end()) {
+                      rubric_match = true;
+                      break;
+                  }
+              }
+          }
+
+          if (!rubric_match) {
+              continue;
+          }
+
+          phone_match = phones.empty();
+          if (!phone_match && source_company.phones_size() > 0) {
+              for (const auto& source_phone : source_company.phones()) {
+                  if (phone_match) {
+                      break;
+                  }
+                  for (const auto& target_phone : phones) {
+                      phone_match = target_phone.DoesPhoneMatch(source_phone);
+                      if (phone_match) {
+                          break;
+                      }
+                  }
+
+              }
+          }
+
+          if (!phone_match) {
+              continue;
+          }
+
+          for (const auto& name : source_company.names()) {
+              if (name.type() == serialization::Name_Type::Name_Type_MAIN) {
+                  companies.push_back(Json::Node(name.value()));
+                  break;
+              }
+          }
+      }
+
+      dict["companies"] = companies;
+      return dict;
+  }
+
+  Companies Companies::Create(const Json::Dict& attrs)
+  {
+      Companies result;
+      auto names = attrs.find("names");
+      if (names != attrs.end()) {
+          for (const auto& name : names->second.AsArray()) {
+              result.names.insert(name.AsString());
+          }
+      }
+
+      auto urls = attrs.find("urls");
+      if (urls != attrs.end()) {
+          for (const auto& url : urls->second.AsArray()) {
+              result.urls.insert(url.AsString());
+          }
+      }
+
+      auto rubrics = attrs.find("rubrics");
+      if (rubrics != attrs.end()) {
+          for (const auto& rubric : rubrics->second.AsArray()) {
+              result.rubrics.insert(rubric.AsString());
+          }
+      }
+
+      auto phones = attrs.find("phones");
+      if (phones != attrs.end()) {
+          for (const auto& phoneNode : phones->second.AsArray()) {
+              const auto& phone = phoneNode.AsMap();
+              PhoneQuery templ;
+              auto type = phone.find("type");
+              if (type != phone.end()) {
+                  templ.type = type->second.AsString();
+              }
+              auto country_code = phone.find("country_code");
+              if (country_code != phone.end()) {
+                  templ.country_code = country_code->second.AsString();
+              }
+              auto local_code = phone.find("local_code");
+              if (local_code != phone.end()) {
+                  templ.local_code = local_code->second.AsString();
+              }
+              auto number = phone.find("number");
+              if (number != phone.end()) {
+                  templ.number = number->second.AsString();
+              }
+              auto extension = phone.find("extension");
+              if (extension != phone.end()) {
+                  templ.extension = extension->second.AsString();
+              }
+              result.phones.push_back(std::move(templ));
+          }
+      }
+      return std::move(result);
+  }
+
+  serialization::Phone_Type PhoneQuery::phone_type() const
+  {
+      if (type == "PHONE")
+          return serialization::Phone_Type::Phone_Type_PHONE;
+      return serialization::Phone_Type::Phone_Type_FAX;
   }
 
 }

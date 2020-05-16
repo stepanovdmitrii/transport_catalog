@@ -49,6 +49,7 @@ public:
 
   const Stop* GetStop(const std::string& name) const;
   const Bus* GetBus(const std::string& name) const;
+  const serialization::Database& GetDatabase() const;
 
   std::optional<TransportRouter::RouteInfo> FindRoute(const std::string& stop_from, const std::string& stop_to) const;
 

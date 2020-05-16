@@ -43,7 +43,6 @@ TransportCatalog::TransportCatalog(
       stops_.at(stop_name).bus_names.insert(bus.name);
     }
   }
-  
   router_ = make_unique<TransportRouter>(stops_dict, buses_dict, routing_settings_json);
   
   map_renderer_ = make_unique<MapRenderer>(stops_dict, buses_dict, render_settings_json);
@@ -84,6 +83,11 @@ const TransportCatalog::Stop* TransportCatalog::GetStop(const string& name) cons
 
 const TransportCatalog::Bus* TransportCatalog::GetBus(const string& name) const {
   return GetValuePointer(buses_, name);
+}
+
+const serialization::Database& TransportCatalog::GetDatabase() const
+{
+    return database_;
 }
 
 optional<TransportRouter::RouteInfo> TransportCatalog::FindRoute(const string& stop_from, const string& stop_to) const {
@@ -167,13 +171,13 @@ void TransportCatalog::ParseCompanies(const Json::Dict& yellow_pages_json)
     for (const auto& company : company_arr) {
         serialization::Company* comp = database_.add_companies();;
         const auto& company_dict = company.AsMap();
-        ParseCompanyAddress(*comp, company_dict);
+        //ParseCompanyAddress(*comp, company_dict);
         ParseCompanyNames(*comp, company_dict);
         ParseCompanyPhones(*comp, company_dict);
         ParseCompanyUrls(*comp, company_dict);
         ParseCompanyRubrics(*comp, company_dict);
         //working_time
-        ParseCompanyNearbyStops(*comp, company_dict);
+        //ParseCompanyNearbyStops(*comp, company_dict);
     }
 }
 
@@ -189,12 +193,12 @@ void TransportCatalog::ParseRubrics(const Json::Dict& yellow_pages_json)
         serialization::Rubric r;
         const auto& rubric_dict = rubric.second.AsMap();
         r.set_name(rubric_dict.at("name").AsString());
-        if (rubric_dict.find("keywords") != rubric_dict.end()) {
-            const auto& keywords_arr = rubric_dict.at("keywords").AsArray();
-            for (const auto& keyword : keywords_arr) {
-                r.add_keywords(keyword.AsString());
-            }
-        }
+        //if (rubric_dict.find("keywords") != rubric_dict.end()) {
+        //    const auto& keywords_arr = rubric_dict.at("keywords").AsArray();
+        //    for (const auto& keyword : keywords_arr) {
+        //        r.add_keywords(keyword.AsString());
+        //    }
+        //}
         (*database_.mutable_rubrics())[key] = std::move(r);
     }
 }
@@ -267,8 +271,14 @@ void TransportCatalog::ParseCompanyAddress(serialization::Company& comp, const J
         const auto& coords = address_dict.find("coords");
         if (coords != address_dict.end()) {
             const auto& coords_dict = coords->second.AsMap();
-            address->mutable_coords()->set_lat(coords_dict.at("lat").AsDouble());
-            address->mutable_coords()->set_lon(coords_dict.at("lon").AsDouble());
+            std::stringstream lat_str(coords_dict.at("lat").AsString());
+            std::stringstream lon_str(coords_dict.at("lon").AsString());
+            double lat;
+            double lon;
+            lat_str >> lat;
+            lon_str >> lon;
+            address->mutable_coords()->set_lat(lat);
+            address->mutable_coords()->set_lon(lon);
         }
 
         const auto& comment = address_dict.find("comment");
@@ -290,13 +300,13 @@ void TransportCatalog::ParseCompanyNames(serialization::Company& comp, const Jso
             name_value->set_type(serialization::Name_Type::Name_Type_MAIN);
         }
         else {
-            if (type_node->second.AsString() == "main") {
+            if (type_node->second.AsString() == "MAIN") {
                 name_value->set_type(serialization::Name_Type::Name_Type_MAIN);
             }
-            else if (type_node->second.AsString() == "short") {
+            else if (type_node->second.AsString() == "SHORT") {
                 name_value->set_type(serialization::Name_Type::Name_Type_SHORT);
             }
-            else if (type_node->second.AsString() == "synonym") {
+            else {
                 name_value->set_type(serialization::Name_Type::Name_Type_SYNONYM);
             }
         }
@@ -319,10 +329,10 @@ void TransportCatalog::ParseCompanyPhones(serialization::Company& comp, const Js
 
             const auto& type = phone_dict.find("type");
             if (type != phone_dict.end()) {
-                if (type->second.AsString() == "phone") {
+                if (type->second.AsString() == "PHONE") {
                     phone->set_type(serialization::Phone_Type::Phone_Type_PHONE);
                 }
-                else if (type->second.AsString() == "fax") {
+                else if (type->second.AsString() == "FAX") {
                     phone->set_type(serialization::Phone_Type::Phone_Type_FAX);
                 }
             }
@@ -347,7 +357,7 @@ void TransportCatalog::ParseCompanyPhones(serialization::Company& comp, const Js
 
             const auto& extension = phone_dict.find("extension");
             if (extension != phone_dict.end()) {
-                phone->set_number(extension->second.AsString());
+                phone->set_extension(extension->second.AsString());
             }
 
             const auto& description = phone_dict.find("description");

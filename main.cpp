@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -18,7 +19,6 @@ int main(int argc, const char* argv[]) {
     }
 
     const string_view mode(argv[1]);
-
     const auto input_doc = Json::Load(cin);
     const auto& input_map = input_doc.GetRoot().AsMap();
     std::string file = input_map.at("serialization_settings").AsMap().at("file").AsString();
