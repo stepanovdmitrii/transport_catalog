@@ -105,6 +105,7 @@
     <ClCompile Include="transport_catalog.pb.cc" />
     <ClCompile Include="transport_router.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="yellow_pages.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="descriptions.h" />
@@ -119,6 +120,7 @@
     <ClInclude Include="transport_catalog.pb.h" />
     <ClInclude Include="transport_router.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="yellow_pages.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

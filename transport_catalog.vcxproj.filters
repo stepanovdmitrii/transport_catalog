@@ -47,6 +47,9 @@
     <ClCompile Include="transport_catalog.pb.cc">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="yellow_pages.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="descriptions.h" />
@@ -61,5 +64,6 @@
     <ClInclude Include="transport_router.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="transport_catalog.pb.h" />
+    <ClInclude Include="yellow_pages.h" />
   </ItemGroup>
 </Project>

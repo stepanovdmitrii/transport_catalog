@@ -32,45 +32,10 @@ namespace Requests {
     Json::Dict Process(const TransportCatalog& db) const;
   };
 
-  struct PhoneQuery {
-      std::string type;
-      std::string country_code;
-      std::string local_code;
-      std::string number;
-      std::string extension;
-
-      bool DoesPhoneMatch(const serialization::Phone& object) const {
-          if (!extension.empty() && extension != object.extension()) {
-              return false;
-          }
-          if (!type.empty() && phone_type() != object.type()) {
-              return false;
-          }
-          if (!country_code.empty() && country_code != object.country_code()) {
-              return false;
-          }
-          if (
-              (!local_code.empty() || !country_code.empty())
-              && local_code != object.local_code()
-              ) {
-              return false;
-          }
-          return number == object.number();
-      }
-
-  private:
-      serialization::Phone_Type phone_type() const;
-  };
-
   struct Companies {
-      std::unordered_set<std::string> names;
-      std::unordered_set<std::string> urls;
-      std::unordered_set<std::string> rubrics;
-      std::vector<PhoneQuery> phones;
+      CompanyQuery query;
 
       Json::Dict Process(const TransportCatalog& db) const;
-
-      static Companies Create(const Json::Dict& attrs);
   };
 
   std::variant<Stop, Bus, Route, Map, Companies> Read(const Json::Dict& attrs);
