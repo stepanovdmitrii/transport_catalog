@@ -51,7 +51,7 @@ struct TableStruct_transport_5fcatalog_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[33]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[35]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -119,6 +119,9 @@ extern Renderer_BusColorsEntry_DoNotUseDefaultTypeInternal _Renderer_BusColorsEn
 class Renderer_BusesEntry_DoNotUse;
 class Renderer_BusesEntry_DoNotUseDefaultTypeInternal;
 extern Renderer_BusesEntry_DoNotUseDefaultTypeInternal _Renderer_BusesEntry_DoNotUse_default_instance_;
+class Renderer_CompanyCoordsEntry_DoNotUse;
+class Renderer_CompanyCoordsEntry_DoNotUseDefaultTypeInternal;
+extern Renderer_CompanyCoordsEntry_DoNotUseDefaultTypeInternal _Renderer_CompanyCoordsEntry_DoNotUse_default_instance_;
 class Renderer_StopsCoordsEntry_DoNotUse;
 class Renderer_StopsCoordsEntry_DoNotUseDefaultTypeInternal;
 extern Renderer_StopsCoordsEntry_DoNotUseDefaultTypeInternal _Renderer_StopsCoordsEntry_DoNotUse_default_instance_;
@@ -134,6 +137,9 @@ extern RouterDefaultTypeInternal _Router_default_instance_;
 class RouterImpl;
 class RouterImplDefaultTypeInternal;
 extern RouterImplDefaultTypeInternal _RouterImpl_default_instance_;
+class Router_CompaniesVerticiesEntry_DoNotUse;
+class Router_CompaniesVerticiesEntry_DoNotUseDefaultTypeInternal;
+extern Router_CompaniesVerticiesEntry_DoNotUseDefaultTypeInternal _Router_CompaniesVerticiesEntry_DoNotUse_default_instance_;
 class Rubric;
 class RubricDefaultTypeInternal;
 extern RubricDefaultTypeInternal _Rubric_default_instance_;
@@ -180,11 +186,13 @@ template<> ::serialization::RenderSettings* Arena::CreateMaybeMessage<::serializ
 template<> ::serialization::Renderer* Arena::CreateMaybeMessage<::serialization::Renderer>(Arena*);
 template<> ::serialization::Renderer_BusColorsEntry_DoNotUse* Arena::CreateMaybeMessage<::serialization::Renderer_BusColorsEntry_DoNotUse>(Arena*);
 template<> ::serialization::Renderer_BusesEntry_DoNotUse* Arena::CreateMaybeMessage<::serialization::Renderer_BusesEntry_DoNotUse>(Arena*);
+template<> ::serialization::Renderer_CompanyCoordsEntry_DoNotUse* Arena::CreateMaybeMessage<::serialization::Renderer_CompanyCoordsEntry_DoNotUse>(Arena*);
 template<> ::serialization::Renderer_StopsCoordsEntry_DoNotUse* Arena::CreateMaybeMessage<::serialization::Renderer_StopsCoordsEntry_DoNotUse>(Arena*);
 template<> ::serialization::RouteInternalData* Arena::CreateMaybeMessage<::serialization::RouteInternalData>(Arena*);
 template<> ::serialization::RouteInternalDataVector* Arena::CreateMaybeMessage<::serialization::RouteInternalDataVector>(Arena*);
 template<> ::serialization::Router* Arena::CreateMaybeMessage<::serialization::Router>(Arena*);
 template<> ::serialization::RouterImpl* Arena::CreateMaybeMessage<::serialization::RouterImpl>(Arena*);
+template<> ::serialization::Router_CompaniesVerticiesEntry_DoNotUse* Arena::CreateMaybeMessage<::serialization::Router_CompaniesVerticiesEntry_DoNotUse>(Arena*);
 template<> ::serialization::Rubric* Arena::CreateMaybeMessage<::serialization::Rubric>(Arena*);
 template<> ::serialization::StopInfo* Arena::CreateMaybeMessage<::serialization::StopInfo>(Arena*);
 template<> ::serialization::StopVertexIds* Arena::CreateMaybeMessage<::serialization::StopVertexIds>(Arena*);
@@ -309,12 +317,13 @@ inline bool WorkingTimeInterval_Day_Parse(
 enum EdgeInfoType : int {
   WAIT = 0,
   BUS = 1,
+  WALK = 2,
   EdgeInfoType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   EdgeInfoType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool EdgeInfoType_IsValid(int value);
 constexpr EdgeInfoType EdgeInfoType_MIN = WAIT;
-constexpr EdgeInfoType EdgeInfoType_MAX = BUS;
+constexpr EdgeInfoType EdgeInfoType_MAX = WALK;
 constexpr int EdgeInfoType_ARRAYSIZE = EdgeInfoType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EdgeInfoType_descriptor();
@@ -1262,6 +1271,7 @@ class VertexInfo :
 
   enum : int {
     kNameFieldNumber = 1,
+    kCompanyIdFieldNumber = 2,
   };
   // string name = 1;
   void clear_name();
@@ -1279,12 +1289,22 @@ class VertexInfo :
   std::string* _internal_mutable_name();
   public:
 
+  // int32 company_id = 2;
+  void clear_company_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 company_id() const;
+  void set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_company_id() const;
+  void _internal_set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:serialization.VertexInfo)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 company_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalog_2eproto;
 };
@@ -1397,9 +1417,13 @@ class EdgeInfo :
 
   enum : int {
     kBusNameFieldNumber = 2,
+    kStopFromFieldNumber = 5,
+    kCompanyNameFieldNumber = 7,
+    kCompanyDisplayNameFieldNumber = 8,
     kBusStartStopIdxFieldNumber = 3,
-    kBusFinishStopIdxFieldNumber = 4,
     kTypeFieldNumber = 1,
+    kCompanyIdFieldNumber = 6,
+    kBusFinishStopIdxFieldNumber = 4,
   };
   // string bus_name = 2;
   void clear_bus_name();
@@ -1417,6 +1441,54 @@ class EdgeInfo :
   std::string* _internal_mutable_bus_name();
   public:
 
+  // string stop_from = 5;
+  void clear_stop_from();
+  const std::string& stop_from() const;
+  void set_stop_from(const std::string& value);
+  void set_stop_from(std::string&& value);
+  void set_stop_from(const char* value);
+  void set_stop_from(const char* value, size_t size);
+  std::string* mutable_stop_from();
+  std::string* release_stop_from();
+  void set_allocated_stop_from(std::string* stop_from);
+  private:
+  const std::string& _internal_stop_from() const;
+  void _internal_set_stop_from(const std::string& value);
+  std::string* _internal_mutable_stop_from();
+  public:
+
+  // string company_name = 7;
+  void clear_company_name();
+  const std::string& company_name() const;
+  void set_company_name(const std::string& value);
+  void set_company_name(std::string&& value);
+  void set_company_name(const char* value);
+  void set_company_name(const char* value, size_t size);
+  std::string* mutable_company_name();
+  std::string* release_company_name();
+  void set_allocated_company_name(std::string* company_name);
+  private:
+  const std::string& _internal_company_name() const;
+  void _internal_set_company_name(const std::string& value);
+  std::string* _internal_mutable_company_name();
+  public:
+
+  // string company_display_name = 8;
+  void clear_company_display_name();
+  const std::string& company_display_name() const;
+  void set_company_display_name(const std::string& value);
+  void set_company_display_name(std::string&& value);
+  void set_company_display_name(const char* value);
+  void set_company_display_name(const char* value, size_t size);
+  std::string* mutable_company_display_name();
+  std::string* release_company_display_name();
+  void set_allocated_company_display_name(std::string* company_display_name);
+  private:
+  const std::string& _internal_company_display_name() const;
+  void _internal_set_company_display_name(const std::string& value);
+  std::string* _internal_mutable_company_display_name();
+  public:
+
   // uint64 bus_start_stop_idx = 3;
   void clear_bus_start_stop_idx();
   ::PROTOBUF_NAMESPACE_ID::uint64 bus_start_stop_idx() const;
@@ -1424,15 +1496,6 @@ class EdgeInfo :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bus_start_stop_idx() const;
   void _internal_set_bus_start_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // uint64 bus_finish_stop_idx = 4;
-  void clear_bus_finish_stop_idx();
-  ::PROTOBUF_NAMESPACE_ID::uint64 bus_finish_stop_idx() const;
-  void set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bus_finish_stop_idx() const;
-  void _internal_set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // .serialization.EdgeInfoType type = 1;
@@ -1444,15 +1507,37 @@ class EdgeInfo :
   void _internal_set_type(::serialization::EdgeInfoType value);
   public:
 
+  // int32 company_id = 6;
+  void clear_company_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 company_id() const;
+  void set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_company_id() const;
+  void _internal_set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // uint64 bus_finish_stop_idx = 4;
+  void clear_bus_finish_stop_idx();
+  ::PROTOBUF_NAMESPACE_ID::uint64 bus_finish_stop_idx() const;
+  void set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bus_finish_stop_idx() const;
+  void _internal_set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:serialization.EdgeInfo)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bus_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr stop_from_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr company_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr company_display_name_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bus_start_stop_idx_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 bus_finish_stop_idx_;
   int type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 company_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 bus_finish_stop_idx_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalog_2eproto;
 };
@@ -1893,6 +1978,36 @@ class RouterImpl :
 };
 // -------------------------------------------------------------------
 
+class Router_CompaniesVerticiesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Router_CompaniesVerticiesEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    0 > {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Router_CompaniesVerticiesEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    0 > SuperType;
+  Router_CompaniesVerticiesEntry_DoNotUse();
+  Router_CompaniesVerticiesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const Router_CompaniesVerticiesEntry_DoNotUse& other);
+  static const Router_CompaniesVerticiesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Router_CompaniesVerticiesEntry_DoNotUse*>(&_Router_CompaniesVerticiesEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[10];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
 class Router :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:serialization.Router) */ {
  public:
@@ -1935,7 +2050,7 @@ class Router :
                &_Router_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Router& a, Router& b) {
     a.Swap(&b);
@@ -1996,15 +2111,18 @@ class Router :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kStopVertexIdsFieldNumber = 5,
     kVertexInfosFieldNumber = 6,
     kEdgeInfosFieldNumber = 7,
+    kCompaniesVerticiesFieldNumber = 9,
     kGraphFieldNumber = 3,
     kRouteImplFieldNumber = 4,
     kBusVelocityFieldNumber = 2,
+    kPedestrianVelocityFieldNumber = 8,
     kBusWaitTimeFieldNumber = 1,
   };
   // repeated .serialization.StopVertexIds stop_vertex_ids = 5;
@@ -2061,6 +2179,23 @@ class Router :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::serialization::EdgeInfo >&
       edge_infos() const;
 
+  // map<int32, uint64> companies_verticies = 9;
+  int companies_verticies_size() const;
+  private:
+  int _internal_companies_verticies_size() const;
+  public:
+  void clear_companies_verticies();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_companies_verticies() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_companies_verticies();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      companies_verticies() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_companies_verticies();
+
   // .serialization.Graph graph = 3;
   bool has_graph() const;
   private:
@@ -2100,6 +2235,15 @@ class Router :
   void _internal_set_bus_velocity(double value);
   public:
 
+  // double pedestrian_velocity = 8;
+  void clear_pedestrian_velocity();
+  double pedestrian_velocity() const;
+  void set_pedestrian_velocity(double value);
+  private:
+  double _internal_pedestrian_velocity() const;
+  void _internal_set_pedestrian_velocity(double value);
+  public:
+
   // int32 bus_wait_time = 1;
   void clear_bus_wait_time();
   ::PROTOBUF_NAMESPACE_ID::int32 bus_wait_time() const;
@@ -2117,9 +2261,16 @@ class Router :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::serialization::StopVertexIds > stop_vertex_ids_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::serialization::VertexInfo > vertex_infos_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::serialization::EdgeInfo > edge_infos_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      Router_CompaniesVerticiesEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+      0 > companies_verticies_;
   ::serialization::Graph* graph_;
   ::serialization::RouterImpl* route_impl_;
   double bus_velocity_;
+  double pedestrian_velocity_;
   ::PROTOBUF_NAMESPACE_ID::int32 bus_wait_time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalog_2eproto;
@@ -2168,7 +2319,7 @@ class Color :
                &_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(Color& a, Color& b) {
     a.Swap(&b);
@@ -2358,7 +2509,7 @@ class Point :
                &_Point_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(Point& a, Point& b) {
     a.Swap(&b);
@@ -2497,7 +2648,7 @@ class RenderSettings :
                &_RenderSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(RenderSettings& a, RenderSettings& b) {
     a.Swap(&b);
@@ -2575,6 +2726,8 @@ class RenderSettings :
     kStopRadiusFieldNumber = 9,
     kBusLabelFontSizeFieldNumber = 11,
     kStopLabelFontSizeFieldNumber = 13,
+    kCompanyRadiusFieldNumber = 15,
+    kCompanyLineWidthFieldNumber = 16,
   };
   // repeated .serialization.Color palette = 5;
   int palette_size() const;
@@ -2744,6 +2897,24 @@ class RenderSettings :
   void _internal_set_stop_label_font_size(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // double company_radius = 15;
+  void clear_company_radius();
+  double company_radius() const;
+  void set_company_radius(double value);
+  private:
+  double _internal_company_radius() const;
+  void _internal_set_company_radius(double value);
+  public:
+
+  // double company_line_width = 16;
+  void clear_company_line_width();
+  double company_line_width() const;
+  void set_company_line_width(double value);
+  private:
+  double _internal_company_line_width() const;
+  void _internal_set_company_line_width(double value);
+  public:
+
   // @@protoc_insertion_point(class_scope:serialization.RenderSettings)
  private:
   class _Internal;
@@ -2763,6 +2934,8 @@ class RenderSettings :
   double stop_radius_;
   ::PROTOBUF_NAMESPACE_ID::int32 bus_label_font_size_;
   ::PROTOBUF_NAMESPACE_ID::int32 stop_label_font_size_;
+  double company_radius_;
+  double company_line_width_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalog_2eproto;
 };
@@ -2810,7 +2983,7 @@ class Bus :
                &_Bus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Bus& a, Bus& b) {
     a.Swap(&b);
@@ -2961,7 +3134,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
-    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[15];
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[16];
   }
 
   public:
@@ -2993,7 +3166,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
-    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[16];
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[17];
   }
 
   public:
@@ -3025,7 +3198,37 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
-    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[17];
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[18];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class Renderer_CompanyCoordsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Renderer_CompanyCoordsEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Renderer_CompanyCoordsEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE,
+    0 > SuperType;
+  Renderer_CompanyCoordsEntry_DoNotUse();
+  Renderer_CompanyCoordsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const Renderer_CompanyCoordsEntry_DoNotUse& other);
+  static const Renderer_CompanyCoordsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Renderer_CompanyCoordsEntry_DoNotUse*>(&_Renderer_CompanyCoordsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[19];
   }
 
   public:
@@ -3075,7 +3278,7 @@ class Renderer :
                &_Renderer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(Renderer& a, Renderer& b) {
     a.Swap(&b);
@@ -3143,6 +3346,7 @@ class Renderer :
     kStopsCoordsFieldNumber = 2,
     kBusColorsFieldNumber = 3,
     kBusesFieldNumber = 4,
+    kCompanyCoordsFieldNumber = 5,
     kSettingsFieldNumber = 1,
   };
   // map<string, .serialization.Point> stops_coords = 2;
@@ -3196,6 +3400,23 @@ class Renderer :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >*
       mutable_buses();
 
+  // map<int32, .serialization.Point> company_coords = 5;
+  int company_coords_size() const;
+  private:
+  int _internal_company_coords_size() const;
+  public:
+  void clear_company_coords();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >&
+      _internal_company_coords() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >*
+      _internal_mutable_company_coords();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >&
+      company_coords() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >*
+      mutable_company_coords();
+
   // .serialization.RenderSettings settings = 1;
   bool has_settings() const;
   private:
@@ -3234,6 +3455,12 @@ class Renderer :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE,
       0 > buses_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      Renderer_CompanyCoordsEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE,
+      0 > company_coords_;
   ::serialization::RenderSettings* settings_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalog_2eproto;
@@ -3282,7 +3509,7 @@ class NearbyStop :
                &_NearbyStop_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(NearbyStop& a, NearbyStop& b) {
     a.Swap(&b);
@@ -3428,7 +3655,7 @@ class Coords :
                &_Coords_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(Coords& a, Coords& b) {
     a.Swap(&b);
@@ -3567,7 +3794,7 @@ class AddressComponent :
                &_AddressComponent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(AddressComponent& a, AddressComponent& b) {
     a.Swap(&b);
@@ -3738,7 +3965,7 @@ class Address :
                &_Address_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(Address& a, Address& b) {
     a.Swap(&b);
@@ -3928,7 +4155,7 @@ class Name :
                &_Name_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(Name& a, Name& b) {
     a.Swap(&b);
@@ -4106,7 +4333,7 @@ class Phone :
                &_Phone_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(Phone& a, Phone& b) {
     a.Swap(&b);
@@ -4372,7 +4599,7 @@ class WorkingTimeInterval :
                &_WorkingTimeInterval_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(WorkingTimeInterval& a, WorkingTimeInterval& b) {
     a.Swap(&b);
@@ -4564,7 +4791,7 @@ class WorkingTime :
                &_WorkingTime_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(WorkingTime& a, WorkingTime& b) {
     a.Swap(&b);
@@ -4719,7 +4946,7 @@ class Url :
                &_Url_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(Url& a, Url& b) {
     a.Swap(&b);
@@ -4854,7 +5081,7 @@ class Company :
                &_Company_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(Company& a, Company& b) {
     a.Swap(&b);
@@ -5110,7 +5337,7 @@ class Rubric :
                &_Rubric_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(Rubric& a, Rubric& b) {
     a.Swap(&b);
@@ -5251,7 +5478,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_transport_5fcatalog_2eproto);
-    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[30];
+    return ::descriptor_table_transport_5fcatalog_2eproto.file_level_metadata[32];
   }
 
   public:
@@ -5301,7 +5528,7 @@ class Database :
                &_Database_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(Database& a, Database& b) {
     a.Swap(&b);
@@ -5463,7 +5690,7 @@ class TransportCatalog :
                &_TransportCatalog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(TransportCatalog& a, TransportCatalog& b) {
     a.Swap(&b);
@@ -6211,6 +6438,26 @@ inline void VertexInfo::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:serialization.VertexInfo.name)
 }
 
+// int32 company_id = 2;
+inline void VertexInfo::clear_company_id() {
+  company_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VertexInfo::_internal_company_id() const {
+  return company_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VertexInfo::company_id() const {
+  // @@protoc_insertion_point(field_get:serialization.VertexInfo.company_id)
+  return _internal_company_id();
+}
+inline void VertexInfo::_internal_set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  company_id_ = value;
+}
+inline void VertexInfo::set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_company_id(value);
+  // @@protoc_insertion_point(field_set:serialization.VertexInfo.company_id)
+}
+
 // -------------------------------------------------------------------
 
 // EdgeInfo
@@ -6333,6 +6580,206 @@ inline void EdgeInfo::_internal_set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID:
 inline void EdgeInfo::set_bus_finish_stop_idx(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_bus_finish_stop_idx(value);
   // @@protoc_insertion_point(field_set:serialization.EdgeInfo.bus_finish_stop_idx)
+}
+
+// string stop_from = 5;
+inline void EdgeInfo::clear_stop_from() {
+  stop_from_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& EdgeInfo::stop_from() const {
+  // @@protoc_insertion_point(field_get:serialization.EdgeInfo.stop_from)
+  return _internal_stop_from();
+}
+inline void EdgeInfo::set_stop_from(const std::string& value) {
+  _internal_set_stop_from(value);
+  // @@protoc_insertion_point(field_set:serialization.EdgeInfo.stop_from)
+}
+inline std::string* EdgeInfo::mutable_stop_from() {
+  // @@protoc_insertion_point(field_mutable:serialization.EdgeInfo.stop_from)
+  return _internal_mutable_stop_from();
+}
+inline const std::string& EdgeInfo::_internal_stop_from() const {
+  return stop_from_.GetNoArena();
+}
+inline void EdgeInfo::_internal_set_stop_from(const std::string& value) {
+  
+  stop_from_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void EdgeInfo::set_stop_from(std::string&& value) {
+  
+  stop_from_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:serialization.EdgeInfo.stop_from)
+}
+inline void EdgeInfo::set_stop_from(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  stop_from_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:serialization.EdgeInfo.stop_from)
+}
+inline void EdgeInfo::set_stop_from(const char* value, size_t size) {
+  
+  stop_from_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:serialization.EdgeInfo.stop_from)
+}
+inline std::string* EdgeInfo::_internal_mutable_stop_from() {
+  
+  return stop_from_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* EdgeInfo::release_stop_from() {
+  // @@protoc_insertion_point(field_release:serialization.EdgeInfo.stop_from)
+  
+  return stop_from_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void EdgeInfo::set_allocated_stop_from(std::string* stop_from) {
+  if (stop_from != nullptr) {
+    
+  } else {
+    
+  }
+  stop_from_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), stop_from);
+  // @@protoc_insertion_point(field_set_allocated:serialization.EdgeInfo.stop_from)
+}
+
+// int32 company_id = 6;
+inline void EdgeInfo::clear_company_id() {
+  company_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 EdgeInfo::_internal_company_id() const {
+  return company_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 EdgeInfo::company_id() const {
+  // @@protoc_insertion_point(field_get:serialization.EdgeInfo.company_id)
+  return _internal_company_id();
+}
+inline void EdgeInfo::_internal_set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  company_id_ = value;
+}
+inline void EdgeInfo::set_company_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_company_id(value);
+  // @@protoc_insertion_point(field_set:serialization.EdgeInfo.company_id)
+}
+
+// string company_name = 7;
+inline void EdgeInfo::clear_company_name() {
+  company_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& EdgeInfo::company_name() const {
+  // @@protoc_insertion_point(field_get:serialization.EdgeInfo.company_name)
+  return _internal_company_name();
+}
+inline void EdgeInfo::set_company_name(const std::string& value) {
+  _internal_set_company_name(value);
+  // @@protoc_insertion_point(field_set:serialization.EdgeInfo.company_name)
+}
+inline std::string* EdgeInfo::mutable_company_name() {
+  // @@protoc_insertion_point(field_mutable:serialization.EdgeInfo.company_name)
+  return _internal_mutable_company_name();
+}
+inline const std::string& EdgeInfo::_internal_company_name() const {
+  return company_name_.GetNoArena();
+}
+inline void EdgeInfo::_internal_set_company_name(const std::string& value) {
+  
+  company_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void EdgeInfo::set_company_name(std::string&& value) {
+  
+  company_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:serialization.EdgeInfo.company_name)
+}
+inline void EdgeInfo::set_company_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  company_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:serialization.EdgeInfo.company_name)
+}
+inline void EdgeInfo::set_company_name(const char* value, size_t size) {
+  
+  company_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:serialization.EdgeInfo.company_name)
+}
+inline std::string* EdgeInfo::_internal_mutable_company_name() {
+  
+  return company_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* EdgeInfo::release_company_name() {
+  // @@protoc_insertion_point(field_release:serialization.EdgeInfo.company_name)
+  
+  return company_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void EdgeInfo::set_allocated_company_name(std::string* company_name) {
+  if (company_name != nullptr) {
+    
+  } else {
+    
+  }
+  company_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), company_name);
+  // @@protoc_insertion_point(field_set_allocated:serialization.EdgeInfo.company_name)
+}
+
+// string company_display_name = 8;
+inline void EdgeInfo::clear_company_display_name() {
+  company_display_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& EdgeInfo::company_display_name() const {
+  // @@protoc_insertion_point(field_get:serialization.EdgeInfo.company_display_name)
+  return _internal_company_display_name();
+}
+inline void EdgeInfo::set_company_display_name(const std::string& value) {
+  _internal_set_company_display_name(value);
+  // @@protoc_insertion_point(field_set:serialization.EdgeInfo.company_display_name)
+}
+inline std::string* EdgeInfo::mutable_company_display_name() {
+  // @@protoc_insertion_point(field_mutable:serialization.EdgeInfo.company_display_name)
+  return _internal_mutable_company_display_name();
+}
+inline const std::string& EdgeInfo::_internal_company_display_name() const {
+  return company_display_name_.GetNoArena();
+}
+inline void EdgeInfo::_internal_set_company_display_name(const std::string& value) {
+  
+  company_display_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void EdgeInfo::set_company_display_name(std::string&& value) {
+  
+  company_display_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:serialization.EdgeInfo.company_display_name)
+}
+inline void EdgeInfo::set_company_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  company_display_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:serialization.EdgeInfo.company_display_name)
+}
+inline void EdgeInfo::set_company_display_name(const char* value, size_t size) {
+  
+  company_display_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:serialization.EdgeInfo.company_display_name)
+}
+inline std::string* EdgeInfo::_internal_mutable_company_display_name() {
+  
+  return company_display_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* EdgeInfo::release_company_display_name() {
+  // @@protoc_insertion_point(field_release:serialization.EdgeInfo.company_display_name)
+  
+  return company_display_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void EdgeInfo::set_allocated_company_display_name(std::string* company_display_name) {
+  if (company_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  company_display_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), company_display_name);
+  // @@protoc_insertion_point(field_set_allocated:serialization.EdgeInfo.company_display_name)
 }
 
 // -------------------------------------------------------------------
@@ -6504,6 +6951,8 @@ RouterImpl::vectors() const {
   // @@protoc_insertion_point(field_list:serialization.RouterImpl.vectors)
   return vectors_;
 }
+
+// -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
@@ -6784,6 +7233,55 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::serialization::EdgeInf
 Router::edge_infos() const {
   // @@protoc_insertion_point(field_list:serialization.Router.edge_infos)
   return edge_infos_;
+}
+
+// double pedestrian_velocity = 8;
+inline void Router::clear_pedestrian_velocity() {
+  pedestrian_velocity_ = 0;
+}
+inline double Router::_internal_pedestrian_velocity() const {
+  return pedestrian_velocity_;
+}
+inline double Router::pedestrian_velocity() const {
+  // @@protoc_insertion_point(field_get:serialization.Router.pedestrian_velocity)
+  return _internal_pedestrian_velocity();
+}
+inline void Router::_internal_set_pedestrian_velocity(double value) {
+  
+  pedestrian_velocity_ = value;
+}
+inline void Router::set_pedestrian_velocity(double value) {
+  _internal_set_pedestrian_velocity(value);
+  // @@protoc_insertion_point(field_set:serialization.Router.pedestrian_velocity)
+}
+
+// map<int32, uint64> companies_verticies = 9;
+inline int Router::_internal_companies_verticies_size() const {
+  return companies_verticies_.size();
+}
+inline int Router::companies_verticies_size() const {
+  return _internal_companies_verticies_size();
+}
+inline void Router::clear_companies_verticies() {
+  companies_verticies_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Router::_internal_companies_verticies() const {
+  return companies_verticies_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >&
+Router::companies_verticies() const {
+  // @@protoc_insertion_point(field_map:serialization.Router.companies_verticies)
+  return _internal_companies_verticies();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Router::_internal_mutable_companies_verticies() {
+  return companies_verticies_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >*
+Router::mutable_companies_verticies() {
+  // @@protoc_insertion_point(field_mutable_map:serialization.Router.companies_verticies)
+  return _internal_mutable_companies_verticies();
 }
 
 // -------------------------------------------------------------------
@@ -7471,6 +7969,46 @@ RenderSettings::mutable_layers() {
   return &layers_;
 }
 
+// double company_radius = 15;
+inline void RenderSettings::clear_company_radius() {
+  company_radius_ = 0;
+}
+inline double RenderSettings::_internal_company_radius() const {
+  return company_radius_;
+}
+inline double RenderSettings::company_radius() const {
+  // @@protoc_insertion_point(field_get:serialization.RenderSettings.company_radius)
+  return _internal_company_radius();
+}
+inline void RenderSettings::_internal_set_company_radius(double value) {
+  
+  company_radius_ = value;
+}
+inline void RenderSettings::set_company_radius(double value) {
+  _internal_set_company_radius(value);
+  // @@protoc_insertion_point(field_set:serialization.RenderSettings.company_radius)
+}
+
+// double company_line_width = 16;
+inline void RenderSettings::clear_company_line_width() {
+  company_line_width_ = 0;
+}
+inline double RenderSettings::_internal_company_line_width() const {
+  return company_line_width_;
+}
+inline double RenderSettings::company_line_width() const {
+  // @@protoc_insertion_point(field_get:serialization.RenderSettings.company_line_width)
+  return _internal_company_line_width();
+}
+inline void RenderSettings::_internal_set_company_line_width(double value) {
+  
+  company_line_width_ = value;
+}
+inline void RenderSettings::set_company_line_width(double value) {
+  _internal_set_company_line_width(value);
+  // @@protoc_insertion_point(field_set:serialization.RenderSettings.company_line_width)
+}
+
 // -------------------------------------------------------------------
 
 // Bus
@@ -7631,6 +8169,8 @@ Bus::mutable_endpoints() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // Renderer
 
 // .serialization.RenderSettings settings = 1;
@@ -7778,6 +8318,35 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::serialization::Bus >*
 Renderer::mutable_buses() {
   // @@protoc_insertion_point(field_mutable_map:serialization.Renderer.buses)
   return _internal_mutable_buses();
+}
+
+// map<int32, .serialization.Point> company_coords = 5;
+inline int Renderer::_internal_company_coords_size() const {
+  return company_coords_.size();
+}
+inline int Renderer::company_coords_size() const {
+  return _internal_company_coords_size();
+}
+inline void Renderer::clear_company_coords() {
+  company_coords_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >&
+Renderer::_internal_company_coords() const {
+  return company_coords_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >&
+Renderer::company_coords() const {
+  // @@protoc_insertion_point(field_map:serialization.Renderer.company_coords)
+  return _internal_company_coords();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >*
+Renderer::_internal_mutable_company_coords() {
+  return company_coords_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >*
+Renderer::mutable_company_coords() {
+  // @@protoc_insertion_point(field_mutable_map:serialization.Renderer.company_coords)
+  return _internal_mutable_company_coords();
 }
 
 // -------------------------------------------------------------------
@@ -9698,6 +10267,10 @@ inline void TransportCatalog::set_allocated_database(::serialization::Database* 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

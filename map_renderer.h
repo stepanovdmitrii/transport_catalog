@@ -27,12 +27,15 @@ struct RenderSettings {
   Svg::Point stop_label_offset;
   int stop_label_font_size;
   std::vector<std::string> layers;
+  double company_radius;
+  double company_line_width;
 };
 
 class MapRenderer {
 public:
   MapRenderer(const Descriptions::StopsDict& stops_dict,
               const Descriptions::BusesDict& buses_dict,
+              const Descriptions::CompaniesDict& companies_dict,
               const Json::Dict& render_settings_json);
 
   MapRenderer(const serialization::Renderer& renderer);
@@ -49,6 +52,7 @@ private:
   std::unordered_map<std::string, Svg::Color> bus_colors_;
   // TODO: move instead of copy
   std::map<std::string, Descriptions::Bus> buses_dict_;
+  std::unordered_map<int, Svg::Point> _comp_coords;
 
   void RenderBusLabel(Svg::Document& svg, const std::string& bus_name, const std::string& stop_name) const;
   void RenderStopPoint(Svg::Document& svg, Svg::Point point) const;
@@ -63,6 +67,17 @@ private:
   void RenderRouteBusLabels(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
   void RenderRouteStopPoints(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
   void RenderRouteStopLabels(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
+
+  void RenderRouteCompanyLines(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
+  void RenderRouteCompanyPoints(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
+  void RenderRouteCompanyLabels(Svg::Document& svg, const TransportRouter::RouteInfo& route) const;
+
+  void RenderStub(Svg::Document& svg) const;
+
+  void ComputeCoordsByGrid(const Descriptions::StopsDict& stops_dict,
+      const Descriptions::BusesDict& buses_dict,
+      const Descriptions::CompaniesDict& companies_dict,
+      const RenderSettings& render_settings);
 
   static const std::unordered_map<
       std::string,

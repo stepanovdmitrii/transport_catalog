@@ -44,7 +44,7 @@ namespace Requests {
     struct RouteItemResponseBuilder {
         Json::Dict operator()(const TransportRouter::RouteInfo::BusItem& bus_item) const {
             return Json::Dict{
-                {"type", Json::Node("Bus"s)},
+                {"type", Json::Node("RideBus"s)},
                 {"bus", Json::Node(bus_item.bus_name)},
                 {"time", Json::Node(bus_item.time)},
                 {"span_count", Json::Node(static_cast<int>(bus_item.span_count))}
@@ -52,9 +52,17 @@ namespace Requests {
         }
         Json::Dict operator()(const TransportRouter::RouteInfo::WaitItem& wait_item) const {
             return Json::Dict{
-                {"type", Json::Node("Wait"s)},
+                {"type", Json::Node("WaitBus"s)},
                 {"stop_name", Json::Node(wait_item.stop_name)},
                 {"time", Json::Node(wait_item.time)},
+            };
+        }
+        Json::Dict operator()(const TransportRouter::RouteInfo::WalkToCompany& walk_item) const {
+            return Json::Dict{
+                {"type", Json::Node("WalkToCompany"s)},
+                {"stop_name", Json::Node(walk_item.stop_name)},
+                {"time", Json::Node(walk_item.time)},
+                {"company", Json::Node(walk_item.company_name)},
             };
         }
     };
@@ -87,7 +95,7 @@ namespace Requests {
         };
     }
 
-    variant<Stop, Bus, Route, Map, Companies> Read(const Json::Dict& attrs) {
+    variant<Stop, Bus, Route, Map, Companies, RouteToCompany> Read(const Json::Dict& attrs) {
         const string& type = attrs.at("type").AsString();
         if (type == "Bus") {
             return Bus{ attrs.at("name").AsString() };
@@ -100,6 +108,9 @@ namespace Requests {
         }
         else if (type == "FindCompanies") {
             return Companies{ CompanyQuery::Create(attrs) };
+        }
+        else if (type == "RouteToCompany") {
+            return RouteToCompany{ CompanyQuery::Create(attrs.at("companies").AsMap()), attrs.at("from").AsString() };
         }
         else {
             return Map{};
@@ -130,6 +141,32 @@ namespace Requests {
         }
 
         dict["companies"] = companies;
+        return dict;
+    }
+
+    Json::Dict RouteToCompany::Process(const TransportCatalog& db) const
+    {
+        Json::Dict dict;
+
+        const auto route = db.FindRoute(query, from);
+        if (!route) {
+            dict["error_message"] = Json::Node("not found"s);
+        }
+        else {
+            dict["total_time"] = Json::Node(route->total_time);
+            Json::Array items;
+            items.reserve(route->items.size());
+            for (const auto& item : route->items) {
+                items.push_back(visit(RouteItemResponseBuilder{}, item));
+            }
+
+            dict["items"] = move(items);
+
+            dict["map"] = Json::Node(db.RenderRoute(*route));
+        }
+
+        return dict;
+
         return dict;
     }
 }

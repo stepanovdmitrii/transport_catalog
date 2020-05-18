@@ -2,6 +2,7 @@
 
 #include "json.h"
 #include "sphere.h"
+#include "transport_catalog.pb.h"
 
 #include <map>
 #include <string>
@@ -30,6 +31,15 @@ namespace Descriptions {
     static Bus ParseFrom(const Json::Dict& attrs);
   };
 
+  struct Company {
+      int id;
+      std::string name;
+      std::string display_name;
+      std::unordered_map<std::string, uint32_t> nearby_stops;
+      double lon;
+      double lat;
+  };
+
   using InputQuery = std::variant<Stop, Bus>;
 
   std::vector<InputQuery> ReadDescriptions(const Json::Array& nodes);
@@ -39,4 +49,5 @@ namespace Descriptions {
 
   using StopsDict = Dict<Stop>;
   using BusesDict = Dict<Bus>;
+  using CompaniesDict = std::unordered_map<int, Company>;
 }

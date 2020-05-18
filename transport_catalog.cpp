@@ -43,11 +43,37 @@ TransportCatalog::TransportCatalog(
       stops_.at(stop_name).bus_names.insert(bus.name);
     }
   }
-  router_ = make_unique<TransportRouter>(stops_dict, buses_dict, routing_settings_json);
-  
-  map_renderer_ = make_unique<MapRenderer>(stops_dict, buses_dict, render_settings_json);
-  map_ = map_renderer_->Render();
+
+  Descriptions::CompaniesDict companies_dict;
   _yellow_pages = make_unique<YellowPages>(yellow_pages_json);
+  for (int index = 0; index < _yellow_pages->GetCompaniesCount(); ++index) {
+      Descriptions::Company company_desc;
+      const auto& company = _yellow_pages->GetCompany(index);
+      company_desc.id = index;
+      company_desc.name = GetCompanyName(company);
+      if (company.rubrics_size() == 0) {
+          company_desc.display_name = company_desc.name;
+      }
+      else {
+          std::stringstream ss;
+          ss << _yellow_pages->GetRubricName(company.rubrics(0));
+          ss << " ";
+          ss << company_desc.name;
+          company_desc.display_name = ss.str();
+      }
+
+      for (const auto& stop : company.nearby_stops()) {
+          company_desc.nearby_stops[stop.name()] = stop.meters();
+      }
+
+      company_desc.lat = company.address().coords().lat();
+      company_desc.lon = company.address().coords().lon();
+
+      companies_dict[index] = std::move(company_desc);
+  }
+  router_ = make_unique<TransportRouter>(stops_dict, buses_dict, companies_dict, routing_settings_json);
+  map_renderer_ = make_unique<MapRenderer>(stops_dict, buses_dict, companies_dict, render_settings_json);
+  map_ = map_renderer_->Render();
 }
 
 TransportCatalog::TransportCatalog(std::istream& input)
@@ -92,6 +118,23 @@ optional<TransportRouter::RouteInfo> TransportCatalog::FindRoute(const string& s
 std::vector<CompanyInfo> TransportCatalog::FindCompanies(const CompanyQuery& query) const
 {
     return _yellow_pages->FindCompanies(query);
+}
+
+std::optional<TransportRouter::RouteInfo> TransportCatalog::FindRoute(const CompanyQuery& query, const std::string& from_stop) const
+{
+    auto founded = _yellow_pages->FindCompanies(query);
+    if(founded.empty()) 
+        return std::nullopt;
+    std::optional<TransportRouter::RouteInfo> route;
+    for (const auto& company : founded) {
+        std::optional<TransportRouter::RouteInfo> company_route = router_->FindRoute(from_stop, company.index);
+        double existed_time = route.has_value() ? route->total_time : std::numeric_limits<double>::max();
+        if (company_route.has_value() && company_route->total_time < existed_time) {
+            route = std::move(company_route);
+        }
+    }
+
+    return route;
 }
 
 string TransportCatalog::RenderMap() const {

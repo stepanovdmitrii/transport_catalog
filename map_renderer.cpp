@@ -55,6 +55,8 @@ RenderSettings ParseRenderSettings(const Json::Dict& json) {
   result.bus_label_font_size = json.at("bus_label_font_size").AsInt();
   result.stop_label_offset = ParsePoint(json.at("stop_label_offset"));
   result.stop_label_font_size = json.at("stop_label_font_size").AsInt();
+  result.company_radius = json.at("company_radius").AsDouble();
+  result.company_line_width = json.at("company_line_width").AsDouble();
 
   const auto& layers_array = json.at("layers").AsArray();
   result.layers.reserve(layers_array.size());
@@ -144,43 +146,59 @@ struct NeighboursDicts {
 };
 
 static NeighboursDicts BuildCoordNeighboursDicts(const unordered_map<string, Sphere::Point>& stops_coords,
-                                                 const Descriptions::BusesDict& buses_dict) {
-  unordered_map<double, vector<double>> neighbour_lats;
-  unordered_map<double, vector<double>> neighbour_lons;
-  for (const auto& [bus_name, bus_ptr] : buses_dict) {
-    const auto& stops = bus_ptr->stops;
-    if (stops.empty()) {
-      continue;
+    const Descriptions::BusesDict& buses_dict,
+    const Descriptions::CompaniesDict& comp_dict) {
+    unordered_map<double, vector<double>> neighbour_lats;
+    unordered_map<double, vector<double>> neighbour_lons;
+    for (const auto& [bus_name, bus_ptr] : buses_dict) {
+        const auto& stops = bus_ptr->stops;
+        if (stops.empty()) {
+            continue;
+        }
+        Sphere::Point point_prev = stops_coords.at(stops[0]);
+        for (size_t stop_idx = 1; stop_idx < stops.size(); ++stop_idx) {
+            const auto point_cur = stops_coords.at(stops[stop_idx]);
+            if (stops[stop_idx] != stops[stop_idx - 1]) {
+                const auto [min_lat, max_lat] = minmax(point_prev.latitude, point_cur.latitude);
+                const auto [min_lon, max_lon] = minmax(point_prev.longitude, point_cur.longitude);
+                neighbour_lats[max_lat].push_back(min_lat);
+                neighbour_lons[max_lon].push_back(min_lon);
+            }
+            point_prev = point_cur;
+        }
     }
-    Sphere::Point point_prev = stops_coords.at(stops[0]);
-    for (size_t stop_idx = 1; stop_idx < stops.size(); ++stop_idx) {
-      const auto point_cur = stops_coords.at(stops[stop_idx]);
-      if (stops[stop_idx] != stops[stop_idx - 1]) {
-        const auto [min_lat, max_lat] = minmax(point_prev.latitude, point_cur.latitude);
-        const auto [min_lon, max_lon] = minmax(point_prev.longitude, point_cur.longitude);
-        neighbour_lats[max_lat].push_back(min_lat);
-        neighbour_lons[max_lon].push_back(min_lon);
-      }
-      point_prev = point_cur;
-    }
-  }
 
-  for (auto* neighbours_dict : {&neighbour_lats, &neighbour_lons}) {
-    for (auto& [_, values] : *neighbours_dict) {
-      sort(begin(values), end(values));
-      values.erase(unique(begin(values), end(values)), end(values));
+    for (const auto& company : comp_dict) {
+        for (const auto& stop : company.second.nearby_stops) {
+            const auto stop_cur = stops_coords.at(stop.first);
+            const auto [min_lat, max_lat] = minmax(stop_cur.latitude, company.second.lat);
+            const auto [min_lon, max_lon] = minmax(stop_cur.longitude, company.second.lon);
+            neighbour_lats[max_lat].push_back(min_lat);
+            neighbour_lons[max_lon].push_back(min_lon);
+        }
     }
-  }
 
-  return {move(neighbour_lats), move(neighbour_lons)};
+    for (auto* neighbours_dict : { &neighbour_lats, &neighbour_lons }) {
+        for (auto& [_, values] : *neighbours_dict) {
+            sort(begin(values), end(values));
+            values.erase(unique(begin(values), end(values)), end(values));
+        }
+    }
+
+    return { move(neighbour_lats), move(neighbour_lons) };
 }
 
 class CoordsCompressor {
 public:
-  CoordsCompressor(const unordered_map<string, Sphere::Point>& stops_coords) {
+  CoordsCompressor(const unordered_map<string, Sphere::Point>& stops_coords, const Descriptions::CompaniesDict& companies_dict) {
     for (const auto& [_, coord] : stops_coords) {
       lats_.push_back({coord.latitude});
       lons_.push_back({coord.longitude});
+    }
+
+    for (const auto& company : companies_dict) {
+        lats_.push_back({ company.second.lat });
+        lons_.push_back({ company.second.lon });
     }
 
     sort(begin(lats_), end(lats_));
@@ -275,25 +293,6 @@ private:
   }
 };
 
-static map<string, Svg::Point> ComputeStopsCoordsByGrid(const Descriptions::StopsDict& stops_dict,
-                                                        const Descriptions::BusesDict& buses_dict,
-                                                        const RenderSettings& render_settings) {
-  const auto stops_coords = ComputeInterpolatedStopsGeoCoords(stops_dict, buses_dict);
-
-  const auto [neighbour_lats, neighbour_lons] = BuildCoordNeighboursDicts(stops_coords, buses_dict);
-
-  CoordsCompressor compressor(stops_coords);
-  compressor.FillIndices(neighbour_lats, neighbour_lons);
-  compressor.FillTargets(render_settings.max_width, render_settings.max_height, render_settings.padding);
-
-  map<string, Svg::Point> new_stops_coords;
-  for (const auto& [stop_name, coord] : stops_coords) {
-    new_stops_coords[stop_name] = {compressor.MapLon(coord.longitude), compressor.MapLat(coord.latitude)};
-  }
-
-  return new_stops_coords;
-}
-
 static unordered_map<string, Svg::Color> ChooseBusColors(const Descriptions::BusesDict& buses_dict,
                                                          const RenderSettings& render_settings) {
   const auto& palette = render_settings.palette;
@@ -307,12 +306,13 @@ static unordered_map<string, Svg::Color> ChooseBusColors(const Descriptions::Bus
 
 MapRenderer::MapRenderer(const Descriptions::StopsDict& stops_dict,
                          const Descriptions::BusesDict& buses_dict,
+                         const Descriptions::CompaniesDict& companies_dict,
                          const Json::Dict& render_settings_json)
     : render_settings_(ParseRenderSettings(render_settings_json)),
-      stops_coords_(ComputeStopsCoordsByGrid(stops_dict, buses_dict, render_settings_)),
       bus_colors_(ChooseBusColors(buses_dict, render_settings_)),
       buses_dict_(CopyBusesDict(buses_dict))
 {
+    ComputeCoordsByGrid(stops_dict, buses_dict, companies_dict, render_settings_);
 }
 
 MapRenderer::MapRenderer(const serialization::Renderer& renderer)
@@ -334,6 +334,8 @@ MapRenderer::MapRenderer(const serialization::Renderer& renderer)
     render_settings_.stop_label_offset.x = renderer.settings().stop_label_offset().x();
     render_settings_.stop_label_offset.y = renderer.settings().stop_label_offset().y();
     render_settings_.stop_label_font_size = renderer.settings().stop_label_font_size();
+    render_settings_.company_radius = renderer.settings().company_radius();
+    render_settings_.company_line_width = renderer.settings().company_line_width();
     for (int i = 0; i < renderer.settings().layers_size(); ++i) {
         render_settings_.layers.push_back(renderer.settings().layers(i));
     }
@@ -356,10 +358,16 @@ MapRenderer::MapRenderer(const serialization::Renderer& renderer)
             buses_dict_[p.first].endpoints.push_back(e);
         }
     }
+
+    for (const auto& p : renderer.company_coords()) {
+        _comp_coords[p.first].x = p.second.x();
+        _comp_coords[p.first].y = p.second.y();
+    }
 }
 
 using RouteBusItem = TransportRouter::RouteInfo::BusItem;
 using RouteWaitItem = TransportRouter::RouteInfo::WaitItem;
+using RouteWalkToCompanyItem = TransportRouter::RouteInfo::WalkToCompany;
 
 void MapRenderer::RenderBusLines(Svg::Document& svg) const {
   for (const auto& [bus_name, bus] : buses_dict_) {
@@ -379,26 +387,26 @@ void MapRenderer::RenderBusLines(Svg::Document& svg) const {
 }
 
 void MapRenderer::RenderRouteBusLines(Svg::Document& svg, const TransportRouter::RouteInfo& route) const {
-  for (const auto& item : route.items) {
-    if (!holds_alternative<RouteBusItem>(item)) {
-      continue;
+    for (const auto& item : route.items) {
+        if (!holds_alternative<RouteBusItem>(item)) {
+            continue;
+        }
+        const auto& bus_item = get<RouteBusItem>(item);
+        const string& bus_name = bus_item.bus_name;
+        const auto& stops = buses_dict_.at(bus_name).stops;
+        if (stops.empty()) {
+            continue;
+        }
+        Svg::Polyline line;
+        line.SetStrokeColor(bus_colors_.at(bus_name))
+            .SetStrokeWidth(render_settings_.line_width)
+            .SetStrokeLineCap("round").SetStrokeLineJoin("round");
+        for (size_t stop_idx = bus_item.start_stop_idx; stop_idx <= bus_item.finish_stop_idx; ++stop_idx) {
+            const string& stop_name = stops[stop_idx];
+            line.AddPoint(stops_coords_.at(stop_name));
+        }
+        svg.Add(line);
     }
-    const auto& bus_item = get<RouteBusItem>(item);
-    const string& bus_name = bus_item.bus_name;
-    const auto& stops = buses_dict_.at(bus_name).stops;
-    if (stops.empty()) {
-      continue;
-    }
-    Svg::Polyline line;
-    line.SetStrokeColor(bus_colors_.at(bus_name))
-        .SetStrokeWidth(render_settings_.line_width)
-        .SetStrokeLineCap("round").SetStrokeLineJoin("round");
-    for (size_t stop_idx = bus_item.start_stop_idx; stop_idx <= bus_item.finish_stop_idx; ++stop_idx) {
-      const string& stop_name = stops[stop_idx];
-      line.AddPoint(stops_coords_.at(stop_name));
-    }
-    svg.Add(line);
-  }
 }
 
 void MapRenderer::RenderBusLabel(Svg::Document& svg, const string& bus_name, const string& stop_name) const {
@@ -475,22 +483,22 @@ void MapRenderer::RenderStopPoints(Svg::Document& svg) const {
 }
 
 void MapRenderer::RenderRouteStopPoints(Svg::Document& svg, const TransportRouter::RouteInfo& route) const {
-  for (const auto& item : route.items) {
-    // TODO: remove copypaste with bus lines rendering
-    if (!holds_alternative<RouteBusItem>(item)) {
-      continue;
+    for (const auto& item : route.items) {
+        // TODO: remove copypaste with bus lines rendering
+        if (!holds_alternative<RouteBusItem>(item)) {
+            continue;
+        }
+        const auto& bus_item = get<RouteBusItem>(item);
+        const string& bus_name = bus_item.bus_name;
+        const auto& stops = buses_dict_.at(bus_name).stops;
+        if (stops.empty()) {
+            continue;
+        }
+        for (size_t stop_idx = bus_item.start_stop_idx; stop_idx <= bus_item.finish_stop_idx; ++stop_idx) {
+            const string& stop_name = stops[stop_idx];
+            RenderStopPoint(svg, stops_coords_.at(stop_name));
+        }
     }
-    const auto& bus_item = get<RouteBusItem>(item);
-    const string& bus_name = bus_item.bus_name;
-    const auto& stops = buses_dict_.at(bus_name).stops;
-    if (stops.empty()) {
-      continue;
-    }
-    for (size_t stop_idx = bus_item.start_stop_idx; stop_idx <= bus_item.finish_stop_idx; ++stop_idx) {
-      const string& stop_name = stops[stop_idx];
-      RenderStopPoint(svg, stops_coords_.at(stop_name));
-    }
-  }
 }
 
 void MapRenderer::RenderStopLabel(Svg::Document& svg, Svg::Point point, const string& name) const {
@@ -534,9 +542,86 @@ void MapRenderer::RenderRouteStopLabels(Svg::Document& svg, const TransportRoute
   }
 
   // draw stop label for last stop
-  const auto& last_bus_item = get<RouteBusItem>(route.items.back());
-  const string& last_stop_name = buses_dict_.at(last_bus_item.bus_name).stops[last_bus_item.finish_stop_idx];
-  RenderStopLabel(svg, stops_coords_.at(last_stop_name), last_stop_name);
+  if (holds_alternative<RouteBusItem>(route.items.back())) {
+      const auto& last_bus_item = get<RouteBusItem>(route.items.back());
+      const string& last_stop_name = buses_dict_.at(last_bus_item.bus_name).stops[last_bus_item.finish_stop_idx];
+      RenderStopLabel(svg, stops_coords_.at(last_stop_name), last_stop_name);
+  }
+
+  if (holds_alternative<RouteWalkToCompanyItem>(route.items.back())) {
+      const auto& walk_item = get<RouteWalkToCompanyItem>(route.items.back());
+      RenderStopLabel(svg, stops_coords_.at(walk_item.stop_name), walk_item.stop_name);
+  }
+}
+
+void MapRenderer::RenderRouteCompanyLines(Svg::Document& svg, const TransportRouter::RouteInfo& route) const
+{
+    for (const auto& item : route.items) {
+        if (!holds_alternative<RouteWalkToCompanyItem>(item)) {
+            continue;
+        }
+        const auto& walk_item = get<RouteWalkToCompanyItem>(item);
+        const string& stop_name = walk_item.stop_name;
+        Svg::Polyline line;
+        line.SetStrokeColor("black")
+            .SetStrokeWidth(render_settings_.company_line_width)
+            .SetStrokeLineCap("round").SetStrokeLineJoin("round");
+        line.AddPoint(stops_coords_.at(stop_name));
+        line.AddPoint(_comp_coords.at(walk_item.company_id));
+        svg.Add(line);
+    }
+}
+
+void MapRenderer::RenderRouteCompanyPoints(Svg::Document& svg, const TransportRouter::RouteInfo& route) const
+{
+    for (const auto& item : route.items) {
+        // TODO: remove copypaste with bus lines rendering
+        if (!holds_alternative<RouteWalkToCompanyItem>(item)) {
+            continue;
+        }
+        const auto& walk_item = get<RouteWalkToCompanyItem>(item);
+        svg.Add(Svg::Circle{}
+            .SetCenter(_comp_coords.at(walk_item.company_id))
+            .SetRadius(render_settings_.company_radius)
+            .SetFillColor("black"));
+    }
+}
+
+void MapRenderer::RenderRouteCompanyLabels(Svg::Document& svg, const TransportRouter::RouteInfo& route) const
+{
+    if (route.items.empty()) {
+        return;
+    }
+    for (const auto& item : route.items) {
+        if (!holds_alternative<RouteWalkToCompanyItem>(item)) {
+            continue;
+        }
+        const auto& walk_item = get<RouteWalkToCompanyItem>(item);
+        const string& company_name = walk_item.company_display_name;
+        RenderStopLabel(svg, _comp_coords.at(walk_item.company_id), company_name);
+    }
+}
+
+void MapRenderer::RenderStub(Svg::Document& svg) const
+{
+}
+
+void MapRenderer::ComputeCoordsByGrid(const Descriptions::StopsDict& stops_dict, const Descriptions::BusesDict& buses_dict, const Descriptions::CompaniesDict& companies_dict, const RenderSettings& render_settings)
+{
+    const auto stops_coords = ComputeInterpolatedStopsGeoCoords(stops_dict, buses_dict);
+    const auto [neighbour_lats, neighbour_lons] = BuildCoordNeighboursDicts(stops_coords, buses_dict, companies_dict);
+
+    CoordsCompressor compressor(stops_coords, companies_dict);
+    compressor.FillIndices(neighbour_lats, neighbour_lons);
+    compressor.FillTargets(render_settings.max_width, render_settings.max_height, render_settings.padding);
+
+    for (const auto& [stop_name, coord] : stops_coords) {
+        stops_coords_[stop_name] = { compressor.MapLon(coord.longitude), compressor.MapLat(coord.latitude) };
+    }
+
+    for (const auto& company : companies_dict) {
+        _comp_coords[company.first] = { compressor.MapLon(company.second.lon), compressor.MapLat(company.second.lat) };
+    }
 }
 
 const unordered_map<
@@ -547,6 +632,9 @@ const unordered_map<
     {"bus_labels",  &MapRenderer::RenderBusLabels},
     {"stop_points", &MapRenderer::RenderStopPoints},
     {"stop_labels", &MapRenderer::RenderStopLabels},
+    {"company_lines", &MapRenderer::RenderStub},
+    {"company_points", &MapRenderer::RenderStub},
+    {"company_labels", &MapRenderer::RenderStub},
 };
 
 const unordered_map<
@@ -557,6 +645,9 @@ const unordered_map<
     {"bus_labels",  &MapRenderer::RenderRouteBusLabels},
     {"stop_points", &MapRenderer::RenderRouteStopPoints},
     {"stop_labels", &MapRenderer::RenderRouteStopLabels},
+    {"company_lines", &MapRenderer::RenderRouteCompanyLines},
+    {"company_points", &MapRenderer::RenderRouteCompanyPoints},
+    {"company_labels", &MapRenderer::RenderRouteCompanyLabels},
 };
 
 Svg::Document MapRenderer::Render() const {
@@ -638,6 +729,8 @@ void MapRenderer::Seriliaze(serialization::Renderer& renderer) const
     stop_label_offset->set_x(render_settings_.stop_label_offset.x);
     stop_label_offset->set_y(render_settings_.stop_label_offset.y);
     settings->set_stop_label_font_size(render_settings_.stop_label_font_size);
+    settings->set_company_radius(render_settings_.company_radius);
+    settings->set_company_line_width(render_settings_.company_line_width);
     for (const auto& layer : render_settings_.layers) {
         settings->add_layers(layer);
     }
@@ -658,6 +751,11 @@ void MapRenderer::Seriliaze(serialization::Renderer& renderer) const
         for (const auto& endpoint : p.second.endpoints) {
             (*renderer.mutable_buses())[p.first].add_endpoints(endpoint);
         }
+    }
+
+    for (const auto& p : _comp_coords) {
+        (*renderer.mutable_company_coords())[p.first].set_x(p.second.x);
+        (*renderer.mutable_company_coords())[p.first].set_y(p.second.y);
     }
 }
 

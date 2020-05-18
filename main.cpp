@@ -19,6 +19,8 @@ int main(int argc, const char* argv[]) {
     }
 
     const string_view mode(argv[1]);
+    //std::ifstream input("D:\\test_1_make_base.json");
+    //std::ifstream input("D:\\test_1_process_requests.json");
     const auto input_doc = Json::Load(cin);
     const auto& input_map = input_doc.GetRoot().AsMap();
     std::string file = input_map.at("serialization_settings").AsMap().at("file").AsString();
@@ -46,3 +48,4 @@ int main(int argc, const char* argv[]) {
     }
     return 0;
 }
+//добавить вывод последней остановки

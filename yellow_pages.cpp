@@ -3,8 +3,10 @@
 
 YellowPages::YellowPages(const Json::Dict& yellow_pages_json)
 {
+    std::cerr << "parse yellow pages; ";
     ParseRubrics(yellow_pages_json);
     ParseCompanies(yellow_pages_json);
+    std::cerr << "yellow pages parsed; ";
 }
 
 YellowPages::YellowPages(serialization::Database&& database)
@@ -21,7 +23,8 @@ std::vector<CompanyInfo> YellowPages::FindCompanies(const CompanyQuery& query) c
     bool rubric_match = false;
     bool phone_match = false;
 
-    for (const auto& source_company : _database.companies()) {
+    for (int index = 0; index < _database.companies_size(); ++index) {
+        const auto& source_company = _database.companies(index);
 
         name_match = query.names.empty();
         if (!name_match && source_company.names_size() > 0) {
@@ -88,7 +91,7 @@ std::vector<CompanyInfo> YellowPages::FindCompanies(const CompanyQuery& query) c
 
         for (const auto& name : source_company.names()) {
             if (name.type() == serialization::Name_Type::Name_Type_MAIN) {
-                result.push_back(CompanyInfo{ name.value() });
+                result.push_back(CompanyInfo{ name.value(), index });
                 break;
             }
         }
@@ -102,19 +105,34 @@ void YellowPages::Serialize(serialization::Database& catalog) const
     catalog = std::move(_database);
 }
 
+int YellowPages::GetCompaniesCount() const
+{
+    return _database.companies_size();
+}
+
+const serialization::Company& YellowPages::GetCompany(int index) const
+{
+    return _database.companies(index);
+}
+
+std::string YellowPages::GetRubricName(uint64_t rubric_id) const
+{
+    return _database.rubrics().at(rubric_id).name();
+}
+
 void YellowPages::ParseCompanies(const Json::Dict& yellow_pages_json)
 {
     const auto& company_arr = yellow_pages_json.at("companies").AsArray();
     for (const auto& company : company_arr) {
         serialization::Company* comp = _database.add_companies();;
         const auto& company_dict = company.AsMap();
-        //ParseCompanyAddress(*comp, company_dict);
+        ParseCompanyAddress(*comp, company_dict);
         ParseCompanyNames(*comp, company_dict);
         ParseCompanyPhones(*comp, company_dict);
         ParseCompanyUrls(*comp, company_dict);
         ParseCompanyRubrics(*comp, company_dict);
         //working_time
-        //ParseCompanyNearbyStops(*comp, company_dict);
+        ParseCompanyNearbyStops(*comp, company_dict);
     }
 }
 
@@ -387,4 +405,14 @@ serialization::Phone_Type PhoneQuery::phone_type() const
     if (type == "PHONE")
         return serialization::Phone_Type::Phone_Type_PHONE;
     return serialization::Phone_Type::Phone_Type_FAX;
+}
+
+std::string GetCompanyName(const serialization::Company& company)
+{
+    for (const auto& name : company.names()) {
+        if (name.type() == serialization::Name_Type::Name_Type_MAIN) {
+            return name.value();
+        }
+    }
+	return std::string();
 }

@@ -5,6 +5,7 @@
 #include "json.h"
 #include "router.h"
 #include "transport_catalog.pb.h"
+#include "yellow_pages.h"
 
 #include <memory>
 #include <unordered_map>
@@ -20,6 +21,7 @@ private:
 public:
   TransportRouter(const Descriptions::StopsDict& stops_dict,
                   const Descriptions::BusesDict& buses_dict,
+                  const Descriptions::CompaniesDict& companies_dict,
                   const Json::Dict& routing_settings_json);
 
   TransportRouter(const RouterData& router);
@@ -38,22 +40,32 @@ public:
       std::string stop_name;
       double time;
     };
+    struct WalkToCompany {
+        std::string stop_name;
+        std::string company_name;
+        std::string company_display_name;
+        int company_id;
+        double time;
+    };
 
-    using Item = std::variant<BusItem, WaitItem>;
+    using Item = std::variant<BusItem, WaitItem, WalkToCompany>;
     std::vector<Item> items;
   };
 
   std::optional<RouteInfo> FindRoute(const std::string& stop_from, const std::string& stop_to) const;
+  void ParseRoute(TransportRouter::RouteInfo& route_info, const TransportRouter::Router::RouteInfo& route) const;
+  std::optional<RouteInfo> FindRoute(const std::string& stop_from, int company_id) const;
   void Serialize(RouterData& router);
 private:
   struct RoutingSettings {
     int bus_wait_time;  // in minutes
     double bus_velocity;  // km/h
+    double pedestrian_velocity;
   };
 
   static RoutingSettings MakeRoutingSettings(const Json::Dict& json);
 
-  void FillGraphWithStops(const Descriptions::StopsDict& stops_dict);
+  void FillGraphVertices(const Descriptions::StopsDict& stops_dict, const Descriptions::CompaniesDict& companies_dict);
 
   void FillGraphWithBuses(const Descriptions::StopsDict& stops_dict,
                           const Descriptions::BusesDict& buses_dict);
@@ -64,6 +76,7 @@ private:
   };
   struct VertexInfo {
     std::string stop_name;
+    int company_id;
   };
 
   struct BusEdgeInfo {
@@ -71,8 +84,17 @@ private:
     size_t start_stop_idx;
     size_t finish_stop_idx;
   };
+
   struct WaitEdgeInfo {};
-  using EdgeInfo = std::variant<BusEdgeInfo, WaitEdgeInfo>;
+
+  struct WalkEdgeInfo {
+      std::string stop_from;
+      std::string company_name;
+      std::string company_display_name;
+      int company_id;
+  };
+
+  using EdgeInfo = std::variant<BusEdgeInfo, WaitEdgeInfo, WalkEdgeInfo>;
 
   RoutingSettings routing_settings_;
   BusGraph graph_;
@@ -81,4 +103,5 @@ private:
   std::unordered_map<std::string, StopVertexIds> stops_vertex_ids_;
   std::vector<VertexInfo> vertices_info_;
   std::vector<EdgeInfo> edges_info_;
+  std::unordered_map<int, Graph::VertexId> _companies_vertices;
 };

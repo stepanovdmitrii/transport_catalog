@@ -2,6 +2,7 @@
 
 #include "transport_catalog.pb.h"
 #include "json.h"
+#include "descriptions.h"
 
 #include <sstream>
 #include <string>
@@ -10,6 +11,7 @@
 
 struct CompanyInfo {
     std::string company_name;
+    int index;
 };
 
 struct PhoneQuery {
@@ -34,6 +36,8 @@ struct CompanyQuery {
     static CompanyQuery Create(const Json::Dict& attrs);
 };
 
+std::string GetCompanyName(const serialization::Company& company);
+
 class YellowPages
 {
 public:
@@ -42,6 +46,9 @@ public:
 
     std::vector<CompanyInfo> FindCompanies(const CompanyQuery& query) const;
     void Serialize(serialization::Database& catalog) const;
+    int GetCompaniesCount() const;
+    const serialization::Company& GetCompany(int index) const;
+    std::string GetRubricName(uint64_t rubric_id) const;
 private:
 	serialization::Database _database;
 

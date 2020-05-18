@@ -34,11 +34,13 @@ message StopVertexIds {
 
 message VertexInfo {
     string name = 1;
+    int32 company_id = 2;
 }
 
 enum EdgeInfoType{
     WAIT = 0;
     BUS = 1;
+    WALK = 2;
 }
 
 message EdgeInfo {
@@ -46,6 +48,10 @@ message EdgeInfo {
     string bus_name = 2;
     uint64 bus_start_stop_idx = 3;
     uint64 bus_finish_stop_idx = 4;
+    string stop_from = 5;
+    int32 company_id = 6;
+    string company_name = 7;
+    string company_display_name = 8;
 }
 
 message RouteInternalData {
@@ -71,6 +77,8 @@ message Router {
     repeated StopVertexIds stop_vertex_ids = 5;
     repeated VertexInfo vertex_infos = 6;
     repeated EdgeInfo edge_infos = 7;
+    double pedestrian_velocity = 8;
+    map<int32, uint64> companies_verticies = 9;
 }
 
 enum ColorType {
@@ -109,6 +117,8 @@ message RenderSettings {
     Point stop_label_offset = 12;
     int32 stop_label_font_size = 13;
     repeated string layers = 14;
+    double company_radius = 15;
+    double company_line_width = 16;
 }
 
 message Bus {
@@ -121,6 +131,7 @@ message Renderer {
     map<string, Point> stops_coords = 2;
     map<string, Color> bus_colors = 3;
     map<string, Bus> buses = 4;
+    map<int32, Point> company_coords = 5;
 }
 
 message NearbyStop {

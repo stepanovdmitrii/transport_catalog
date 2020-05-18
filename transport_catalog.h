@@ -53,6 +53,7 @@ public:
 
   std::optional<TransportRouter::RouteInfo> FindRoute(const std::string& stop_from, const std::string& stop_to) const;
   std::vector<CompanyInfo> FindCompanies(const CompanyQuery& query) const;
+  std::optional<TransportRouter::RouteInfo> FindRoute(const CompanyQuery& query, const std::string& from_stop) const;
 
   std::string RenderMap() const;
   std::string RenderRoute(const TransportRouter::RouteInfo& route) const;

@@ -31,13 +31,15 @@ extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Phone_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RenderSettings_transport_5fcatalog_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Renderer_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Renderer_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RouteInternalData_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RouteInternalDataVector_transport_5fcatalog_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Router_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_Router_transport_5fcatalog_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RouterImpl_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Rubric_transport_5fcatalog_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_transport_5fcatalog_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StopInfo_transport_5fcatalog_2eproto;
@@ -87,6 +89,10 @@ class RouterImplDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RouterImpl> _instance;
 } _RouterImpl_default_instance_;
+class Router_CompaniesVerticiesEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Router_CompaniesVerticiesEntry_DoNotUse> _instance;
+} _Router_CompaniesVerticiesEntry_DoNotUse_default_instance_;
 class RouterDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Router> _instance;
@@ -119,6 +125,10 @@ class Renderer_BusesEntry_DoNotUseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer_BusesEntry_DoNotUse> _instance;
 } _Renderer_BusesEntry_DoNotUse_default_instance_;
+class Renderer_CompanyCoordsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer_CompanyCoordsEntry_DoNotUse> _instance;
+} _Renderer_CompanyCoordsEntry_DoNotUse_default_instance_;
 class RendererDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Renderer> _instance;
@@ -442,12 +452,13 @@ static void InitDefaultsscc_info_Renderer_transport_5fcatalog_2eproto() {
   ::serialization::Renderer::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Renderer_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Renderer_transport_5fcatalog_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Renderer_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_Renderer_transport_5fcatalog_2eproto}, {
       &scc_info_RenderSettings_transport_5fcatalog_2eproto.base,
       &scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
       &scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
-      &scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto.base,}};
+      &scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+      &scc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,}};
 
 static void InitDefaultsscc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -476,6 +487,20 @@ static void InitDefaultsscc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalo
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto}, {
       &scc_info_Bus_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Renderer_CompanyCoordsEntry_DoNotUse_default_instance_;
+    new (ptr) ::serialization::Renderer_CompanyCoordsEntry_DoNotUse();
+  }
+  ::serialization::Renderer_CompanyCoordsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto}, {
+      &scc_info_Point_transport_5fcatalog_2eproto.base,}};
 
 static void InitDefaultsscc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -531,13 +556,27 @@ static void InitDefaultsscc_info_Router_transport_5fcatalog_2eproto() {
   ::serialization::Router::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Router_transport_5fcatalog_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_Router_transport_5fcatalog_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_Router_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_Router_transport_5fcatalog_2eproto}, {
       &scc_info_Graph_transport_5fcatalog_2eproto.base,
       &scc_info_RouterImpl_transport_5fcatalog_2eproto.base,
       &scc_info_StopVertexIds_transport_5fcatalog_2eproto.base,
       &scc_info_VertexInfo_transport_5fcatalog_2eproto.base,
-      &scc_info_EdgeInfo_transport_5fcatalog_2eproto.base,}};
+      &scc_info_EdgeInfo_transport_5fcatalog_2eproto.base,
+      &scc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto.base,}};
+
+static void InitDefaultsscc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::serialization::_Router_CompaniesVerticiesEntry_DoNotUse_default_instance_;
+    new (ptr) ::serialization::Router_CompaniesVerticiesEntry_DoNotUse();
+  }
+  ::serialization::Router_CompaniesVerticiesEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto}, {}};
 
 static void InitDefaultsscc_info_RouterImpl_transport_5fcatalog_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -672,7 +711,7 @@ static void InitDefaultsscc_info_WorkingTimeInterval_transport_5fcatalog_2eproto
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkingTimeInterval_transport_5fcatalog_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_WorkingTimeInterval_transport_5fcatalog_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[33];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_transport_5fcatalog_2eproto[35];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_transport_5fcatalog_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_transport_5fcatalog_2eproto = nullptr;
 
@@ -723,6 +762,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::serialization::VertexInfo, name_),
+  PROTOBUF_FIELD_OFFSET(::serialization::VertexInfo, company_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -732,6 +772,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, bus_name_),
   PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, bus_start_stop_idx_),
   PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, bus_finish_stop_idx_),
+  PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, stop_from_),
+  PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, company_id_),
+  PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, company_name_),
+  PROTOBUF_FIELD_OFFSET(::serialization::EdgeInfo, company_display_name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::RouteInternalData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -753,6 +797,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::serialization::RouterImpl, vectors_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Router_CompaniesVerticiesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Router_CompaniesVerticiesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Router_CompaniesVerticiesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Router_CompaniesVerticiesEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::Router, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -765,6 +818,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::Router, stop_vertex_ids_),
   PROTOBUF_FIELD_OFFSET(::serialization::Router, vertex_infos_),
   PROTOBUF_FIELD_OFFSET(::serialization::Router, edge_infos_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Router, pedestrian_velocity_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Router, companies_verticies_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::Color, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -802,6 +857,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, stop_label_offset_),
   PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, stop_label_font_size_),
   PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, layers_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, company_radius_),
+  PROTOBUF_FIELD_OFFSET(::serialization::RenderSettings, company_line_width_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::Bus, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -836,6 +893,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::Renderer_BusesEntry_DoNotUse, value_),
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_CompanyCoordsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_CompanyCoordsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_CompanyCoordsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer_CompanyCoordsEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::Renderer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -845,6 +911,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalog_2eproto::o
   PROTOBUF_FIELD_OFFSET(::serialization::Renderer, stops_coords_),
   PROTOBUF_FIELD_OFFSET(::serialization::Renderer, bus_colors_),
   PROTOBUF_FIELD_OFFSET(::serialization::Renderer, buses_),
+  PROTOBUF_FIELD_OFFSET(::serialization::Renderer, company_coords_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::serialization::NearbyStop, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -967,33 +1034,35 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 25, -1, sizeof(::serialization::Graph)},
   { 32, -1, sizeof(::serialization::StopVertexIds)},
   { 40, -1, sizeof(::serialization::VertexInfo)},
-  { 46, -1, sizeof(::serialization::EdgeInfo)},
-  { 55, -1, sizeof(::serialization::RouteInternalData)},
-  { 64, -1, sizeof(::serialization::RouteInternalDataVector)},
-  { 70, -1, sizeof(::serialization::RouterImpl)},
-  { 76, -1, sizeof(::serialization::Router)},
-  { 88, -1, sizeof(::serialization::Color)},
-  { 99, -1, sizeof(::serialization::Point)},
-  { 106, -1, sizeof(::serialization::RenderSettings)},
-  { 125, -1, sizeof(::serialization::Bus)},
-  { 132, 139, sizeof(::serialization::Renderer_StopsCoordsEntry_DoNotUse)},
-  { 141, 148, sizeof(::serialization::Renderer_BusColorsEntry_DoNotUse)},
-  { 150, 157, sizeof(::serialization::Renderer_BusesEntry_DoNotUse)},
-  { 159, -1, sizeof(::serialization::Renderer)},
-  { 168, -1, sizeof(::serialization::NearbyStop)},
-  { 175, -1, sizeof(::serialization::Coords)},
-  { 182, -1, sizeof(::serialization::AddressComponent)},
-  { 188, -1, sizeof(::serialization::Address)},
-  { 197, -1, sizeof(::serialization::Name)},
-  { 204, -1, sizeof(::serialization::Phone)},
-  { 216, -1, sizeof(::serialization::WorkingTimeInterval)},
-  { 224, -1, sizeof(::serialization::WorkingTime)},
-  { 231, -1, sizeof(::serialization::Url)},
-  { 237, -1, sizeof(::serialization::Company)},
-  { 249, -1, sizeof(::serialization::Rubric)},
-  { 256, 263, sizeof(::serialization::Database_RubricsEntry_DoNotUse)},
-  { 265, -1, sizeof(::serialization::Database)},
-  { 272, -1, sizeof(::serialization::TransportCatalog)},
+  { 47, -1, sizeof(::serialization::EdgeInfo)},
+  { 60, -1, sizeof(::serialization::RouteInternalData)},
+  { 69, -1, sizeof(::serialization::RouteInternalDataVector)},
+  { 75, -1, sizeof(::serialization::RouterImpl)},
+  { 81, 88, sizeof(::serialization::Router_CompaniesVerticiesEntry_DoNotUse)},
+  { 90, -1, sizeof(::serialization::Router)},
+  { 104, -1, sizeof(::serialization::Color)},
+  { 115, -1, sizeof(::serialization::Point)},
+  { 122, -1, sizeof(::serialization::RenderSettings)},
+  { 143, -1, sizeof(::serialization::Bus)},
+  { 150, 157, sizeof(::serialization::Renderer_StopsCoordsEntry_DoNotUse)},
+  { 159, 166, sizeof(::serialization::Renderer_BusColorsEntry_DoNotUse)},
+  { 168, 175, sizeof(::serialization::Renderer_BusesEntry_DoNotUse)},
+  { 177, 184, sizeof(::serialization::Renderer_CompanyCoordsEntry_DoNotUse)},
+  { 186, -1, sizeof(::serialization::Renderer)},
+  { 196, -1, sizeof(::serialization::NearbyStop)},
+  { 203, -1, sizeof(::serialization::Coords)},
+  { 210, -1, sizeof(::serialization::AddressComponent)},
+  { 216, -1, sizeof(::serialization::Address)},
+  { 225, -1, sizeof(::serialization::Name)},
+  { 232, -1, sizeof(::serialization::Phone)},
+  { 244, -1, sizeof(::serialization::WorkingTimeInterval)},
+  { 252, -1, sizeof(::serialization::WorkingTime)},
+  { 259, -1, sizeof(::serialization::Url)},
+  { 265, -1, sizeof(::serialization::Company)},
+  { 277, -1, sizeof(::serialization::Rubric)},
+  { 284, 291, sizeof(::serialization::Database_RubricsEntry_DoNotUse)},
+  { 293, -1, sizeof(::serialization::Database)},
+  { 300, -1, sizeof(::serialization::TransportCatalog)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1007,6 +1076,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RouteInternalData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RouteInternalDataVector_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_RouterImpl_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Router_CompaniesVerticiesEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Router_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Color_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Point_default_instance_),
@@ -1015,6 +1085,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_StopsCoordsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_BusColorsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_BusesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_CompanyCoordsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Renderer_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_NearbyStop_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::serialization::_Coords_default_instance_),
@@ -1042,100 +1113,112 @@ const char descriptor_table_protodef_transport_5fcatalog_2eproto[] PROTOBUF_SECT
   "\022\016\n\006weight\030\003 \001(\001\"A\n\005Graph\022\"\n\005edges\030\001 \003(\013"
   "2\023.serialization.Edge\022\024\n\014vertex_count\030\002 "
   "\001(\004\"6\n\rStopVertexIds\022\014\n\004name\030\001 \001(\t\022\n\n\002in"
-  "\030\002 \001(\004\022\013\n\003out\030\003 \001(\004\"\032\n\nVertexInfo\022\014\n\004nam"
-  "e\030\001 \001(\t\"\200\001\n\010EdgeInfo\022)\n\004type\030\001 \001(\0162\033.ser"
-  "ialization.EdgeInfoType\022\020\n\010bus_name\030\002 \001("
-  "\t\022\032\n\022bus_start_stop_idx\030\003 \001(\004\022\033\n\023bus_fin"
-  "ish_stop_idx\030\004 \001(\004\"c\n\021RouteInternalData\022"
-  "\021\n\thas_value\030\001 \001(\010\022\016\n\006weight\030\002 \001(\001\022\025\n\rha"
-  "s_prev_edge\030\003 \001(\010\022\024\n\014prev_edge_id\030\004 \001(\004\""
-  "P\n\027RouteInternalDataVector\0225\n\013vector_dat"
-  "a\030\001 \003(\0132 .serialization.RouteInternalDat"
-  "a\"E\n\nRouterImpl\0227\n\007vectors\030\001 \003(\0132&.seria"
-  "lization.RouteInternalDataVector\"\236\002\n\006Rou"
-  "ter\022\025\n\rbus_wait_time\030\001 \001(\005\022\024\n\014bus_veloci"
-  "ty\030\002 \001(\001\022#\n\005graph\030\003 \001(\0132\024.serialization."
-  "Graph\022-\n\nroute_impl\030\004 \001(\0132\031.serializatio"
-  "n.RouterImpl\0225\n\017stop_vertex_ids\030\005 \003(\0132\034."
-  "serialization.StopVertexIds\022/\n\014vertex_in"
-  "fos\030\006 \003(\0132\031.serialization.VertexInfo\022+\n\n"
-  "edge_infos\030\007 \003(\0132\027.serialization.EdgeInf"
-  "o\"\200\001\n\005Color\022&\n\004type\030\001 \001(\0162\030.serializatio"
-  "n.ColorType\022\024\n\014color_string\030\002 \001(\t\022\013\n\003red"
-  "\030\003 \001(\r\022\r\n\005green\030\004 \001(\r\022\014\n\004blue\030\005 \001(\r\022\017\n\007o"
-  "pacity\030\006 \001(\001\"\035\n\005Point\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 "
-  "\001(\001\"\244\003\n\016RenderSettings\022\021\n\tmax_width\030\001 \001("
-  "\001\022\022\n\nmax_height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\024"
-  "\n\014outer_margin\030\004 \001(\001\022%\n\007palette\030\005 \003(\0132\024."
-  "serialization.Color\022\022\n\nline_width\030\006 \001(\001\022"
-  ".\n\020underlayer_color\030\007 \001(\0132\024.serializatio"
-  "n.Color\022\030\n\020underlayer_width\030\010 \001(\001\022\023\n\013sto"
-  "p_radius\030\t \001(\001\022.\n\020bus_label_offset\030\n \001(\013"
-  "2\024.serialization.Point\022\033\n\023bus_label_font"
-  "_size\030\013 \001(\005\022/\n\021stop_label_offset\030\014 \001(\0132\024"
-  ".serialization.Point\022\034\n\024stop_label_font_"
-  "size\030\r \001(\005\022\016\n\006layers\030\016 \003(\t\"\'\n\003Bus\022\r\n\005sto"
-  "ps\030\001 \003(\t\022\021\n\tendpoints\030\002 \003(\t\"\276\003\n\010Renderer"
-  "\022/\n\010settings\030\001 \001(\0132\035.serialization.Rende"
-  "rSettings\022>\n\014stops_coords\030\002 \003(\0132(.serial"
-  "ization.Renderer.StopsCoordsEntry\022:\n\nbus"
-  "_colors\030\003 \003(\0132&.serialization.Renderer.B"
-  "usColorsEntry\0221\n\005buses\030\004 \003(\0132\".serializa"
-  "tion.Renderer.BusesEntry\032H\n\020StopsCoordsE"
-  "ntry\022\013\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.seria"
-  "lization.Point:\0028\001\032F\n\016BusColorsEntry\022\013\n\003"
-  "key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.serialization"
-  ".Color:\0028\001\032@\n\nBusesEntry\022\013\n\003key\030\001 \001(\t\022!\n"
-  "\005value\030\002 \001(\0132\022.serialization.Bus:\0028\001\"*\n\n"
-  "NearbyStop\022\014\n\004name\030\001 \001(\t\022\016\n\006meters\030\002 \001(\r"
-  "\"\"\n\006Coords\022\013\n\003lat\030\001 \001(\001\022\013\n\003lon\030\002 \001(\001\"c\n\020"
-  "AddressComponent\022\r\n\005value\030\001 \001(\t\"@\n\004Type\022"
-  "\013\n\007COUNTRY\020\000\022\n\n\006REGION\020\001\022\010\n\004CITY\020\002\022\n\n\006ST"
-  "REET\020\003\022\t\n\005HOUSE\020\004\"\211\001\n\007Address\022\021\n\tformatt"
-  "ed\030\001 \001(\t\0223\n\ncomponents\030\002 \003(\0132\037.serializa"
-  "tion.AddressComponent\022%\n\006coords\030\003 \001(\0132\025."
-  "serialization.Coords\022\017\n\007comment\030\004 \001(\t\"g\n"
-  "\004Name\022\r\n\005value\030\001 \001(\t\022&\n\004type\030\002 \001(\0162\030.ser"
-  "ialization.Name.Type\"(\n\004Type\022\010\n\004MAIN\020\000\022\013"
-  "\n\007SYNONYM\020\001\022\t\n\005SHORT\020\002\"\301\001\n\005Phone\022\021\n\tform"
-  "atted\030\001 \001(\t\022\'\n\004type\030\002 \001(\0162\031.serializatio"
-  "n.Phone.Type\022\024\n\014country_code\030\003 \001(\t\022\022\n\nlo"
-  "cal_code\030\004 \001(\t\022\016\n\006number\030\005 \001(\t\022\021\n\textens"
-  "ion\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\"\032\n\004Type\022\t"
-  "\n\005PHONE\020\000\022\007\n\003FAX\020\001\"\345\001\n\023WorkingTimeInterv"
-  "al\0223\n\003day\030\001 \001(\0162&.serialization.WorkingT"
-  "imeInterval.Day\022\024\n\014minutes_from\030\002 \001(\005\022\022\n"
-  "\nminutes_to\030\003 \001(\005\"o\n\003Day\022\014\n\010EVERYDAY\020\000\022\n"
-  "\n\006MONDAY\020\001\022\013\n\007TUESDAY\020\002\022\r\n\tWEDNESDAY\020\003\022\014"
-  "\n\010THURSDAY\020\004\022\n\n\006FRIDAY\020\005\022\014\n\010SATURDAY\020\006\022\n"
-  "\n\006SUNDAY\020\007\"W\n\013WorkingTime\022\021\n\tformatted\030\001"
-  " \001(\t\0225\n\tintervals\030\002 \003(\0132\".serialization."
-  "WorkingTimeInterval\"\024\n\003Url\022\r\n\005value\030\001 \001("
-  "\t\"\222\002\n\007Company\022\'\n\007address\030\001 \001(\0132\026.seriali"
-  "zation.Address\022\"\n\005names\030\002 \003(\0132\023.serializ"
-  "ation.Name\022$\n\006phones\030\003 \003(\0132\024.serializati"
-  "on.Phone\022 \n\004urls\030\004 \003(\0132\022.serialization.U"
-  "rl\022\017\n\007rubrics\030\005 \003(\004\0220\n\014working_time\030\006 \001("
-  "\0132\032.serialization.WorkingTime\022/\n\014nearby_"
-  "stops\030\007 \003(\0132\031.serialization.NearbyStop\"("
-  "\n\006Rubric\022\014\n\004name\030\001 \001(\t\022\020\n\010keywords\030\002 \003(\t"
-  "\"\263\001\n\010Database\022)\n\tcompanies\030\001 \003(\0132\026.seria"
-  "lization.Company\0225\n\007rubrics\030\002 \003(\0132$.seri"
-  "alization.Database.RubricsEntry\032E\n\014Rubri"
-  "csEntry\022\013\n\003key\030\001 \001(\004\022$\n\005value\030\002 \001(\0132\025.se"
-  "rialization.Rubric:\0028\001\"\336\001\n\020TransportCata"
-  "log\022%\n\005buses\030\001 \003(\0132\026.serialization.BusIn"
-  "fo\022&\n\005stops\030\002 \003(\0132\027.serialization.StopIn"
-  "fo\022%\n\006router\030\003 \001(\0132\025.serialization.Route"
-  "r\022)\n\010renderer\030\004 \001(\0132\027.serialization.Rend"
-  "erer\022)\n\010database\030\005 \001(\0132\027.serialization.D"
-  "atabase*!\n\014EdgeInfoType\022\010\n\004WAIT\020\000\022\007\n\003BUS"
-  "\020\001*;\n\tColorType\022\017\n\013NOT_DEFINED\020\000\022\n\n\006STRI"
-  "NG\020\001\022\007\n\003RGB\020\002\022\010\n\004RGBA\020\003b\006proto3"
+  "\030\002 \001(\004\022\013\n\003out\030\003 \001(\004\".\n\nVertexInfo\022\014\n\004nam"
+  "e\030\001 \001(\t\022\022\n\ncompany_id\030\002 \001(\005\"\333\001\n\010EdgeInfo"
+  "\022)\n\004type\030\001 \001(\0162\033.serialization.EdgeInfoT"
+  "ype\022\020\n\010bus_name\030\002 \001(\t\022\032\n\022bus_start_stop_"
+  "idx\030\003 \001(\004\022\033\n\023bus_finish_stop_idx\030\004 \001(\004\022\021"
+  "\n\tstop_from\030\005 \001(\t\022\022\n\ncompany_id\030\006 \001(\005\022\024\n"
+  "\014company_name\030\007 \001(\t\022\034\n\024company_display_n"
+  "ame\030\010 \001(\t\"c\n\021RouteInternalData\022\021\n\thas_va"
+  "lue\030\001 \001(\010\022\016\n\006weight\030\002 \001(\001\022\025\n\rhas_prev_ed"
+  "ge\030\003 \001(\010\022\024\n\014prev_edge_id\030\004 \001(\004\"P\n\027RouteI"
+  "nternalDataVector\0225\n\013vector_data\030\001 \003(\0132 "
+  ".serialization.RouteInternalData\"E\n\nRout"
+  "erImpl\0227\n\007vectors\030\001 \003(\0132&.serialization."
+  "RouteInternalDataVector\"\302\003\n\006Router\022\025\n\rbu"
+  "s_wait_time\030\001 \001(\005\022\024\n\014bus_velocity\030\002 \001(\001\022"
+  "#\n\005graph\030\003 \001(\0132\024.serialization.Graph\022-\n\n"
+  "route_impl\030\004 \001(\0132\031.serialization.RouterI"
+  "mpl\0225\n\017stop_vertex_ids\030\005 \003(\0132\034.serializa"
+  "tion.StopVertexIds\022/\n\014vertex_infos\030\006 \003(\013"
+  "2\031.serialization.VertexInfo\022+\n\nedge_info"
+  "s\030\007 \003(\0132\027.serialization.EdgeInfo\022\033\n\023pede"
+  "strian_velocity\030\010 \001(\001\022J\n\023companies_verti"
+  "cies\030\t \003(\0132-.serialization.Router.Compan"
+  "iesVerticiesEntry\0329\n\027CompaniesVerticiesE"
+  "ntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\004:\0028\001\"\200\001\n"
+  "\005Color\022&\n\004type\030\001 \001(\0162\030.serialization.Col"
+  "orType\022\024\n\014color_string\030\002 \001(\t\022\013\n\003red\030\003 \001("
+  "\r\022\r\n\005green\030\004 \001(\r\022\014\n\004blue\030\005 \001(\r\022\017\n\007opacit"
+  "y\030\006 \001(\001\"\035\n\005Point\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\"\330"
+  "\003\n\016RenderSettings\022\021\n\tmax_width\030\001 \001(\001\022\022\n\n"
+  "max_height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\024\n\014out"
+  "er_margin\030\004 \001(\001\022%\n\007palette\030\005 \003(\0132\024.seria"
+  "lization.Color\022\022\n\nline_width\030\006 \001(\001\022.\n\020un"
+  "derlayer_color\030\007 \001(\0132\024.serialization.Col"
+  "or\022\030\n\020underlayer_width\030\010 \001(\001\022\023\n\013stop_rad"
+  "ius\030\t \001(\001\022.\n\020bus_label_offset\030\n \001(\0132\024.se"
+  "rialization.Point\022\033\n\023bus_label_font_size"
+  "\030\013 \001(\005\022/\n\021stop_label_offset\030\014 \001(\0132\024.seri"
+  "alization.Point\022\034\n\024stop_label_font_size\030"
+  "\r \001(\005\022\016\n\006layers\030\016 \003(\t\022\026\n\016company_radius\030"
+  "\017 \001(\001\022\032\n\022company_line_width\030\020 \001(\001\"\'\n\003Bus"
+  "\022\r\n\005stops\030\001 \003(\t\022\021\n\tendpoints\030\002 \003(\t\"\316\004\n\010R"
+  "enderer\022/\n\010settings\030\001 \001(\0132\035.serializatio"
+  "n.RenderSettings\022>\n\014stops_coords\030\002 \003(\0132("
+  ".serialization.Renderer.StopsCoordsEntry"
+  "\022:\n\nbus_colors\030\003 \003(\0132&.serialization.Ren"
+  "derer.BusColorsEntry\0221\n\005buses\030\004 \003(\0132\".se"
+  "rialization.Renderer.BusesEntry\022B\n\016compa"
+  "ny_coords\030\005 \003(\0132*.serialization.Renderer"
+  ".CompanyCoordsEntry\032H\n\020StopsCoordsEntry\022"
+  "\013\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.serializat"
+  "ion.Point:\0028\001\032F\n\016BusColorsEntry\022\013\n\003key\030\001"
+  " \001(\t\022#\n\005value\030\002 \001(\0132\024.serialization.Colo"
+  "r:\0028\001\032@\n\nBusesEntry\022\013\n\003key\030\001 \001(\t\022!\n\005valu"
+  "e\030\002 \001(\0132\022.serialization.Bus:\0028\001\032J\n\022Compa"
+  "nyCoordsEntry\022\013\n\003key\030\001 \001(\005\022#\n\005value\030\002 \001("
+  "\0132\024.serialization.Point:\0028\001\"*\n\nNearbySto"
+  "p\022\014\n\004name\030\001 \001(\t\022\016\n\006meters\030\002 \001(\r\"\"\n\006Coord"
+  "s\022\013\n\003lat\030\001 \001(\001\022\013\n\003lon\030\002 \001(\001\"c\n\020AddressCo"
+  "mponent\022\r\n\005value\030\001 \001(\t\"@\n\004Type\022\013\n\007COUNTR"
+  "Y\020\000\022\n\n\006REGION\020\001\022\010\n\004CITY\020\002\022\n\n\006STREET\020\003\022\t\n"
+  "\005HOUSE\020\004\"\211\001\n\007Address\022\021\n\tformatted\030\001 \001(\t\022"
+  "3\n\ncomponents\030\002 \003(\0132\037.serialization.Addr"
+  "essComponent\022%\n\006coords\030\003 \001(\0132\025.serializa"
+  "tion.Coords\022\017\n\007comment\030\004 \001(\t\"g\n\004Name\022\r\n\005"
+  "value\030\001 \001(\t\022&\n\004type\030\002 \001(\0162\030.serializatio"
+  "n.Name.Type\"(\n\004Type\022\010\n\004MAIN\020\000\022\013\n\007SYNONYM"
+  "\020\001\022\t\n\005SHORT\020\002\"\301\001\n\005Phone\022\021\n\tformatted\030\001 \001"
+  "(\t\022\'\n\004type\030\002 \001(\0162\031.serialization.Phone.T"
+  "ype\022\024\n\014country_code\030\003 \001(\t\022\022\n\nlocal_code\030"
+  "\004 \001(\t\022\016\n\006number\030\005 \001(\t\022\021\n\textension\030\006 \001(\t"
+  "\022\023\n\013description\030\007 \001(\t\"\032\n\004Type\022\t\n\005PHONE\020\000"
+  "\022\007\n\003FAX\020\001\"\345\001\n\023WorkingTimeInterval\0223\n\003day"
+  "\030\001 \001(\0162&.serialization.WorkingTimeInterv"
+  "al.Day\022\024\n\014minutes_from\030\002 \001(\005\022\022\n\nminutes_"
+  "to\030\003 \001(\005\"o\n\003Day\022\014\n\010EVERYDAY\020\000\022\n\n\006MONDAY\020"
+  "\001\022\013\n\007TUESDAY\020\002\022\r\n\tWEDNESDAY\020\003\022\014\n\010THURSDA"
+  "Y\020\004\022\n\n\006FRIDAY\020\005\022\014\n\010SATURDAY\020\006\022\n\n\006SUNDAY\020"
+  "\007\"W\n\013WorkingTime\022\021\n\tformatted\030\001 \001(\t\0225\n\ti"
+  "ntervals\030\002 \003(\0132\".serialization.WorkingTi"
+  "meInterval\"\024\n\003Url\022\r\n\005value\030\001 \001(\t\"\222\002\n\007Com"
+  "pany\022\'\n\007address\030\001 \001(\0132\026.serialization.Ad"
+  "dress\022\"\n\005names\030\002 \003(\0132\023.serialization.Nam"
+  "e\022$\n\006phones\030\003 \003(\0132\024.serialization.Phone\022"
+  " \n\004urls\030\004 \003(\0132\022.serialization.Url\022\017\n\007rub"
+  "rics\030\005 \003(\004\0220\n\014working_time\030\006 \001(\0132\032.seria"
+  "lization.WorkingTime\022/\n\014nearby_stops\030\007 \003"
+  "(\0132\031.serialization.NearbyStop\"(\n\006Rubric\022"
+  "\014\n\004name\030\001 \001(\t\022\020\n\010keywords\030\002 \003(\t\"\263\001\n\010Data"
+  "base\022)\n\tcompanies\030\001 \003(\0132\026.serialization."
+  "Company\0225\n\007rubrics\030\002 \003(\0132$.serialization"
+  ".Database.RubricsEntry\032E\n\014RubricsEntry\022\013"
+  "\n\003key\030\001 \001(\004\022$\n\005value\030\002 \001(\0132\025.serializati"
+  "on.Rubric:\0028\001\"\336\001\n\020TransportCatalog\022%\n\005bu"
+  "ses\030\001 \003(\0132\026.serialization.BusInfo\022&\n\005sto"
+  "ps\030\002 \003(\0132\027.serialization.StopInfo\022%\n\006rou"
+  "ter\030\003 \001(\0132\025.serialization.Router\022)\n\010rend"
+  "erer\030\004 \001(\0132\027.serialization.Renderer\022)\n\010d"
+  "atabase\030\005 \001(\0132\027.serialization.Database*+"
+  "\n\014EdgeInfoType\022\010\n\004WAIT\020\000\022\007\n\003BUS\020\001\022\010\n\004WAL"
+  "K\020\002*;\n\tColorType\022\017\n\013NOT_DEFINED\020\000\022\n\n\006STR"
+  "ING\020\001\022\007\n\003RGB\020\002\022\010\n\004RGBA\020\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_transport_5fcatalog_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[33] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_transport_5fcatalog_2eproto_sccs[35] = {
   &scc_info_Address_transport_5fcatalog_2eproto.base,
   &scc_info_AddressComponent_transport_5fcatalog_2eproto.base,
   &scc_info_Bus_transport_5fcatalog_2eproto.base,
@@ -1156,10 +1239,12 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tra
   &scc_info_Renderer_transport_5fcatalog_2eproto.base,
   &scc_info_Renderer_BusColorsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
   &scc_info_Renderer_BusesEntry_DoNotUse_transport_5fcatalog_2eproto.base,
+  &scc_info_Renderer_CompanyCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
   &scc_info_Renderer_StopsCoordsEntry_DoNotUse_transport_5fcatalog_2eproto.base,
   &scc_info_RouteInternalData_transport_5fcatalog_2eproto.base,
   &scc_info_RouteInternalDataVector_transport_5fcatalog_2eproto.base,
   &scc_info_Router_transport_5fcatalog_2eproto.base,
+  &scc_info_Router_CompaniesVerticiesEntry_DoNotUse_transport_5fcatalog_2eproto.base,
   &scc_info_RouterImpl_transport_5fcatalog_2eproto.base,
   &scc_info_Rubric_transport_5fcatalog_2eproto.base,
   &scc_info_StopInfo_transport_5fcatalog_2eproto.base,
@@ -1173,10 +1258,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tra
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_transport_5fcatalog_2eproto_once;
 static bool descriptor_table_transport_5fcatalog_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5fcatalog_2eproto = {
-  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 3951,
-  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 33, 0,
+  &descriptor_table_transport_5fcatalog_2eproto_initialized, descriptor_table_protodef_transport_5fcatalog_2eproto, "transport_catalog.proto", 4432,
+  &descriptor_table_transport_5fcatalog_2eproto_once, descriptor_table_transport_5fcatalog_2eproto_sccs, descriptor_table_transport_5fcatalog_2eproto_deps, 35, 0,
   schemas, file_default_instances, TableStruct_transport_5fcatalog_2eproto::offsets,
-  file_level_metadata_transport_5fcatalog_2eproto, 33, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
+  file_level_metadata_transport_5fcatalog_2eproto, 35, file_level_enum_descriptors_transport_5fcatalog_2eproto, file_level_service_descriptors_transport_5fcatalog_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1294,6 +1379,7 @@ bool EdgeInfoType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -2587,12 +2673,14 @@ VertexInfo::VertexInfo(const VertexInfo& from)
   if (!from._internal_name().empty()) {
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  company_id_ = from.company_id_;
   // @@protoc_insertion_point(copy_constructor:serialization.VertexInfo)
 }
 
 void VertexInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_VertexInfo_transport_5fcatalog_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_id_ = 0;
 }
 
 VertexInfo::~VertexInfo() {
@@ -2620,6 +2708,7 @@ void VertexInfo::Clear() {
   (void) cached_has_bits;
 
   name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_id_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -2636,6 +2725,13 @@ const char* VertexInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.VertexInfo.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 company_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          company_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2675,6 +2771,12 @@ failure:
         1, this->_internal_name(), target);
   }
 
+  // int32 company_id = 2;
+  if (this->company_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_company_id(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -2696,6 +2798,13 @@ size_t VertexInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
+  }
+
+  // int32 company_id = 2;
+  if (this->company_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_company_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2733,6 +2842,9 @@ void VertexInfo::MergeFrom(const VertexInfo& from) {
 
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  if (from.company_id() != 0) {
+    _internal_set_company_id(from._internal_company_id());
+  }
 }
 
 void VertexInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -2758,6 +2870,7 @@ void VertexInfo::InternalSwap(VertexInfo* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(company_id_, other->company_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata VertexInfo::GetMetadata() const {
@@ -2786,18 +2899,33 @@ EdgeInfo::EdgeInfo(const EdgeInfo& from)
   if (!from._internal_bus_name().empty()) {
     bus_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.bus_name_);
   }
+  stop_from_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_stop_from().empty()) {
+    stop_from_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.stop_from_);
+  }
+  company_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_company_name().empty()) {
+    company_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.company_name_);
+  }
+  company_display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_company_display_name().empty()) {
+    company_display_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.company_display_name_);
+  }
   ::memcpy(&bus_start_stop_idx_, &from.bus_start_stop_idx_,
-    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
-    reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&bus_finish_stop_idx_) -
+    reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(bus_finish_stop_idx_));
   // @@protoc_insertion_point(copy_constructor:serialization.EdgeInfo)
 }
 
 void EdgeInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EdgeInfo_transport_5fcatalog_2eproto.base);
   bus_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  stop_from_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&bus_start_stop_idx_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
-      reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(type_));
+      reinterpret_cast<char*>(&bus_finish_stop_idx_) -
+      reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(bus_finish_stop_idx_));
 }
 
 EdgeInfo::~EdgeInfo() {
@@ -2807,6 +2935,9 @@ EdgeInfo::~EdgeInfo() {
 
 void EdgeInfo::SharedDtor() {
   bus_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  stop_from_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_display_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void EdgeInfo::SetCachedSize(int size) const {
@@ -2825,9 +2956,12 @@ void EdgeInfo::Clear() {
   (void) cached_has_bits;
 
   bus_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  stop_from_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  company_display_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&bus_start_stop_idx_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
-      reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(type_));
+      reinterpret_cast<char*>(&bus_finish_stop_idx_) -
+      reinterpret_cast<char*>(&bus_start_stop_idx_)) + sizeof(bus_finish_stop_idx_));
   _internal_metadata_.Clear();
 }
 
@@ -2866,6 +3000,40 @@ const char* EdgeInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           bus_finish_stop_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string stop_from = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_stop_from();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.EdgeInfo.stop_from"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 company_id = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          company_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string company_name = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_company_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.EdgeInfo.company_name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string company_display_name = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          auto str = _internal_mutable_company_display_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "serialization.EdgeInfo.company_display_name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2924,6 +3092,42 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_bus_finish_stop_idx(), target);
   }
 
+  // string stop_from = 5;
+  if (this->stop_from().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_stop_from().data(), static_cast<int>(this->_internal_stop_from().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.EdgeInfo.stop_from");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_stop_from(), target);
+  }
+
+  // int32 company_id = 6;
+  if (this->company_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_company_id(), target);
+  }
+
+  // string company_name = 7;
+  if (this->company_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_company_name().data(), static_cast<int>(this->_internal_company_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.EdgeInfo.company_name");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_company_name(), target);
+  }
+
+  // string company_display_name = 8;
+  if (this->company_display_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_company_display_name().data(), static_cast<int>(this->_internal_company_display_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "serialization.EdgeInfo.company_display_name");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_company_display_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -2947,6 +3151,27 @@ size_t EdgeInfo::ByteSizeLong() const {
         this->_internal_bus_name());
   }
 
+  // string stop_from = 5;
+  if (this->stop_from().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_stop_from());
+  }
+
+  // string company_name = 7;
+  if (this->company_name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_company_name());
+  }
+
+  // string company_display_name = 8;
+  if (this->company_display_name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_company_display_name());
+  }
+
   // uint64 bus_start_stop_idx = 3;
   if (this->bus_start_stop_idx() != 0) {
     total_size += 1 +
@@ -2954,17 +3179,24 @@ size_t EdgeInfo::ByteSizeLong() const {
         this->_internal_bus_start_stop_idx());
   }
 
+  // .serialization.EdgeInfoType type = 1;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+  }
+
+  // int32 company_id = 6;
+  if (this->company_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_company_id());
+  }
+
   // uint64 bus_finish_stop_idx = 4;
   if (this->bus_finish_stop_idx() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_bus_finish_stop_idx());
-  }
-
-  // .serialization.EdgeInfoType type = 1;
-  if (this->type() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3002,14 +3234,29 @@ void EdgeInfo::MergeFrom(const EdgeInfo& from) {
 
     bus_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.bus_name_);
   }
+  if (from.stop_from().size() > 0) {
+
+    stop_from_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.stop_from_);
+  }
+  if (from.company_name().size() > 0) {
+
+    company_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.company_name_);
+  }
+  if (from.company_display_name().size() > 0) {
+
+    company_display_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.company_display_name_);
+  }
   if (from.bus_start_stop_idx() != 0) {
     _internal_set_bus_start_stop_idx(from._internal_bus_start_stop_idx());
   }
-  if (from.bus_finish_stop_idx() != 0) {
-    _internal_set_bus_finish_stop_idx(from._internal_bus_finish_stop_idx());
-  }
   if (from.type() != 0) {
     _internal_set_type(from._internal_type());
+  }
+  if (from.company_id() != 0) {
+    _internal_set_company_id(from._internal_company_id());
+  }
+  if (from.bus_finish_stop_idx() != 0) {
+    _internal_set_bus_finish_stop_idx(from._internal_bus_finish_stop_idx());
   }
 }
 
@@ -3036,9 +3283,16 @@ void EdgeInfo::InternalSwap(EdgeInfo* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   bus_name_.Swap(&other->bus_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  stop_from_.Swap(&other->stop_from_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  company_name_.Swap(&other->company_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  company_display_name_.Swap(&other->company_display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(bus_start_stop_idx_, other->bus_start_stop_idx_);
-  swap(bus_finish_stop_idx_, other->bus_finish_stop_idx_);
   swap(type_, other->type_);
+  swap(company_id_, other->company_id_);
+  swap(bus_finish_stop_idx_, other->bus_finish_stop_idx_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata EdgeInfo::GetMetadata() const {
@@ -3688,6 +3942,23 @@ void RouterImpl::InternalSwap(RouterImpl* other) {
 
 // ===================================================================
 
+Router_CompaniesVerticiesEntry_DoNotUse::Router_CompaniesVerticiesEntry_DoNotUse() {}
+Router_CompaniesVerticiesEntry_DoNotUse::Router_CompaniesVerticiesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void Router_CompaniesVerticiesEntry_DoNotUse::MergeFrom(const Router_CompaniesVerticiesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Router_CompaniesVerticiesEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void Router_CompaniesVerticiesEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
 void Router::InitAsDefaultInstance() {
   ::serialization::_Router_default_instance_._instance.get_mutable()->graph_ = const_cast< ::serialization::Graph*>(
       ::serialization::Graph::internal_default_instance());
@@ -3720,6 +3991,7 @@ Router::Router(const Router& from)
       vertex_infos_(from.vertex_infos_),
       edge_infos_(from.edge_infos_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  companies_verticies_.MergeFrom(from.companies_verticies_);
   if (from._internal_has_graph()) {
     graph_ = new ::serialization::Graph(*from.graph_);
   } else {
@@ -3771,6 +4043,7 @@ void Router::Clear() {
   stop_vertex_ids_.Clear();
   vertex_infos_.Clear();
   edge_infos_.Clear();
+  companies_verticies_.Clear();
   if (GetArenaNoVirtual() == nullptr && graph_ != nullptr) {
     delete graph_;
   }
@@ -3856,6 +4129,25 @@ const char* Router::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else goto handle_unusual;
         continue;
+      // double pedestrian_velocity = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          pedestrian_velocity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // map<int32, uint64> companies_verticies = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&companies_verticies_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -3934,6 +4226,43 @@ failure:
       InternalWriteMessage(7, this->_internal_edge_infos(i), target, stream);
   }
 
+  // double pedestrian_velocity = 8;
+  if (!(this->pedestrian_velocity() <= 0 && this->pedestrian_velocity() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(8, this->_internal_pedestrian_velocity(), target);
+  }
+
+  // map<int32, uint64> companies_verticies = 9;
+  if (!this->_internal_companies_verticies().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >::const_pointer
+        ConstPtr;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::int32, ConstPtr > SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_companies_verticies().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_companies_verticies().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >::const_iterator
+          it = this->_internal_companies_verticies().begin();
+          it != this->_internal_companies_verticies().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = Router_CompaniesVerticiesEntry_DoNotUse::Funcs::InternalSerialize(9, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >::const_iterator
+          it = this->_internal_companies_verticies().begin();
+          it != this->_internal_companies_verticies().end(); ++it) {
+        target = Router_CompaniesVerticiesEntry_DoNotUse::Funcs::InternalSerialize(9, it->first, it->second, target, stream);
+      }
+    }
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -3971,6 +4300,15 @@ size_t Router::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // map<int32, uint64> companies_verticies = 9;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_companies_verticies_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::uint64 >::const_iterator
+      it = this->_internal_companies_verticies().begin();
+      it != this->_internal_companies_verticies().end(); ++it) {
+    total_size += Router_CompaniesVerticiesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
   // .serialization.Graph graph = 3;
   if (this->has_graph()) {
     total_size += 1 +
@@ -3987,6 +4325,11 @@ size_t Router::ByteSizeLong() const {
 
   // double bus_velocity = 2;
   if (!(this->bus_velocity() <= 0 && this->bus_velocity() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double pedestrian_velocity = 8;
+  if (!(this->pedestrian_velocity() <= 0 && this->pedestrian_velocity() >= 0)) {
     total_size += 1 + 8;
   }
 
@@ -4031,6 +4374,7 @@ void Router::MergeFrom(const Router& from) {
   stop_vertex_ids_.MergeFrom(from.stop_vertex_ids_);
   vertex_infos_.MergeFrom(from.vertex_infos_);
   edge_infos_.MergeFrom(from.edge_infos_);
+  companies_verticies_.MergeFrom(from.companies_verticies_);
   if (from.has_graph()) {
     _internal_mutable_graph()->::serialization::Graph::MergeFrom(from._internal_graph());
   }
@@ -4039,6 +4383,9 @@ void Router::MergeFrom(const Router& from) {
   }
   if (!(from.bus_velocity() <= 0 && from.bus_velocity() >= 0)) {
     _internal_set_bus_velocity(from._internal_bus_velocity());
+  }
+  if (!(from.pedestrian_velocity() <= 0 && from.pedestrian_velocity() >= 0)) {
+    _internal_set_pedestrian_velocity(from._internal_pedestrian_velocity());
   }
   if (from.bus_wait_time() != 0) {
     _internal_set_bus_wait_time(from._internal_bus_wait_time());
@@ -4069,9 +4416,11 @@ void Router::InternalSwap(Router* other) {
   stop_vertex_ids_.InternalSwap(&other->stop_vertex_ids_);
   vertex_infos_.InternalSwap(&other->vertex_infos_);
   edge_infos_.InternalSwap(&other->edge_infos_);
+  companies_verticies_.Swap(&other->companies_verticies_);
   swap(graph_, other->graph_);
   swap(route_impl_, other->route_impl_);
   swap(bus_velocity_, other->bus_velocity_);
+  swap(pedestrian_velocity_, other->pedestrian_velocity_);
   swap(bus_wait_time_, other->bus_wait_time_);
 }
 
@@ -4675,16 +5024,16 @@ RenderSettings::RenderSettings(const RenderSettings& from)
     stop_label_offset_ = nullptr;
   }
   ::memcpy(&max_width_, &from.max_width_,
-    static_cast<size_t>(reinterpret_cast<char*>(&stop_label_font_size_) -
-    reinterpret_cast<char*>(&max_width_)) + sizeof(stop_label_font_size_));
+    static_cast<size_t>(reinterpret_cast<char*>(&company_line_width_) -
+    reinterpret_cast<char*>(&max_width_)) + sizeof(company_line_width_));
   // @@protoc_insertion_point(copy_constructor:serialization.RenderSettings)
 }
 
 void RenderSettings::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RenderSettings_transport_5fcatalog_2eproto.base);
   ::memset(&underlayer_color_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&stop_label_font_size_) -
-      reinterpret_cast<char*>(&underlayer_color_)) + sizeof(stop_label_font_size_));
+      reinterpret_cast<char*>(&company_line_width_) -
+      reinterpret_cast<char*>(&underlayer_color_)) + sizeof(company_line_width_));
 }
 
 RenderSettings::~RenderSettings() {
@@ -4728,8 +5077,8 @@ void RenderSettings::Clear() {
   }
   stop_label_offset_ = nullptr;
   ::memset(&max_width_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&stop_label_font_size_) -
-      reinterpret_cast<char*>(&max_width_)) + sizeof(stop_label_font_size_));
+      reinterpret_cast<char*>(&company_line_width_) -
+      reinterpret_cast<char*>(&max_width_)) + sizeof(company_line_width_));
   _internal_metadata_.Clear();
 }
 
@@ -4848,6 +5197,20 @@ const char* RenderSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // double company_radius = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 121)) {
+          company_radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double company_line_width = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 129)) {
+          company_line_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
       default: {
@@ -4972,6 +5335,18 @@ failure:
     target = stream->WriteString(14, s, target);
   }
 
+  // double company_radius = 15;
+  if (!(this->company_radius() <= 0 && this->company_radius() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(15, this->_internal_company_radius(), target);
+  }
+
+  // double company_line_width = 16;
+  if (!(this->company_line_width() <= 0 && this->company_line_width() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(16, this->_internal_company_line_width(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -5073,6 +5448,16 @@ size_t RenderSettings::ByteSizeLong() const {
         this->_internal_stop_label_font_size());
   }
 
+  // double company_radius = 15;
+  if (!(this->company_radius() <= 0 && this->company_radius() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double company_line_width = 16;
+  if (!(this->company_line_width() <= 0 && this->company_line_width() >= 0)) {
+    total_size += 2 + 8;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5142,6 +5527,12 @@ void RenderSettings::MergeFrom(const RenderSettings& from) {
   if (from.stop_label_font_size() != 0) {
     _internal_set_stop_label_font_size(from._internal_stop_label_font_size());
   }
+  if (!(from.company_radius() <= 0 && from.company_radius() >= 0)) {
+    _internal_set_company_radius(from._internal_company_radius());
+  }
+  if (!(from.company_line_width() <= 0 && from.company_line_width() >= 0)) {
+    _internal_set_company_line_width(from._internal_company_line_width());
+  }
 }
 
 void RenderSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5179,6 +5570,8 @@ void RenderSettings::InternalSwap(RenderSettings* other) {
   swap(stop_radius_, other->stop_radius_);
   swap(bus_label_font_size_, other->bus_label_font_size_);
   swap(stop_label_font_size_, other->stop_label_font_size_);
+  swap(company_radius_, other->company_radius_);
+  swap(company_line_width_, other->company_line_width_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RenderSettings::GetMetadata() const {
@@ -5471,6 +5864,23 @@ void Renderer_BusesEntry_DoNotUse::MergeFrom(
 
 // ===================================================================
 
+Renderer_CompanyCoordsEntry_DoNotUse::Renderer_CompanyCoordsEntry_DoNotUse() {}
+Renderer_CompanyCoordsEntry_DoNotUse::Renderer_CompanyCoordsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void Renderer_CompanyCoordsEntry_DoNotUse::MergeFrom(const Renderer_CompanyCoordsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Renderer_CompanyCoordsEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void Renderer_CompanyCoordsEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
 void Renderer::InitAsDefaultInstance() {
   ::serialization::_Renderer_default_instance_._instance.get_mutable()->settings_ = const_cast< ::serialization::RenderSettings*>(
       ::serialization::RenderSettings::internal_default_instance());
@@ -5496,6 +5906,7 @@ Renderer::Renderer(const Renderer& from)
   stops_coords_.MergeFrom(from.stops_coords_);
   bus_colors_.MergeFrom(from.bus_colors_);
   buses_.MergeFrom(from.buses_);
+  company_coords_.MergeFrom(from.company_coords_);
   if (from._internal_has_settings()) {
     settings_ = new ::serialization::RenderSettings(*from.settings_);
   } else {
@@ -5536,6 +5947,7 @@ void Renderer::Clear() {
   stops_coords_.Clear();
   bus_colors_.Clear();
   buses_.Clear();
+  company_coords_.Clear();
   if (GetArenaNoVirtual() == nullptr && settings_ != nullptr) {
     delete settings_;
   }
@@ -5591,6 +6003,18 @@ const char* Renderer::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // map<int32, .serialization.Point> company_coords = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&company_coords_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -5750,6 +6174,37 @@ failure:
     }
   }
 
+  // map<int32, .serialization.Point> company_coords = 5;
+  if (!this->_internal_company_coords().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >::const_pointer
+        ConstPtr;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::int32, ConstPtr > SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_company_coords().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_company_coords().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >::const_iterator
+          it = this->_internal_company_coords().begin();
+          it != this->_internal_company_coords().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = Renderer_CompanyCoordsEntry_DoNotUse::Funcs::InternalSerialize(5, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >::const_iterator
+          it = this->_internal_company_coords().begin();
+          it != this->_internal_company_coords().end(); ++it) {
+        target = Renderer_CompanyCoordsEntry_DoNotUse::Funcs::InternalSerialize(5, it->first, it->second, target, stream);
+      }
+    }
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -5793,6 +6248,15 @@ size_t Renderer::ByteSizeLong() const {
     total_size += Renderer_BusesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
+  // map<int32, .serialization.Point> company_coords = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_company_coords_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, ::serialization::Point >::const_iterator
+      it = this->_internal_company_coords().begin();
+      it != this->_internal_company_coords().end(); ++it) {
+    total_size += Renderer_CompanyCoordsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
   // .serialization.RenderSettings settings = 1;
   if (this->has_settings()) {
     total_size += 1 +
@@ -5834,6 +6298,7 @@ void Renderer::MergeFrom(const Renderer& from) {
   stops_coords_.MergeFrom(from.stops_coords_);
   bus_colors_.MergeFrom(from.bus_colors_);
   buses_.MergeFrom(from.buses_);
+  company_coords_.MergeFrom(from.company_coords_);
   if (from.has_settings()) {
     _internal_mutable_settings()->::serialization::RenderSettings::MergeFrom(from._internal_settings());
   }
@@ -5863,6 +6328,7 @@ void Renderer::InternalSwap(Renderer* other) {
   stops_coords_.Swap(&other->stops_coords_);
   bus_colors_.Swap(&other->bus_colors_);
   buses_.Swap(&other->buses_);
+  company_coords_.Swap(&other->company_coords_);
   swap(settings_, other->settings_);
 }
 
@@ -9437,6 +9903,9 @@ template<> PROTOBUF_NOINLINE ::serialization::RouteInternalDataVector* Arena::Cr
 template<> PROTOBUF_NOINLINE ::serialization::RouterImpl* Arena::CreateMaybeMessage< ::serialization::RouterImpl >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::RouterImpl >(arena);
 }
+template<> PROTOBUF_NOINLINE ::serialization::Router_CompaniesVerticiesEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Router_CompaniesVerticiesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Router_CompaniesVerticiesEntry_DoNotUse >(arena);
+}
 template<> PROTOBUF_NOINLINE ::serialization::Router* Arena::CreateMaybeMessage< ::serialization::Router >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::Router >(arena);
 }
@@ -9460,6 +9929,9 @@ template<> PROTOBUF_NOINLINE ::serialization::Renderer_BusColorsEntry_DoNotUse* 
 }
 template<> PROTOBUF_NOINLINE ::serialization::Renderer_BusesEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Renderer_BusesEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::Renderer_BusesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::serialization::Renderer_CompanyCoordsEntry_DoNotUse* Arena::CreateMaybeMessage< ::serialization::Renderer_CompanyCoordsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::serialization::Renderer_CompanyCoordsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::serialization::Renderer* Arena::CreateMaybeMessage< ::serialization::Renderer >(Arena* arena) {
   return Arena::CreateInternal< ::serialization::Renderer >(arena);
