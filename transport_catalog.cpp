@@ -59,7 +59,7 @@ TransportCatalog::TransportCatalog(
           ss << _yellow_pages->GetRubricName(company.rubrics(0));
           ss << " ";
           ss << company_desc.name;
-          company_desc.display_name = ss.str();
+          company_desc.display_name = std::move(ss.str());
       }
 
       for (const auto& stop : company.nearby_stops()) {
@@ -101,6 +101,7 @@ TransportCatalog::TransportCatalog(std::istream& input)
     map_renderer_ = make_unique<MapRenderer>(catalog.renderer());
     map_ = map_renderer_->Render();
     _yellow_pages = make_unique<YellowPages>(std::move(*catalog.mutable_database()));
+    FillIndex();
 }
 
 const TransportCatalog::Stop* TransportCatalog::GetStop(const string& name) const {
@@ -135,6 +136,37 @@ std::optional<TransportRouter::RouteInfo> TransportCatalog::FindRoute(const Comp
     }
 
     return route;
+}
+
+std::optional<TransportRouter::RouteInfo> TransportCatalog::FindRoute(const CompanyQuery& query, const std::string& from_stop, const Descriptions::DateTime& start) const
+{
+    auto founded = _yellow_pages->FindCompanies(query);
+    if (founded.empty())
+        return std::nullopt;
+    std::optional<TransportRouter::RouteInfo> route;
+    double existed_time;
+    double wait_time;
+    for (const auto& company : founded) {
+        std::optional<TransportRouter::RouteInfo> company_route = router_->FindRoute(from_stop, company.index);
+        if (!company_route.has_value()) {
+            continue;
+        }
+        existed_time = route.has_value() ? route->total_time : std::numeric_limits<double>::max();
+        if (company_route->total_time > existed_time) {
+            continue;
+        }
+        wait_time = ComputeWaitTime(company, company_route->total_time, start);
+        if (wait_time > 0) {
+            company_route->total_time = company_route->total_time + wait_time;
+            company_route->items.push_back(TransportRouter::RouteInfo::WaitCompany{ wait_time, company.company_name });
+        }
+        if (company_route->total_time < existed_time) {
+            route = std::move(company_route);
+        }
+    }
+
+    return route;
+
 }
 
 string TransportCatalog::RenderMap() const {
@@ -198,6 +230,16 @@ double TransportCatalog::ComputeGeoRouteDistance(
   return result;
 }
 
+double TransportCatalog::ComputeWaitTime(const CompanyInfo& company, double route_time, const Descriptions::DateTime& now) const
+{
+    double arrival_time = now.day_of_week * 24 * 60 + now.hour * 60 + now.minutes + route_time;
+    return _yellow_pages->GetWaitTime(company.index, arrival_time);
+}
+
 Svg::Document TransportCatalog::BuildRouteMap(const TransportRouter::RouteInfo& route) const {
   return map_renderer_->RenderRoute(map_, route);
+}
+
+void TransportCatalog::FillIndex()
+{
 }

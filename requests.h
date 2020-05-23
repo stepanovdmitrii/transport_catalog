@@ -3,6 +3,7 @@
 #include "json.h"
 #include "transport_catalog.h"
 #include "transport_catalog.pb.h"
+#include "descriptions.h"
 
 #include <string>
 #include <variant>
@@ -41,6 +42,7 @@ namespace Requests {
   struct RouteToCompany {
       CompanyQuery query;
       std::string from;
+      Descriptions::DateTime start;
 
       Json::Dict Process(const TransportCatalog& db) const;
   };

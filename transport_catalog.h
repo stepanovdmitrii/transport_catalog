@@ -54,6 +54,7 @@ public:
   std::optional<TransportRouter::RouteInfo> FindRoute(const std::string& stop_from, const std::string& stop_to) const;
   std::vector<CompanyInfo> FindCompanies(const CompanyQuery& query) const;
   std::optional<TransportRouter::RouteInfo> FindRoute(const CompanyQuery& query, const std::string& from_stop) const;
+  std::optional<TransportRouter::RouteInfo> FindRoute(const CompanyQuery& query, const std::string& from_stop, const Descriptions::DateTime& start) const;
 
   std::string RenderMap() const;
   std::string RenderRoute(const TransportRouter::RouteInfo& route) const;
@@ -75,7 +76,15 @@ private:
       const Descriptions::BusesDict& buses_dict,
       const Json::Dict& render_settings_json
   );
+
+  double ComputeWaitTime(
+      const CompanyInfo& company,
+      double route_time,
+      const Descriptions::DateTime& now
+  ) const;
+
   Svg::Document BuildRouteMap(const TransportRouter::RouteInfo& route) const;
+  void FillIndex();
 
   std::unordered_map<std::string, Stop> stops_;
   std::unordered_map<std::string, Bus> buses_;

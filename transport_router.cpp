@@ -206,7 +206,7 @@ optional<TransportRouter::RouteInfo> TransportRouter::FindRoute(const string& st
 void TransportRouter::ParseRoute(TransportRouter::RouteInfo& route_info, const TransportRouter::Router::RouteInfo& route) const
 {
     route_info.total_time = route.weight;
-    route_info.items.reserve(route.edge_count);
+    route_info.items.reserve(route.edge_count + 1);
     for (size_t edge_idx = 0; edge_idx < route.edge_count; ++edge_idx) {
         const Graph::EdgeId edge_id = router_->GetRouteEdge(route.id, edge_idx);
         const auto& edge = graph_.GetEdge(edge_id);

@@ -65,6 +65,13 @@ namespace Requests {
                 {"company", Json::Node(walk_item.company_name)},
             };
         }
+        Json::Dict operator()(const TransportRouter::RouteInfo::WaitCompany& wait_item) const {
+            return Json::Dict{
+                {"type", Json::Node("WaitCompany"s)},
+                {"time", Json::Node(wait_item.time)},
+                {"company", Json::Node(wait_item.company_name)},
+            };
+        }
     };
 
     Json::Dict Route::Process(const TransportCatalog& db) const {
@@ -110,7 +117,11 @@ namespace Requests {
             return Companies{ CompanyQuery::Create(attrs) };
         }
         else if (type == "RouteToCompany") {
-            return RouteToCompany{ CompanyQuery::Create(attrs.at("companies").AsMap()), attrs.at("from").AsString() };
+            const auto& datetime = attrs.at("datetime").AsArray();
+            return RouteToCompany{ 
+                CompanyQuery::Create(attrs.at("companies").AsMap()), 
+                attrs.at("from").AsString(),
+                { datetime.at(0).AsInt(), datetime.at(1).AsInt(), datetime.at(2).AsInt() } };
         }
         else {
             return Map{};
@@ -148,7 +159,7 @@ namespace Requests {
     {
         Json::Dict dict;
 
-        const auto route = db.FindRoute(query, from);
+        const auto route = db.FindRoute(query, from, start);
         if (!route) {
             dict["error_message"] = Json::Node("not found"s);
         }

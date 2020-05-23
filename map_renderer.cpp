@@ -368,6 +368,7 @@ MapRenderer::MapRenderer(const serialization::Renderer& renderer)
 using RouteBusItem = TransportRouter::RouteInfo::BusItem;
 using RouteWaitItem = TransportRouter::RouteInfo::WaitItem;
 using RouteWalkToCompanyItem = TransportRouter::RouteInfo::WalkToCompany;
+using RouteWaitCompanyItem = TransportRouter::RouteInfo::WaitCompany;
 
 void MapRenderer::RenderBusLines(Svg::Document& svg) const {
   for (const auto& [bus_name, bus] : buses_dict_) {
@@ -550,6 +551,11 @@ void MapRenderer::RenderRouteStopLabels(Svg::Document& svg, const TransportRoute
 
   if (holds_alternative<RouteWalkToCompanyItem>(route.items.back())) {
       const auto& walk_item = get<RouteWalkToCompanyItem>(route.items.back());
+      RenderStopLabel(svg, stops_coords_.at(walk_item.stop_name), walk_item.stop_name);
+  }
+
+  if (holds_alternative<RouteWaitCompanyItem>(route.items.back())) {
+      const auto& walk_item = get<RouteWalkToCompanyItem>(route.items.at(route.items.size() - 2));
       RenderStopLabel(svg, stops_coords_.at(walk_item.stop_name), walk_item.stop_name);
   }
 }

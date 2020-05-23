@@ -49,8 +49,11 @@ public:
     int GetCompaniesCount() const;
     const serialization::Company& GetCompany(int index) const;
     std::string GetRubricName(uint64_t rubric_id) const;
+    double GetWaitTime(int index, double arrival_time) const;
 private:
 	serialization::Database _database;
+    std::unordered_map<int, std::vector<std::pair<double, double>>> _working_intervals;
+    std::unordered_map<serialization::WorkingTimeInterval_Day, int32_t> _day_to_index;
 
     void ParseCompanies(const Json::Dict& yellow_pages_json);
     void ParseRubrics(const Json::Dict& yellow_pages_json);
@@ -60,5 +63,7 @@ private:
     void ParseCompanyAddress(serialization::Company& comp, const Json::Dict& company_dict);
     void ParseCompanyNames(serialization::Company& comp, const Json::Dict& company_dict);
     void ParseCompanyPhones(serialization::Company& comp, const Json::Dict& company_dict);
+    void ParseCompanyWorkingTime(serialization::Company& comp, const Json::Dict& company_dict);
+    void BuildIntervals();
 };
 

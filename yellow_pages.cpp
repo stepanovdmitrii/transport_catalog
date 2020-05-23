@@ -3,21 +3,20 @@
 
 YellowPages::YellowPages(const Json::Dict& yellow_pages_json)
 {
-    std::cerr << "parse yellow pages; ";
     ParseRubrics(yellow_pages_json);
     ParseCompanies(yellow_pages_json);
-    std::cerr << "yellow pages parsed; ";
 }
 
 YellowPages::YellowPages(serialization::Database&& database)
 {
     _database = std::move(database);
+    BuildIntervals();
 }
 
 std::vector<CompanyInfo> YellowPages::FindCompanies(const CompanyQuery& query) const
 {
     std::vector<CompanyInfo> result;
-
+    result.reserve(_database.companies_size());
     bool name_match = false;
     bool url_match = false;
     bool rubric_match = false;
@@ -120,6 +119,40 @@ std::string YellowPages::GetRubricName(uint64_t rubric_id) const
     return _database.rubrics().at(rubric_id).name();
 }
 
+double YellowPages::GetWaitTime(int index, double arrival_time) const
+{
+    const double minutes_per_week = 7.0 * 24.0 * 60.0;
+
+    const auto& it = _working_intervals.find(index);
+
+    if (it == _working_intervals.end()) {
+        return -1.0;
+    }
+    while (arrival_time >= minutes_per_week)
+    {
+        arrival_time = arrival_time - minutes_per_week;
+    }
+
+    const auto& intervals = it->second;
+
+    auto upper_bound = std::upper_bound(intervals.begin(), intervals.end(), arrival_time,
+        [](double time, const auto& rhs) {return time < rhs.first; });
+
+    auto prev = upper_bound == intervals.begin()
+        ? std::prev(intervals.end())
+        : std::prev(upper_bound);
+
+    if (arrival_time >= prev->first && arrival_time < prev->second) {
+        return -1.0;
+    }
+
+    if (upper_bound == intervals.end()) {
+        return minutes_per_week - arrival_time + intervals.begin()->first;
+    }
+
+    return upper_bound->first - arrival_time;
+}
+
 void YellowPages::ParseCompanies(const Json::Dict& yellow_pages_json)
 {
     const auto& company_arr = yellow_pages_json.at("companies").AsArray();
@@ -131,7 +164,7 @@ void YellowPages::ParseCompanies(const Json::Dict& yellow_pages_json)
         ParseCompanyPhones(*comp, company_dict);
         ParseCompanyUrls(*comp, company_dict);
         ParseCompanyRubrics(*comp, company_dict);
-        //working_time
+        ParseCompanyWorkingTime(*comp, company_dict);
         ParseCompanyNearbyStops(*comp, company_dict);
     }
 }
@@ -322,6 +355,91 @@ void YellowPages::ParseCompanyPhones(serialization::Company& comp, const Json::D
         }
 
 
+    }
+}
+
+void YellowPages::ParseCompanyWorkingTime(serialization::Company& comp, const Json::Dict& company_dict)
+{
+    auto it = company_dict.find("working_time");
+    if (it != company_dict.end()) {
+        const auto& working_time = it->second.AsMap();
+        auto intervals_it = working_time.find("intervals");
+        if (intervals_it != working_time.end()) {
+            const auto& intervals = intervals_it->second.AsArray();
+            for (const auto& interval : intervals) {
+                const auto& interval_dict = interval.AsMap();
+                auto* interval_value = comp.mutable_working_time()->add_intervals();
+                
+                const auto& day = interval_dict.at("day").AsString();
+                if (day == "MONDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_MONDAY);
+                }
+                else if (day == "TUESDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_TUESDAY);
+                }
+                else if (day == "WEDNESDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_WEDNESDAY);
+                }
+                else if (day == "THURSDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_THURSDAY);
+                }
+                else if (day == "FRIDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_FRIDAY);
+                }
+                else if (day == "SATURDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_SATURDAY);
+                }
+                else if (day == "SUNDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_SUNDAY);
+                }
+                else if (day == "EVERYDAY") {
+                    interval_value->set_day(serialization::WorkingTimeInterval_Day_EVERYDAY);
+                }
+
+                interval_value->set_minutes_from(interval_dict.at("minutes_from").AsInt());
+                interval_value->set_minutes_to(interval_dict.at("minutes_to").AsInt());
+            }
+        }
+    }
+}
+
+void YellowPages::BuildIntervals()
+{
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_MONDAY] = 0;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_TUESDAY] = 1;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_WEDNESDAY] = 2;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_THURSDAY] = 3;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_FRIDAY] = 4;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_SATURDAY] = 5;
+    _day_to_index[serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_SUNDAY] = 6;
+
+    const double minutes_per_day = 24.0 * 60.0;
+
+    for (int i = 0; i < _database.companies_size(); ++i) {
+        const auto& company = _database.companies(i);
+
+        if (company.working_time().intervals_size() == 0) {
+            continue;
+        }
+
+        std::vector<std::pair<double, double>> intervals;
+        for (const auto& interval : company.working_time().intervals()) {
+            if (interval.day() == serialization::WorkingTimeInterval_Day::WorkingTimeInterval_Day_EVERYDAY) {
+                for (size_t i = 0; i < 7; ++i) {
+                    double start = i * minutes_per_day + interval.minutes_from();
+                    double end = i * minutes_per_day + interval.minutes_to();
+                    intervals.push_back({ start, end });
+                }
+            }
+            else {
+                int32_t day_of_week = _day_to_index.at(interval.day());
+                double start = minutes_per_day * day_of_week + interval.minutes_from();
+                double end = minutes_per_day * day_of_week + interval.minutes_to();
+                intervals.push_back({ start, end });
+            }
+        }
+        std::sort(intervals.begin(), intervals.end(), [](const auto& lhs, const auto& rhs) {return lhs.first < rhs.first; });
+        _working_intervals[i] = std::move(intervals);
     }
 }
 

@@ -40,6 +40,12 @@ namespace Descriptions {
       double lat;
   };
 
+  struct DateTime {
+      int32_t day_of_week;
+      int32_t hour;
+      int32_t minutes;
+  };
+
   using InputQuery = std::variant<Stop, Bus>;
 
   std::vector<InputQuery> ReadDescriptions(const Json::Array& nodes);
